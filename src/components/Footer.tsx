@@ -113,8 +113,10 @@ export const Footer: React.FC = () => {
               <li className="flex items-start gap-2">
                 <Phone className="w-3.5 h-3.5 text-copper-light mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="text-[10px] text-stone-muted/50 uppercase block">Trade Desk (Placeholder)</span>
-                  <span>{BRAND.contact.phonePlaceholder}</span>
+                  <span className="text-[10px] text-stone-muted/50 uppercase block">Direct Contact Desk</span>
+                  <a href={`tel:${BRAND.contact.phonePlaceholder.replace(/[^0-9+]/g, "")}`} className="hover:text-ivory transition-colors">
+                    {BRAND.contact.phonePlaceholder}
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-2">

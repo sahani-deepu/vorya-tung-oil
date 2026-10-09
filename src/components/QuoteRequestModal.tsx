@@ -165,7 +165,7 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                     <input
                       type="email"
                       required
-                      placeholder="alistair@wrightcabinetry.com"
+                      placeholder="deepusahani08@gmail.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"
@@ -176,7 +176,7 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                     <label className="block font-medium text-charcoal mb-1">Phone Number (Optional)</label>
                     <input
                       type="tel"
-                      placeholder="+1 (555) 019-2834"
+                      placeholder="+91-9616495093"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"

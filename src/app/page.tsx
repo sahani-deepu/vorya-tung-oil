@@ -661,7 +661,7 @@ export default function HomePage() {
                       <input
                         type="email"
                         required
-                        placeholder="procurement@averyjoinery.com"
+                        placeholder="deepusahani08@gmail.com"
                         value={b2bFormData.email}
                         onChange={(e) => setB2bFormData({ ...b2bFormData, email: e.target.value })}
                         className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"
@@ -671,7 +671,7 @@ export default function HomePage() {
                       <label className="block font-medium text-charcoal mb-1">Phone Number (Optional)</label>
                       <input
                         type="tel"
-                        placeholder="+1 (555) 234-5678"
+                        placeholder="+91-9616495093"
                         value={b2bFormData.phone}
                         onChange={(e) => setB2bFormData({ ...b2bFormData, phone: e.target.value })}
                         className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"

@@ -104,8 +104,10 @@ export default function ContactPage() {
                 <div className="flex items-start gap-3">
                   <Phone className="w-4 h-4 text-copper-light mt-0.5 flex-shrink-0" />
                   <div>
-                    <span className="text-[10px] uppercase tracking-wider text-stone-muted block">Telephone (Placeholder)</span>
-                    <span className="text-ivory font-medium text-sm">{BRAND.contact.phonePlaceholder}</span>
+                    <span className="text-[10px] uppercase tracking-wider text-stone-muted block">Direct Telephone Desk</span>
+                    <a href={`tel:${BRAND.contact.phonePlaceholder.replace(/[^0-9+]/g, "")}`} className="text-ivory hover:text-copper-light font-medium text-sm">
+                      {BRAND.contact.phonePlaceholder}
+                    </a>
                   </div>
                 </div>
 
@@ -202,7 +204,7 @@ export default function ContactPage() {
                     <input
                       type="email"
                       required
-                      placeholder="claire@example.com"
+                      placeholder="deepusahani08@gmail.com"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       className="w-full px-3 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"

@@ -86,7 +86,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOi...
 # Resend Configuration
 RESEND_API_KEY=re_123456789abcdef...
 RESEND_FROM_EMAIL=NOVA GRAIN Finishes <onboarding@resend.dev>
-ADMIN_NOTIFICATION_EMAIL=your-team@novagrain.com
+ADMIN_NOTIFICATION_EMAIL=deepusahani08@gmail.com
 ```
 
 > **Security Note**: `.env.local` is already included in `.gitignore` and will never be committed to Git.

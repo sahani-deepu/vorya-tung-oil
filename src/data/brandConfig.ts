@@ -29,9 +29,9 @@ export const BRAND: BrandConfig = {
   subTagline: "Deep penetrating natural Tung Oil and advanced botanical wood-care solutions for master furniture makers, architects, and discerning craftsmen.",
   positioning: "Premium cold-pressed Tung Oil and wood-finishing formulations engineered to penetrate cellular wood grain, polymerize naturally with atmospheric oxygen, and deliver rich, durable, water-resistant timber protection without film peeling or synthetic plastic sheen.",
   contact: {
-    email: "enquiries@novagrain-draft.com",
-    tradeEmail: "procurement@novagrain-draft.com",
-    phonePlaceholder: "+1 (800) 555-WOOD / Trade Desk: Ext. 402",
+    email: "deepusahani08@gmail.com",
+    tradeEmail: "deepusahani08@gmail.com",
+    phonePlaceholder: "+91-9616495093",
     studioAddressPlaceholder: "Studio 14, Timberwright Quarter, Industrial Heritage District (Draft Placeholder)",
     warehouseAddressPlaceholder: "Logistics Hub 3B, Maritime Freight Way (Draft Placeholder)",
     responseTimeline: "Trade requests & batch technical inquiries typically answered within 1 business day.",
@@ -459,7 +459,7 @@ export const FAQS: FaqItem[] = [
   {
     category: "B2B & Bulk",
     question: "Can I request sample testing kits and Technical Data Sheets (TDS)?",
-    answer: "Yes. Commercial workshops and architectural studios can request technical sample kits and draft data sheets via our B2B procurement portal or by contacting procurement@novagrain-draft.com. Sample batches are provided for pore penetration and cure velocity benchmarking.",
+    answer: "Yes. Commercial workshops and architectural studios can request technical sample kits and draft data sheets via our B2B procurement portal or by contacting deepusahani08@gmail.com. Sample batches are provided for pore penetration and cure velocity benchmarking.",
   },
 ];
 

@@ -197,7 +197,7 @@ export default function BulkEnquiryPage() {
                     <input
                       type="email"
                       required
-                      placeholder="richard@hawthornewood.com"
+                      placeholder="deepusahani08@gmail.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
@@ -208,7 +208,7 @@ export default function BulkEnquiryPage() {
                     <input
                       type="tel"
                       required
-                      placeholder="+1 (555) 987-6543"
+                      placeholder="+91-9616495093"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"

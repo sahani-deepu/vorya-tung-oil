@@ -211,7 +211,7 @@ export const CartDrawer: React.FC = () => {
                     id="quote-email"
                     type="email"
                     required
-                    placeholder="workshop@furniturestudio.com"
+                    placeholder="deepusahani08@gmail.com"
                     value={quoteEmail}
                     onChange={(e) => setQuoteEmail(e.target.value)}
                     className="w-full px-3 py-2 text-sm bg-ivory border border-stone-muted focus:border-copper focus:outline-none rounded"

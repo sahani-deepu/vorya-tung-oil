@@ -310,7 +310,7 @@ export default function CartPage() {
                     <input
                       type="email"
                       required
-                      placeholder="eleanor@vancestudio.com"
+                      placeholder="deepusahani08@gmail.com"
                       value={customerDetails.email}
                       onChange={(e) => setCustomerDetails({ ...customerDetails, email: e.target.value })}
                       className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
@@ -318,16 +318,29 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-charcoal/80 mb-1">Delivery Destination / City *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Seattle, WA, United States"
-                    value={customerDetails.address}
-                    onChange={(e) => setCustomerDetails({ ...customerDetails, address: e.target.value })}
-                    className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
-                  />
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-charcoal/80 mb-1">Phone Number *</label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="+91-9616495093"
+                      value={customerDetails.phone}
+                      onChange={(e) => setCustomerDetails({ ...customerDetails, phone: e.target.value })}
+                      className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-charcoal/80 mb-1">Delivery Destination / City *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Seattle, WA, United States"
+                      value={customerDetails.address}
+                      onChange={(e) => setCustomerDetails({ ...customerDetails, address: e.target.value })}
+                      className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                    />
+                  </div>
                 </div>
 
                 {error && (

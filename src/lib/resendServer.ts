@@ -270,7 +270,7 @@ export async function sendEnquiryEmails(options: EmailDispatchOptions): Promise<
   const fromAddress =
     process.env.RESEND_FROM_EMAIL || "NOVA GRAIN Finishes <onboarding@resend.dev>";
   const adminRecipient =
-    process.env.ADMIN_NOTIFICATION_EMAIL || BRAND.contact.tradeEmail || "procurement@novagrain-draft.com";
+    process.env.ADMIN_NOTIFICATION_EMAIL || BRAND.contact.tradeEmail || "deepusahani08@gmail.com";
 
   let adminSent = false;
   let customerSent = false;
