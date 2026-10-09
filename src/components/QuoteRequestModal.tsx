@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Send, CheckCircle2, ShieldCheck } from "lucide-react";
-import { BRAND } from "@/data/brandConfig";
+import { X, Send, CheckCircle2, ShieldCheck, Loader2, AlertCircle } from "lucide-react";
 
 interface QuoteRequestModalProps {
   isOpen: boolean;
@@ -29,17 +28,36 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
   });
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [referenceId, setReferenceId] = useState("");
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.honeypot) return; // Spam caught
 
     setStatus("submitting");
-    setTimeout(() => {
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch("/api/enquiries/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit quote request.");
+      }
+
+      setReferenceId(data.referenceId || "NG-QTE-CONFIRMED");
       setStatus("success");
-    }, 600);
+    } catch (err: unknown) {
+      setErrorMessage(err instanceof Error ? err.message : "Unable to reach server. Please check your connection.");
+      setStatus("error");
+    }
   };
 
   return (
@@ -83,15 +101,18 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                   Thank you, <strong>{formData.name}</strong>. Your inquiry for <strong>{formData.estimatedQuantity}</strong> has been staged in the trade pipeline.
                 </p>
                 <div className="bg-stone p-4 rounded-lg text-xs text-charcoal/80 max-w-md mx-auto mb-6 text-left border border-stone-muted">
-                  <p className="font-semibold text-forest-dark mb-1">Production Handshake Notice:</p>
-                  <p>
-                    In live commercial operations, this enquiry triggers an automated dispatch notification to our technical team at <code>{BRAND.contact.tradeEmail}</code>. For this demonstration environment, your inputs were validated and recorded locally.
+                  <p className="font-semibold text-forest-dark mb-1">
+                    Enquiry Reference ID: <span className="font-mono text-copper font-bold">{referenceId}</span>
+                  </p>
+                  <p className="text-[11px] text-charcoal/70">
+                    Your custom workshop specifications for <strong>{formData.productInterest}</strong> have been registered. Our technical desk will review your inquiry and follow up at <strong>{formData.email}</strong> within 1 business day.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => {
                     setStatus("idle");
+                    setReferenceId("");
                     onClose();
                   }}
                   className="px-6 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-medium hover:bg-forest-light"
@@ -223,6 +244,13 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                   />
                 </div>
 
+                {errorMessage && (
+                  <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <div className="pt-2 flex items-center justify-between">
                   <span className="text-[11px] text-charcoal/60 flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-forest" />
@@ -232,10 +260,19 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-medium transition-colors flex items-center gap-2 rounded-xs"
+                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-medium transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {status === "submitting" ? "Processing..." : "Submit Trade Enquiry"}
-                    <Send className="w-3.5 h-3.5" />
+                    {status === "submitting" ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <span>Transmitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Submit Trade Enquiry</span>
+                        <Send className="w-3.5 h-3.5" />
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

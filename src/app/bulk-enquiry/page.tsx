@@ -4,10 +4,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BRAND } from "@/data/brandConfig";
-import { Boxes, CheckCircle2, Send, ShieldCheck } from "lucide-react";
+import { Boxes, CheckCircle2, Send, ShieldCheck, Loader2, AlertCircle } from "lucide-react";
 
 export default function BulkEnquiryPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [referenceId, setReferenceId] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     businessName: "",
@@ -21,10 +24,34 @@ export default function BulkEnquiryPage() {
     honeypot: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.honeypot) return; // spam honey catch
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/enquiries/bulk", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "bulk_page",
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit bulk procurement request.");
+      }
+
+      setReferenceId(data.referenceId || "NG-BLK-CONFIRMED");
+      setSubmitted(true);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Unable to reach server. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -99,12 +126,19 @@ export default function BulkEnquiryPage() {
                   Thank you, <strong>{formData.name}</strong> from <strong>{formData.businessName}</strong>. Your volume request for {formData.estimatedQuantity} has been successfully validated.
                 </p>
                 <div className="p-4 bg-stone rounded-lg text-xs text-charcoal/80 max-w-md mx-auto mb-6 text-left border border-stone-muted">
-                  <p className="font-semibold text-forest-dark mb-1">Production System Hook:</p>
-                  <p>In the live operational environment, this triggers an automated ticketing alert in our ERP trade queue and dispatches lot specifications to <code>{formData.email}</code>.</p>
+                  <p className="font-semibold text-forest-dark mb-1">
+                    Procurement Reference ID: <span className="font-mono text-copper font-bold">{referenceId}</span>
+                  </p>
+                  <p className="text-[11px] text-charcoal/70">
+                    Your wholesale trade request has been registered in the ERP queue. Our commercial procurement team will dispatch specifications to <strong>{formData.email}</strong> within 1 business day.
+                  </p>
                 </div>
                 <button
                   type="button"
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setReferenceId("");
+                  }}
                   className="px-6 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-medium hover:bg-forest-light"
                 >
                   Submit Another Procurement Request
@@ -241,6 +275,13 @@ export default function BulkEnquiryPage() {
                   />
                 </div>
 
+                {error && (
+                  <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
+                    <span>{error}</span>
+                  </div>
+                )}
+
                 <div className="pt-2 flex items-center justify-between">
                   <span className="text-[11px] text-charcoal/60 flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-forest" />
@@ -249,10 +290,20 @@ export default function BulkEnquiryPage() {
 
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs"
+                    disabled={loading}
+                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>Request Quotation</span>
-                    <Send className="w-3.5 h-3.5" />
+                    {loading ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <span>Submitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Request Quotation</span>
+                        <Send className="w-3.5 h-3.5" />
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

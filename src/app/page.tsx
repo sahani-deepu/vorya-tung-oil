@@ -13,6 +13,8 @@ import {
   Building2,
   Sliders,
   Send,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { ProductCard } from "@/components/ProductCard";
@@ -26,6 +28,9 @@ export default function HomePage() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [selectedProductForQuote, setSelectedProductForQuote] = useState("Pure Tung Oil");
   const [b2bSubmitted, setB2bSubmitted] = useState(false);
+  const [b2bLoading, setB2bLoading] = useState(false);
+  const [b2bError, setB2bError] = useState<string | null>(null);
+  const [b2bReferenceId, setB2bReferenceId] = useState("");
   const [b2bFormData, setB2bFormData] = useState({
     name: "",
     businessName: "",
@@ -42,9 +47,33 @@ export default function HomePage() {
     setQuoteModalOpen(true);
   };
 
-  const handleB2bSubmit = (e: React.FormEvent) => {
+  const handleB2bSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setB2bSubmitted(true);
+    setB2bLoading(true);
+    setB2bError(null);
+
+    try {
+      const res = await fetch("/api/enquiries/bulk", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...b2bFormData,
+          source: "homepage_b2b",
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit trade inquiry.");
+      }
+
+      setB2bReferenceId(data.referenceId || "NG-BLK-CONFIRMED");
+      setB2bSubmitted(true);
+    } catch (err: unknown) {
+      setB2bError(err instanceof Error ? err.message : "Unable to reach server. Please check your connection.");
+    } finally {
+      setB2bLoading(false);
+    }
   };
 
   return (
@@ -568,16 +597,23 @@ export default function HomePage() {
                 <div className="py-12 text-center">
                   <CheckCircle2 className="w-16 h-16 text-forest mx-auto mb-4" />
                   <h3 className="font-serif text-2xl text-forest-dark mb-2">Trade Inquiry Logged</h3>
-                  <p className="text-xs text-charcoal/80 max-w-md mx-auto mb-6 leading-relaxed">
-                    Thank you, <strong>{b2bFormData.name}</strong> from <strong>{b2bFormData.businessName}</strong>. Your requirement for {b2bFormData.estimatedQuantity} has been registered for technical review.
+                  <p className="text-xs text-charcoal/80 max-w-md mx-auto mb-4 leading-relaxed">
+                    Thank you, <strong>{b2bFormData.name}</strong> from <strong>{b2bFormData.businessName}</strong>. Your requirement for <strong>{b2bFormData.estimatedQuantity}</strong> has been securely registered in the trade ledger.
                   </p>
                   <div className="p-4 bg-stone rounded-lg text-xs text-charcoal/80 text-left mb-6 border border-stone-muted">
-                    <p className="font-semibold text-forest-dark mb-1">Backend Integration Point:</p>
-                    <p>In production, this submission dispatches via your transactional email / webhook endpoint to <code>{BRAND.contact.tradeEmail}</code>. No fake confirmation email was dispatched.</p>
+                    <p className="font-semibold text-forest-dark mb-1">
+                      Enquiry Reference ID: <span className="font-mono text-copper font-bold">{b2bReferenceId}</span>
+                    </p>
+                    <p className="text-[11px] text-charcoal/70">
+                      Our commercial technical team will review your specifications and contact <strong>{b2bFormData.email}</strong> within 1 business day.
+                    </p>
                   </div>
                   <button
                     type="button"
-                    onClick={() => setB2bSubmitted(false)}
+                    onClick={() => {
+                      setB2bSubmitted(false);
+                      setB2bReferenceId("");
+                    }}
                     className="px-6 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-medium hover:bg-forest-light"
                   >
                     Submit Another Request
@@ -701,16 +737,33 @@ export default function HomePage() {
                     />
                   </div>
 
+                  {b2bError && (
+                    <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
+                      <span>{b2bError}</span>
+                    </div>
+                  )}
+
                   <div className="pt-2 flex items-center justify-between">
                     <span className="text-[11px] text-charcoal/60">
                       Response timeline: 1 business day
                     </span>
                     <button
                       type="submit"
-                      className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs"
+                      disabled={b2bLoading}
+                      className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <span>Submit Batch Enquiry</span>
-                      <Send className="w-3.5 h-3.5" />
+                      {b2bLoading ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>Registering...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Submit Batch Enquiry</span>
+                          <Send className="w-3.5 h-3.5" />
+                        </>
+                      )}
                     </button>
                   </div>
                 </form>

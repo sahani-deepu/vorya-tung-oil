@@ -3,20 +3,51 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, CheckCircle2 } from "lucide-react";
+import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 export const CartDrawer: React.FC = () => {
   const { items, isOpen, closeCart, removeItem, updateQuantity, clearCart, totalItems, subtotal } = useCart();
   const [checkoutRequested, setCheckoutRequested] = useState(false);
   const [quoteEmail, setQuoteEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [orderRef, setOrderRef] = useState("");
 
   if (!isOpen) return null;
 
-  const handleQuoteSubmit = (e: React.FormEvent) => {
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!quoteEmail) return;
-    setCheckoutRequested(true);
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/enquiries/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          submissionType: "drawer_quick_quote",
+          email: quoteEmail,
+          items: items,
+          subtotal: subtotal,
+          totalUnits: totalItems,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit batch quote request.");
+      }
+
+      setOrderRef(data.referenceId || data.orderRef || "NG-ORD-CONFIRMED");
+      setCheckoutRequested(true);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Unable to reach server. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -186,11 +217,30 @@ export const CartDrawer: React.FC = () => {
                     className="w-full px-3 py-2 text-sm bg-ivory border border-stone-muted focus:border-copper focus:outline-none rounded"
                   />
                 </div>
+
+                {error && (
+                  <div className="p-2.5 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 text-red-700" />
+                    <span>{error}</span>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-3 bg-forest hover:bg-forest-light text-ivory text-xs font-medium uppercase tracking-widest transition-colors flex items-center justify-center gap-2"
+                  disabled={loading}
+                  className="w-full py-3 bg-forest hover:bg-forest-light text-ivory text-xs font-medium uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Request Formal Batch Quote <ArrowRight className="w-4 h-4" />
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Transmitting Quote...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Request Formal Batch Quote</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
 
@@ -202,6 +252,37 @@ export const CartDrawer: React.FC = () => {
                 >
                   View Full Cart & Coverage Estimator
                 </Link>
+              </div>
+            </div>
+          )}
+
+          {checkoutRequested && (
+            <div className="p-6 border-t border-stone bg-ivory-light text-center space-y-4">
+              <CheckCircle2 className="w-12 h-12 text-forest mx-auto" />
+              <div>
+                <h3 className="font-serif text-xl font-medium text-forest-dark">
+                  Batch Quote Registered
+                </h3>
+                <p className="text-xs text-charcoal/80 mt-1">
+                  Enquiry Reference: <span className="font-mono font-bold text-copper">{orderRef}</span>
+                </p>
+                <p className="text-[11px] text-charcoal/60 mt-2 leading-relaxed">
+                  Specifications have been dispatched to <strong>{quoteEmail}</strong>. Our logistics desk will review your {totalItems} item(s) and follow up within 1 business day.
+                </p>
+              </div>
+              <div className="flex gap-2 justify-center pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCheckoutRequested(false);
+                    setOrderRef("");
+                    setQuoteEmail("");
+                    closeCart();
+                  }}
+                  className="px-5 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-medium hover:bg-forest-light rounded-xs"
+                >
+                  Done
+                </button>
               </div>
             </div>
           )}

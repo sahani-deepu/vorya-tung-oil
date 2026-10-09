@@ -3,10 +3,13 @@
 import React, { useState } from "react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BRAND } from "@/data/brandConfig";
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck, Loader2 } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [referenceId, setReferenceId] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -15,9 +18,30 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/enquiries/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit inquiry.");
+      }
+
+      setReferenceId(data.referenceId || "NG-CNT-CONFIRMED");
+      setSubmitted(true);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Unable to reach server. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -128,16 +152,23 @@ export default function ContactPage() {
                 <h3 className="font-serif text-2xl text-forest-dark mb-2">
                   Message Recorded
                 </h3>
-                <p className="text-xs text-charcoal/80 max-w-md mx-auto mb-6 leading-relaxed">
-                  Thank you, <strong>{form.name}</strong>. Your inquiry regarding <em>{form.subject}</em> has been staged in the customer service ledger.
+                <p className="text-xs text-charcoal/80 max-w-md mx-auto mb-4 leading-relaxed">
+                  Thank you, <strong>{form.name}</strong>. Your inquiry regarding <em>{form.subject}</em> has been securely staged in the customer service ledger.
                 </p>
                 <div className="p-4 bg-stone rounded text-xs text-charcoal/80 max-w-md mx-auto mb-6 text-left border border-stone-muted">
-                  <p className="font-semibold text-forest-dark mb-1">Production Handshake:</p>
-                  <p>In live commercial deployment, this message is routed directly to <code>{BRAND.contact.email}</code>. No mock automated dispatch was generated.</p>
+                  <p className="font-semibold text-forest-dark mb-1">
+                    Enquiry Reference ID: <span className="font-mono text-copper font-bold">{referenceId}</span>
+                  </p>
+                  <p className="text-[11px] text-charcoal/70">
+                    A confirmation record has been registered for technical review. Our specialists will respond to <strong>{form.email}</strong> within 1 business day.
+                  </p>
                 </div>
                 <button
                   type="button"
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setReferenceId("");
+                  }}
                   className="px-6 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-medium hover:bg-forest-light"
                 >
                   Send Another Message
@@ -218,6 +249,13 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {error && (
+                  <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
+                    <span>{error}</span>
+                  </div>
+                )}
+
                 <div className="pt-2 flex items-center justify-between">
                   <span className="text-[11px] text-charcoal/60 flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-forest" />
@@ -226,10 +264,20 @@ export default function ContactPage() {
 
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs"
+                    disabled={loading}
+                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>Send Message</span>
-                    <Send className="w-3.5 h-3.5" />
+                    {loading ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <span>Transmitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <Send className="w-3.5 h-3.5" />
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

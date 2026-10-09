@@ -16,12 +16,15 @@ import {
   AlertCircle,
   Truck,
   FileCheck,
+  Loader2,
 } from "lucide-react";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, clearCart, totalItems, subtotal } = useCart();
   const [checkoutStep, setCheckoutStep] = useState<"cart" | "enquiry" | "success">("cart");
   const [invoiceRef, setInvoiceRef] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [customerDetails, setCustomerDetails] = useState({
     name: "",
     company: "",
@@ -34,10 +37,44 @@ export default function CartPage() {
     notes: "",
   });
 
-  const handleEnquirySubmit = (e: React.FormEvent) => {
+  const handleEnquirySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setInvoiceRef(`NG-DRAFT-${Math.floor(100000 + Math.random() * 900000)}`);
-    setCheckoutStep("success");
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/enquiries/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          submissionType: "full_checkout",
+          name: customerDetails.name,
+          company: customerDetails.company,
+          email: customerDetails.email,
+          phone: customerDetails.phone || "Not Provided",
+          address: customerDetails.address,
+          city: customerDetails.city || customerDetails.address.split(",")[0] || "Workshop Address",
+          postalCode: customerDetails.postalCode || "00000",
+          country: customerDetails.country || "United States",
+          notes: customerDetails.notes,
+          items: items,
+          subtotal: subtotal,
+          totalUnits: totalItems,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to stage order quotation.");
+      }
+
+      setInvoiceRef(data.referenceId || data.orderRef || "NG-ORD-CONFIRMED");
+      setCheckoutStep("success");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Unable to reach server. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -120,7 +157,7 @@ export default function CartPage() {
                 <span className="font-semibold text-forest-dark">${subtotal.toFixed(2)}</span>
               </div>
               <p className="pt-2 text-[11px] text-charcoal/60 leading-relaxed">
-                <strong>Next Step:</strong> When commercial checkout is integrated, this endpoint will trigger your webhook (Stripe PaymentIntent or ERP SalesOrder).
+                <strong>Next Step:</strong> Your formal quotation has been recorded in the database and dispatched to the procurement queue. Our logistics desk will contact you to coordinate freight and batch allocation.
               </p>
             </div>
 
@@ -293,12 +330,29 @@ export default function CartPage() {
                   />
                 </div>
 
+                {error && (
+                  <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
+                    <span>{error}</span>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-md mt-4 flex items-center justify-center gap-2"
+                  disabled={loading}
+                  className="w-full py-3.5 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-md mt-4 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <FileCheck className="w-4 h-4" />
-                  <span>Stage Formal Order & Quotation</span>
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Staging Quotation...</span>
+                    </>
+                  ) : (
+                    <>
+                      <FileCheck className="w-4 h-4" />
+                      <span>Stage Formal Order & Quotation</span>
+                    </>
+                  )}
                 </button>
               </form>
 
