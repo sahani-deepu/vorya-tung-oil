@@ -66,7 +66,7 @@ export const CartDrawer: React.FC = () => {
           <div className="px-6 py-5 border-b border-stone bg-ivory-light flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <ShoppingBag className="w-5 h-5 text-forest" />
-              <h2 id="cart-drawer-title" className="font-serif text-xl font-medium text-forest-dark tracking-wide">
+              <h2 id="cart-drawer-title" className="font-serif text-2xl font-medium text-forest-dark tracking-wide">
                 Your Atelier Bag ({totalItems})
               </h2>
             </div>
@@ -80,9 +80,9 @@ export const CartDrawer: React.FC = () => {
           </div>
 
           {/* Draft Catalogue Notice */}
-          <div className="bg-stone-light/80 px-6 py-3 border-b border-stone text-sm text-charcoal/85 flex items-start gap-2">
-            <span className="w-2 h-2 rounded-full bg-copper mt-1.5 flex-shrink-0" />
-            <p>
+          <div className="bg-stone-light/80 px-6 py-3.5 border-b border-stone text-base text-charcoal/90 flex items-start gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-copper mt-1.5 flex-shrink-0" />
+            <p className="leading-relaxed">
               <strong>Draft Catalogue:</strong> Pricing & specifications are development placeholders. You can submit your bag as a direct workshop quote request.
             </p>
           </div>
@@ -94,8 +94,8 @@ export const CartDrawer: React.FC = () => {
                 <div className="w-16 h-16 rounded-full bg-stone flex items-center justify-center mx-auto mb-4 text-walnut/70">
                   <ShoppingBag className="w-8 h-8" />
                 </div>
-                <h3 className="font-serif text-xl text-forest-dark mb-2">Your Bag is Empty</h3>
-                <p className="text-sm text-charcoal/70 mb-6 max-w-xs mx-auto">
+                <h3 className="font-serif text-2xl text-forest-dark mb-2">Your Bag is Empty</h3>
+                <p className="text-base text-charcoal/75 mb-6 max-w-xs mx-auto leading-relaxed">
                   Explore our cold-pressed Pure Tung Oil and architectural wood finishes.
                 </p>
                 <Link
@@ -131,23 +131,23 @@ export const CartDrawer: React.FC = () => {
             ) : (
               items.map((item) => (
                 <div key={item.id} className="py-4 flex gap-4 items-start">
-                  <div className="relative w-18 h-18 bg-stone rounded overflow-hidden flex-shrink-0 border border-stone-muted">
+                  <div className="relative w-20 h-20 bg-stone rounded overflow-hidden flex-shrink-0 border border-stone-muted">
                     <Image
                       src={item.image}
                       alt={item.name}
                       fill
                       className="object-cover"
-                      sizes="72px"
+                      sizes="80px"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-serif text-base font-medium text-forest-dark truncate">
+                    <h4 className="font-serif text-lg font-medium text-forest-dark truncate">
                       {item.name}
                     </h4>
-                    <p className="text-sm text-walnut font-medium mt-0.5">
-                      Size: {item.size} • <span className="text-charcoal/60">{item.sku}</span>
+                    <p className="text-sm sm:text-base text-walnut font-medium mt-0.5">
+                      Size: {item.size} • <span className="text-charcoal/70 font-mono text-xs sm:text-sm">{item.sku}</span>
                     </p>
-                    <p className="text-sm text-charcoal/70 mt-1 font-mono">
+                    <p className="text-base text-charcoal/85 mt-1 font-mono font-semibold">
                       {item.unitPriceEstimate}
                     </p>
 
@@ -155,27 +155,27 @@ export const CartDrawer: React.FC = () => {
                       <div className="inline-flex items-center border border-stone-muted rounded bg-ivory">
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="p-1 hover:bg-stone text-charcoal/80"
+                          className="p-1.5 hover:bg-stone text-charcoal/80"
                           aria-label="Decrease quantity"
                         >
-                          <Minus className="w-3.5 h-3.5" />
+                          <Minus className="w-4 h-4" />
                         </button>
-                        <span className="px-2.5 text-sm font-medium text-charcoal">{item.quantity}</span>
+                        <span className="px-3 text-base font-semibold text-charcoal">{item.quantity}</span>
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="p-1 hover:bg-stone text-charcoal/80"
+                          className="p-1.5 hover:bg-stone text-charcoal/80"
                           aria-label="Increase quantity"
                         >
-                          <Plus className="w-3.5 h-3.5" />
+                          <Plus className="w-4 h-4" />
                         </button>
                       </div>
 
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-xs text-charcoal/60 hover:text-red-700 flex items-center gap-1 transition-colors"
+                        className="text-sm text-charcoal/70 hover:text-red-700 flex items-center gap-1.5 transition-colors font-medium"
                         aria-label={`Remove ${item.name}`}
                       >
-                        <Trash2 className="w-3.5 h-3.5" /> Remove
+                        <Trash2 className="w-4 h-4" /> Remove
                       </button>
                     </div>
                   </div>
@@ -187,26 +187,26 @@ export const CartDrawer: React.FC = () => {
           {/* Footer / Actions */}
           {items.length > 0 && !checkoutRequested && (
             <div className="p-6 border-t border-stone bg-ivory-light">
-              <div className="space-y-2 mb-4">
-                <div className="flex justify-between text-sm text-charcoal/80">
+              <div className="space-y-2.5 mb-5">
+                <div className="flex justify-between text-base text-charcoal/85">
                   <span>Selected Items</span>
-                  <span className="font-medium">{totalItems} units</span>
+                  <span className="font-semibold text-forest-dark">{totalItems} units</span>
                 </div>
-                <div className="flex justify-between text-base font-serif text-forest-dark border-t border-stone pt-2">
+                <div className="flex justify-between text-lg font-serif text-forest-dark border-t border-stone pt-2.5">
                   <span>Draft Subtotal Estimate</span>
-                  <span className="font-semibold text-lg">
+                  <span className="font-bold text-xl text-forest-dark">
                     {subtotal > 0 ? `$${subtotal.toFixed(2)}` : "Batch Quote Required"}
                   </span>
                 </div>
-                <p className="text-xs text-charcoal/60">
+                <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed">
                   Taxes, shipping freight, and commercial volume tier discounts are calculated at quote confirmation.
                 </p>
               </div>
 
               {/* Quote Submission Form */}
-              <form onSubmit={handleQuoteSubmit} className="space-y-2.5">
+              <form onSubmit={handleQuoteSubmit} className="space-y-3">
                 <div>
-                  <label htmlFor="quote-email" className="block text-sm font-medium text-charcoal/80 mb-1">
+                  <label htmlFor="quote-email" className="block text-sm sm:text-base font-semibold text-charcoal/90 mb-1.5">
                     Send Quote & Batch Specs To (Email):
                   </label>
                   <input
@@ -216,13 +216,13 @@ export const CartDrawer: React.FC = () => {
                     placeholder="deepusahani08@gmail.com"
                     value={quoteEmail}
                     onChange={(e) => setQuoteEmail(e.target.value)}
-                    className="w-full px-3 py-2 text-sm bg-ivory border border-stone-muted focus:border-copper focus:outline-none rounded"
+                    className="w-full px-3.5 py-2.5 text-base bg-ivory border border-stone-muted focus:border-copper focus:outline-none rounded"
                   />
                 </div>
 
                 {error && (
-                  <div className="p-2.5 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-sm flex items-center gap-2">
-                    <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 text-red-700" />
+                  <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-sm flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
                     <span>{error}</span>
                   </div>
                 )}
@@ -230,7 +230,7 @@ export const CartDrawer: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 bg-forest hover:bg-forest-light text-ivory text-sm font-semibold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-3.5 bg-forest hover:bg-forest-light text-ivory text-sm sm:text-base font-semibold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
                 >
                   {loading ? (
                     <>
@@ -246,11 +246,11 @@ export const CartDrawer: React.FC = () => {
                 </button>
               </form>
 
-              <div className="mt-3 text-center">
+              <div className="mt-3.5 text-center">
                 <Link
                   href="/cart"
                   onClick={closeCart}
-                  className="text-sm text-walnut hover:text-forest underline underline-offset-4"
+                  className="text-sm sm:text-base text-walnut hover:text-forest underline underline-offset-4 font-medium"
                 >
                   View Full Cart & Coverage Estimator
                 </Link>

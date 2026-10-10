@@ -33,8 +33,8 @@ export default function ApplicationsPage() {
         </div>
 
         {/* Responsible Suitability Warning Callout */}
-        <div className="mb-14 p-5 bg-stone-light border-l-4 border-copper rounded-r-xl text-sm text-charcoal/80 leading-relaxed shadow-xs">
-          <h2 className="font-serif text-base font-semibold text-forest-dark mb-1">
+        <div className="mb-14 p-6 bg-stone-light border-l-4 border-copper rounded-r-xl text-base sm:text-lg text-charcoal/85 leading-relaxed shadow-xs">
+          <h2 className="font-serif text-lg font-bold text-forest-dark mb-1.5">
             Material Suitability Notice
           </h2>
           <p>
@@ -68,46 +68,46 @@ export default function ApplicationsPage() {
                 </div>
 
                 {/* Text Content */}
-                <div className={`lg:col-span-6 space-y-4 ${isReversed ? "lg:order-1" : ""}`}>
-                  <span className="text-xs uppercase tracking-widest text-copper font-semibold font-mono">
+                <div className={`lg:col-span-6 space-y-4.5 ${isReversed ? "lg:order-1" : ""}`}>
+                  <span className="text-xs uppercase tracking-widest text-copper font-bold font-mono">
                     APPLICATION DISCIPLINE 0{index + 1}
                   </span>
 
-                  <h2 className="font-serif text-3xl sm:text-4xl text-forest-dark font-normal">
+                  <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-forest-dark font-normal">
                     {app.title}
                   </h2>
 
-                  <p className="text-base font-medium text-walnut italic">
+                  <p className="text-lg font-medium text-walnut italic">
                     {app.subtitle}
                   </p>
 
-                  <p className="text-base text-charcoal/85 leading-relaxed font-sans">
+                  <p className="text-base sm:text-lg text-charcoal/85 leading-relaxed font-sans">
                     {app.description}
                   </p>
 
                   {/* Specification Box */}
-                  <div className="p-4.5 bg-ivory-light rounded-xl border border-stone space-y-2.5 text-sm text-charcoal/80">
-                    <div className="flex justify-between border-b border-stone/50 pb-1.5">
-                      <span className="font-medium text-charcoal/60">Recommended Formulation:</span>
-                      <span className="font-semibold text-forest-dark">{app.recommendedProduct}</span>
+                  <div className="p-5 bg-ivory-light rounded-xl border border-stone space-y-3 text-base text-charcoal/85">
+                    <div className="flex justify-between border-b border-stone/50 pb-2">
+                      <span className="font-medium text-charcoal/70">Recommended Formulation:</span>
+                      <span className="font-bold text-forest-dark">{app.recommendedProduct}</span>
                     </div>
-                    <div className="flex justify-between border-b border-stone/50 pb-1.5">
-                      <span className="font-medium text-charcoal/60">Coat Schedule:</span>
-                      <span className="font-medium text-walnut">{app.recommendedCoats}</span>
+                    <div className="flex justify-between border-b border-stone/50 pb-2">
+                      <span className="font-medium text-charcoal/70">Coat Schedule:</span>
+                      <span className="font-semibold text-walnut">{app.recommendedCoats}</span>
                     </div>
                     <div className="pt-1">
-                      <span className="font-medium text-charcoal/60 block mb-0.5">Critical Suitability Factor:</span>
-                      <p className="text-charcoal/80">{app.suitabilityNote}</p>
+                      <span className="font-medium text-charcoal/70 block mb-1">Critical Suitability Factor:</span>
+                      <p className="text-charcoal/85 leading-relaxed italic">{app.suitabilityNote}</p>
                     </div>
                   </div>
 
                   <div className="pt-2">
                     <Link
                       href="/how-to-apply"
-                      className="inline-flex items-center gap-2 text-sm uppercase tracking-widest font-semibold text-forest hover:text-copper transition-colors"
+                      className="inline-flex items-center gap-2 text-sm sm:text-base uppercase tracking-widest font-semibold text-forest hover:text-copper transition-colors"
                     >
                       <span>Read Step-by-Step Workshop Protocol</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>

@@ -62,9 +62,9 @@ export const ApplicationGuideSteps: React.FC = () => {
           <div className="mt-6 md:mt-0">
             <button
               onClick={() => setPrintModalOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-ivory border border-stone-muted hover:border-forest text-forest-dark text-xs uppercase tracking-widest font-medium transition-colors rounded-xs shadow-xs"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-ivory border border-stone-muted hover:border-forest text-forest-dark text-sm uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-xs"
             >
-              <FileText className="w-3.5 h-3.5 text-copper" />
+              <FileText className="w-4 h-4 text-copper" />
               <span>View Printable Guide Sheet</span>
             </button>
           </div>
@@ -75,11 +75,11 @@ export const ApplicationGuideSteps: React.FC = () => {
           {steps.map((st, idx) => (
             <div
               key={idx}
-              className="bg-ivory p-6 rounded-lg border border-stone shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group"
+              className="bg-ivory p-6 rounded-xl border border-stone shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4 border-b border-stone pb-3">
-                  <span className="font-serif text-3xl font-light text-copper">
+                  <span className="font-serif text-4xl font-light text-copper">
                     {st.step}
                   </span>
                   <span className="text-xs tracking-widest uppercase font-semibold text-charcoal/70 bg-stone/70 px-2.5 py-0.5 rounded">
@@ -87,18 +87,18 @@ export const ApplicationGuideSteps: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="font-serif text-xl font-medium text-forest-dark mb-2">
+                <h3 className="font-serif text-2xl font-normal text-forest-dark mb-2">
                   {st.title}
                 </h3>
-                <p className="text-sm font-medium text-walnut mb-3 italic">
+                <p className="text-base font-semibold text-walnut mb-3 italic">
                   {st.summary}
                 </p>
-                <p className="text-sm text-charcoal/85 leading-relaxed font-sans mb-4">
+                <p className="text-base text-charcoal/85 leading-relaxed font-sans mb-4">
                   {st.detail}
                 </p>
               </div>
 
-              <div className="mt-auto pt-3 border-t border-stone/50 bg-stone/30 p-3 rounded text-xs text-charcoal/75">
+              <div className="mt-auto pt-3 border-t border-stone/50 bg-stone/30 p-3.5 rounded-lg text-sm text-charcoal/80">
                 <strong className="text-forest-dark block mb-0.5">Craftsman Tip:</strong>
                 {st.tip}
               </div>
@@ -107,12 +107,12 @@ export const ApplicationGuideSteps: React.FC = () => {
         </div>
 
         {/* Safety Warning Box */}
-        <div className="mt-12 p-6 bg-red-950/5 border border-red-900/20 rounded-xl flex flex-col sm:flex-row items-start gap-4">
-          <div className="w-10 h-10 rounded-full bg-red-800/10 text-red-800 flex items-center justify-center flex-shrink-0">
+        <div className="mt-12 p-6 bg-red-950/5 border border-red-900/20 rounded-xl flex flex-col sm:flex-row items-start gap-4 shadow-xs">
+          <div className="w-12 h-12 rounded-full bg-red-800/10 text-red-800 flex items-center justify-center flex-shrink-0">
             <ShieldAlert className="w-6 h-6" />
           </div>
-          <div className="text-sm text-charcoal/85 leading-relaxed">
-            <h4 className="text-base font-serif font-semibold text-red-900 mb-1 uppercase tracking-wide">
+          <div className="text-base text-charcoal/90 leading-relaxed">
+            <h4 className="text-lg font-serif font-semibold text-red-900 mb-1 uppercase tracking-wide">
               Mandatory Safety Warning: Spontaneous Combustion Risk
             </h4>
             <p>
@@ -125,7 +125,7 @@ export const ApplicationGuideSteps: React.FC = () => {
         <div className="mt-10 text-center">
           <Link
             href="/how-to-apply"
-            className="inline-flex items-center gap-2 text-sm font-medium text-forest hover:text-copper underline underline-offset-4 tracking-wide"
+            className="inline-flex items-center gap-2 text-base font-semibold text-forest hover:text-copper underline underline-offset-4 tracking-wide"
           >
             Read Our Comprehensive Hardwood Finishing Masterclass <ArrowRight className="w-4 h-4" />
           </Link>

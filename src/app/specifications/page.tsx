@@ -31,10 +31,10 @@ export default function SpecificationsPage() {
         </div>
 
         {/* Compliance & Audit Transparency Note */}
-        <div className="mb-12 p-5 bg-stone-light border border-stone-muted rounded-xl text-sm text-charcoal/80 leading-relaxed shadow-xs flex items-start gap-3">
+        <div className="mb-12 p-6 bg-stone-light border border-stone-muted rounded-xl text-base sm:text-lg text-charcoal/85 leading-relaxed shadow-xs flex items-start gap-3.5">
           <AlertCircle className="w-5 h-5 text-copper flex-shrink-0 mt-0.5" />
           <div>
-            <h2 className="font-serif text-base font-semibold text-forest-dark mb-1">
+            <h2 className="font-serif text-lg font-bold text-forest-dark mb-1.5">
               Specification Verification Protocol
             </h2>
             <p>
@@ -47,15 +47,15 @@ export default function SpecificationsPage() {
         <TechSpecsTable />
 
         {/* Storage & Shelf Life Guidelines */}
-        <div className="my-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-charcoal/85">
-          <div className="p-6 bg-ivory-light rounded-xl border border-stone shadow-xs space-y-3">
+        <div className="my-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-base text-charcoal/85">
+          <div className="p-7 bg-ivory-light rounded-xl border border-stone shadow-xs space-y-3.5">
             <h3 className="font-serif text-2xl font-normal text-forest-dark border-b border-stone/60 pb-2">
               Storage & Shelf Life Preservation
             </h3>
             <p className="leading-relaxed">
               Because pure Tung Oil reacts with atmospheric oxygen, proper storage prevents premature thickening or skinning within the container:
             </p>
-            <ul className="list-disc pl-5 space-y-1.5 text-charcoal/80">
+            <ul className="list-disc pl-5 space-y-2 text-charcoal/80">
               <li>Store between 10°C and 25°C (50°F – 77°F) away from direct sunlight.</li>
               <li>Always secure caps immediately after dispensing to minimize oxygen exchange.</li>
               <li>When partial containers remain, transfer oil to smaller glass/metal containers with minimal headspace, or purge headspace with an inert gas (e.g. Bloxygen).</li>
@@ -63,14 +63,14 @@ export default function SpecificationsPage() {
             </ul>
           </div>
 
-          <div className="p-6 bg-ivory-light rounded-xl border border-stone shadow-xs space-y-3">
+          <div className="p-7 bg-ivory-light rounded-xl border border-stone shadow-xs space-y-3.5">
             <h3 className="font-serif text-2xl font-normal text-forest-dark border-b border-stone/60 pb-2">
               Batch Quality Assurance & Lot Testing
             </h3>
             <p className="leading-relaxed">
               Each industrial lot shipped in 20L pails, 200L drums, or 1,000L IBC totes undergoes testing to verify:
             </p>
-            <ul className="list-disc pl-5 space-y-1.5 text-charcoal/80">
+            <ul className="list-disc pl-5 space-y-2 text-charcoal/80">
               <li><strong>Specific Gravity (ASTM D1963):</strong> Target range 0.936 – 0.940</li>
               <li><strong>Refractive Index (ASTM D1747):</strong> Purity benchmark 1.516 – 1.520</li>
               <li><strong>Acid Value (ASTM D1639):</strong> Low acid number indicating minimal hydrolysis</li>
@@ -80,10 +80,10 @@ export default function SpecificationsPage() {
         </div>
 
         {/* Safety Data Callout */}
-        <div className="p-6 bg-red-950/10 border border-red-900/30 rounded-xl mb-16 flex flex-col sm:flex-row items-start gap-4">
+        <div className="p-7 bg-red-950/10 border border-red-900/30 rounded-xl mb-16 flex flex-col sm:flex-row items-start gap-4">
           <ShieldAlert className="w-6 h-6 text-red-800 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-charcoal/80 leading-relaxed">
-            <h4 className="font-serif text-lg font-semibold text-red-900 mb-1">
+          <div className="text-base sm:text-lg text-charcoal/85 leading-relaxed">
+            <h4 className="font-serif text-xl font-semibold text-red-900 mb-1.5">
               Safety Data Sheet (SDS) Reference Framework (Pending Formal SDS Registration): Exothermic Oxidation
             </h4>
             <p>

@@ -113,7 +113,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
                 className="object-cover"
                 sizes="(max-width: 1200px) 100vw, 1200px"
               />
-              <div className="absolute top-4 right-4 bg-forest-dark/85 backdrop-blur-md text-ivory text-xs px-3.5 py-1.5 rounded-full font-medium tracking-wider uppercase border border-copper/40 shadow-md">
+              <div className="absolute top-4 right-4 bg-forest-dark/85 backdrop-blur-md text-ivory text-sm px-4 py-2 rounded-full font-medium tracking-wider uppercase border border-copper/40 shadow-md">
                 {afterLabel}
               </div>
             </div>
@@ -131,7 +131,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
                 className="object-cover"
                 sizes="(max-width: 1200px) 100vw, 1200px"
               />
-              <div className="absolute top-4 left-4 bg-charcoal/80 backdrop-blur-md text-ivory text-xs px-3.5 py-1.5 rounded-full font-medium tracking-wider uppercase border border-stone-muted/40 shadow-md">
+              <div className="absolute top-4 left-4 bg-charcoal/80 backdrop-blur-md text-ivory text-sm px-4 py-2 rounded-full font-medium tracking-wider uppercase border border-stone-muted/40 shadow-md">
                 {beforeLabel}
               </div>
             </div>
@@ -147,14 +147,14 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
             </div>
 
             {/* Drag Hint on Bottom */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none bg-charcoal/70 backdrop-blur-sm text-ivory/90 text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none bg-charcoal/70 backdrop-blur-sm text-ivory/90 text-sm uppercase tracking-widest px-4 py-2 rounded-full font-medium">
               Drag or use Left/Right keys
             </div>
           </div>
 
           {/* Responsible Craftsmanship Disclaimer */}
-          <div className="mt-4 flex items-start gap-2.5 p-4 bg-stone/70 rounded-lg text-sm text-charcoal/85 border border-stone-muted/80 max-w-4xl mx-auto">
-            <Info className="w-4 h-4 text-walnut flex-shrink-0 mt-0.5" />
+          <div className="mt-5 flex items-start gap-3 p-5 bg-stone/70 rounded-xl text-base sm:text-lg text-charcoal/90 border border-stone-muted/80 max-w-4xl mx-auto shadow-xs">
+            <Info className="w-5 h-5 text-walnut flex-shrink-0 mt-0.5" />
             <p className="leading-relaxed">
               <strong>Species Note:</strong> Shown above on American Black Walnut (<em>Juglans nigra</em>). Natural wood pore density, absorption velocity, and color intensification vary naturally across timber species (e.g. White Oak, Teak, Ash, Cherry, Pine). We recommend testing a discreet end grain or off-cut before full surface finishing.
             </p>

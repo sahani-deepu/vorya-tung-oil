@@ -73,44 +73,42 @@ export default function BulkEnquiryPage() {
           <p className="mt-4 text-base sm:text-lg text-charcoal/80 max-w-3xl font-sans leading-relaxed">
             Standardized batch supply for furniture manufacturing plants, commercial architectural millwork contractors, flooring lines, and specialty coating formulators.
           </p>
-        </div>
-
-        {/* Volume Tiers Showcase */}
+        </div>        {/* Volume Tiers Showcase */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
-          <div className="p-6 bg-ivory-light rounded-xl border border-stone shadow-xs">
-            <span className="text-xs text-copper uppercase font-mono tracking-wider font-semibold block mb-1">
+          <div className="p-7 bg-ivory-light rounded-xl border border-stone shadow-xs">
+            <span className="text-xs text-copper uppercase font-mono tracking-wider font-bold block mb-1">
               TIER 01 • WORKSHOP
             </span>
-            <h3 className="font-serif text-2xl font-normal text-forest-dark mb-1">5 – 20 Litres</h3>
-            <p className="text-sm text-charcoal/70 mb-3">Steel jerrycans & pails for custom furniture studios.</p>
-            <span className="text-xs text-walnut font-medium">Standard freight dispatch</span>
+            <h3 className="font-serif text-2xl font-normal text-forest-dark mb-1.5">5 – 20 Litres</h3>
+            <p className="text-base text-charcoal/80 mb-3 leading-relaxed">Steel jerrycans & pails for custom furniture studios.</p>
+            <span className="text-sm text-walnut font-semibold">Standard freight dispatch</span>
           </div>
 
-          <div className="p-6 bg-ivory-light rounded-xl border border-stone shadow-xs">
-            <span className="text-xs text-copper uppercase font-mono tracking-wider font-semibold block mb-1">
+          <div className="p-7 bg-ivory-light rounded-xl border border-stone shadow-xs">
+            <span className="text-xs text-copper uppercase font-mono tracking-wider font-bold block mb-1">
               TIER 02 • CONTRACTOR
             </span>
-            <h3 className="font-serif text-2xl font-normal text-forest-dark mb-1">50 – 200 Litres</h3>
-            <p className="text-sm text-charcoal/70 mb-3">55-Gallon (200L) steel drums for large architectural millwork.</p>
-            <span className="text-xs text-walnut font-medium">CoA certificate included</span>
+            <h3 className="font-serif text-2xl font-normal text-forest-dark mb-1.5">50 – 200 Litres</h3>
+            <p className="text-base text-charcoal/80 mb-3 leading-relaxed">55-Gallon (200L) steel drums for large architectural millwork.</p>
+            <span className="text-sm text-walnut font-semibold">CoA certificate included</span>
           </div>
 
-          <div className="p-6 bg-ivory-light rounded-xl border border-stone shadow-xs">
-            <span className="text-xs text-copper uppercase font-mono tracking-wider font-semibold block mb-1">
+          <div className="p-7 bg-ivory-light rounded-xl border border-stone shadow-xs">
+            <span className="text-xs text-copper uppercase font-mono tracking-wider font-bold block mb-1">
               TIER 03 • INDUSTRIAL
             </span>
-            <h3 className="font-serif text-2xl font-normal text-forest-dark mb-1">1,000L IBC Totes</h3>
-            <p className="text-sm text-charcoal/70 mb-3">Intermediate bulk containers for automated flooring lines.</p>
-            <span className="text-xs text-walnut font-medium">Custom viscosity tuning</span>
+            <h3 className="font-serif text-2xl font-normal text-forest-dark mb-1.5">1,000L IBC Totes</h3>
+            <p className="text-base text-charcoal/80 mb-3 leading-relaxed">Intermediate bulk containers for automated flooring lines.</p>
+            <span className="text-sm text-walnut font-semibold">Custom viscosity tuning</span>
           </div>
 
-          <div className="p-6 bg-forest-dark text-ivory rounded-xl border border-forest-surface shadow-xs">
-            <span className="text-xs text-copper-light uppercase font-mono tracking-wider font-semibold block mb-1">
+          <div className="p-7 bg-forest-dark text-ivory rounded-xl border border-forest-surface shadow-xs">
+            <span className="text-xs text-copper-light uppercase font-mono tracking-wider font-bold block mb-1">
               SAMPLE BENCHMARK
             </span>
-            <h3 className="font-serif text-2xl font-normal text-ivory mb-1">Testing Kits</h3>
-            <p className="text-sm text-stone-muted mb-3">500ml trial kits for laboratory & penetration validation.</p>
-            <span className="text-xs text-copper-light font-medium">Available on qualification</span>
+            <h3 className="font-serif text-2xl font-normal text-ivory mb-1.5">Testing Kits</h3>
+            <p className="text-base text-stone-muted mb-3 leading-relaxed">500ml trial kits for laboratory & penetration validation.</p>
+            <span className="text-sm text-copper-light font-semibold">Available on qualification</span>
           </div>
         </div>
 
@@ -121,17 +119,17 @@ export default function BulkEnquiryPage() {
             {submitted ? (
               <div className="py-12 text-center">
                 <CheckCircle2 className="w-16 h-16 text-forest mx-auto mb-4" />
-                <h3 className="font-serif text-2xl text-forest-dark mb-2">
+                <h3 className="font-serif text-3xl text-forest-dark mb-2">
                   Procurement Enquiry Staged
                 </h3>
-                <p className="text-sm text-charcoal/80 max-w-md mx-auto mb-6 leading-relaxed">
+                <p className="text-base text-charcoal/85 max-w-md mx-auto mb-6 leading-relaxed">
                   Thank you, <strong>{formData.name}</strong> from <strong>{formData.businessName}</strong>. Your volume request for {formData.estimatedQuantity} has been successfully validated.
                 </p>
-                <div className="p-4.5 bg-stone rounded-lg text-sm text-charcoal/80 max-w-md mx-auto mb-6 text-left border border-stone-muted">
+                <div className="p-5 bg-stone rounded-lg text-base text-charcoal/85 max-w-md mx-auto mb-6 text-left border border-stone-muted">
                   <p className="font-semibold text-forest-dark mb-1">
                     Procurement Reference ID: <span className="font-mono text-copper font-bold">{referenceId}</span>
                   </p>
-                  <p className="text-xs text-charcoal/70">
+                  <p className="text-sm text-charcoal/70 leading-relaxed">
                     Your wholesale trade request has been registered in the ERP queue. Our commercial procurement team will dispatch specifications to <strong>{formData.email}</strong> within 1 business day.
                   </p>
                 </div>
@@ -141,13 +139,13 @@ export default function BulkEnquiryPage() {
                     setSubmitted(false);
                     setReferenceId("");
                   }}
-                  className="px-6 py-2.5 bg-forest text-ivory text-sm uppercase tracking-widest font-medium hover:bg-forest-light"
+                  className="px-7 py-3 bg-forest text-ivory text-sm uppercase tracking-widest font-semibold hover:bg-forest-light"
                 >
                   Submit Another Procurement Request
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4.5 text-sm">
+              <form onSubmit={handleSubmit} className="space-y-4.5 text-base">
                 {/* Honeypot */}
                 <input
                   type="text"
@@ -159,72 +157,72 @@ export default function BulkEnquiryPage() {
                   autoComplete="off"
                 />
 
-                <div className="border-b border-stone pb-3 mb-4">
-                  <h2 className="font-serif text-2xl font-medium text-forest-dark">
+                <div className="border-b border-stone pb-3.5 mb-4">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-medium text-forest-dark">
                     Request Formal Bulk Quotation
                   </h2>
-                  <p className="text-xs sm:text-sm text-charcoal/60 mt-0.5">
+                  <p className="text-sm sm:text-base text-charcoal/70 mt-1 leading-relaxed">
                     Direct access to trade discounts, batch CoA certificates, and scheduled dispatch agreements.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-medium text-charcoal mb-1">Procurement Contact *</label>
+                    <label className="block font-semibold text-charcoal mb-1.5 text-sm sm:text-base">Procurement Contact *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Richard Hawthorne"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 text-base bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block font-medium text-charcoal mb-1">Company / Organization *</label>
+                    <label className="block font-semibold text-charcoal mb-1.5 text-sm sm:text-base">Company / Organization *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Hawthorne Timber Mill Ltd."
                       value={formData.businessName}
                       onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 text-base bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-medium text-charcoal mb-1">Corporate Email *</label>
+                    <label className="block font-semibold text-charcoal mb-1.5 text-sm sm:text-base">Corporate Email *</label>
                     <input
                       type="email"
                       required
                       placeholder="deepusahani08@gmail.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 text-base bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block font-medium text-charcoal mb-1">Phone Number *</label>
+                    <label className="block font-semibold text-charcoal mb-1.5 text-sm sm:text-base">Phone Number *</label>
                     <input
                       type="tel"
                       required
                       placeholder="+91-9616495093"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 text-base bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block font-medium text-charcoal mb-1">Enterprise Type</label>
+                    <label className="block font-semibold text-charcoal mb-1.5 text-sm sm:text-base">Enterprise Type</label>
                     <select
                       value={formData.customerType}
                       onChange={(e) => setFormData({ ...formData, customerType: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 text-base bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     >
                       <option>Furniture Manufacturer</option>
                       <option>Architectural Millwork Studio</option>
@@ -236,11 +234,11 @@ export default function BulkEnquiryPage() {
                   </div>
 
                   <div>
-                    <label className="block font-medium text-charcoal mb-1">Target Volume Tier</label>
+                    <label className="block font-semibold text-charcoal mb-1.5 text-sm sm:text-base">Target Volume Tier</label>
                     <select
                       value={formData.estimatedQuantity}
                       onChange={(e) => setFormData({ ...formData, estimatedQuantity: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 text-base bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     >
                       <option>5 – 20 Litres (Workshop Tier)</option>
                       <option>50 – 200 Litres (Contractor Drum)</option>
@@ -251,11 +249,11 @@ export default function BulkEnquiryPage() {
                   </div>
 
                   <div>
-                    <label className="block font-medium text-charcoal mb-1">Fulfillment Horizon</label>
+                    <label className="block font-semibold text-charcoal mb-1.5 text-sm sm:text-base">Fulfillment Horizon</label>
                     <select
                       value={formData.deliveryTimeline}
                       onChange={(e) => setFormData({ ...formData, deliveryTimeline: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 text-base bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     >
                       <option>Immediate / Within 14 Days</option>
                       <option>Within 30 Days</option>
@@ -266,44 +264,44 @@ export default function BulkEnquiryPage() {
                 </div>
 
                 <div>
-                  <label className="block font-medium text-charcoal mb-1">Application Scope & Technical Specifications *</label>
+                  <label className="block font-semibold text-charcoal mb-1.5 text-sm sm:text-base">Application Scope & Technical Specifications *</label>
                   <textarea
                     rows={4}
                     required
                     placeholder="Include details on your application line (e.g. spray-and-wipe, dip tank, roller-coater), timber substrate (e.g. kiln-dried American Walnut, White Oak), annual volume projections, and certification requirements."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none resize-none"
+                    className="w-full px-3.5 py-2.5 text-base bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none resize-none leading-relaxed"
                   />
                 </div>
 
                 {error && (
-                  <div className="p-3.5 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-sm flex items-center gap-2">
+                  <div className="p-3.5 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-sm sm:text-base flex items-center gap-2">
                     <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
                     <span>{error}</span>
                   </div>
                 )}
 
-                <div className="pt-2 flex items-center justify-between">
-                  <span className="text-xs text-charcoal/60 flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-forest" />
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <span className="text-sm text-charcoal/70 flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-forest" />
                     Commercial NDA & pricing confidentiality maintained
                   </span>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-sm uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full sm:w-auto px-7 py-3.5 bg-forest hover:bg-forest-light text-ivory text-sm uppercase tracking-widest font-semibold transition-colors flex items-center justify-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
                   >
                     {loading ? (
                       <>
-                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                        <span>Submitting...</span>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Transmitting...</span>
                       </>
                     ) : (
                       <>
-                        <span>Request Quotation</span>
-                        <Send className="w-3.5 h-3.5" />
+                        <span>Request Trade Quotation</span>
+                        <Send className="w-4 h-4" />
                       </>
                     )}
                   </button>
@@ -324,16 +322,16 @@ export default function BulkEnquiryPage() {
               />
             </div>
 
-            <div className="p-6 bg-ivory-light rounded-xl border border-stone text-sm text-charcoal/80 space-y-3">
-              <h3 className="font-serif text-xl font-medium text-forest-dark">
+            <div className="p-6 md:p-7 bg-ivory-light rounded-xl border border-stone text-base text-charcoal/85 space-y-3.5">
+              <h3 className="font-serif text-2xl font-medium text-forest-dark">
                 Why Contract with NOVA GRAIN?
               </h3>
               <p className="leading-relaxed">
                 We eliminate the supply volatility and chemical dilution common in retail timber oils. Each commercial shipment arrives with a verified Certificate of Analysis confirming mechanical cold-press purity, specific gravity (ASTM D1963), and acid index.
               </p>
-              <div className="pt-2 border-t border-stone/60 flex items-center justify-between text-xs">
-                <span className="text-charcoal/60">Direct Trade Desk:</span>
-                <a href={`mailto:${BRAND.contact.tradeEmail}`} className="text-forest font-semibold hover:underline">
+              <div className="pt-2.5 border-t border-stone/60 flex items-center justify-between text-sm">
+                <span className="text-charcoal/70">Direct Trade Desk:</span>
+                <a href={`mailto:${BRAND.contact.tradeEmail}`} className="text-forest font-bold hover:underline">
                   {BRAND.contact.tradeEmail}
                 </a>
               </div>

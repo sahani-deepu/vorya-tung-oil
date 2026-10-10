@@ -80,39 +80,39 @@ export const TechSpecsTable: React.FC = () => {
 
         {/* Table Container */}
         <div className="overflow-x-auto rounded-lg border border-stone shadow-sm bg-ivory-light">
-          <table className="w-full text-left text-sm divide-y divide-stone">
-            <thead className="bg-stone text-forest-dark uppercase tracking-wider font-semibold text-xs">
+          <table className="w-full text-left text-base divide-y divide-stone">
+            <thead className="bg-stone text-forest-dark uppercase tracking-wider font-bold text-sm">
               <tr>
-                <th scope="col" className="py-3.5 px-4 sm:px-6">Parameter / Test Method</th>
-                <th scope="col" className="py-3.5 px-4 sm:px-6">Pure Tung Oil (100% Uncut)</th>
-                <th scope="col" className="py-3.5 px-4 sm:px-6">Professional Finishing Oil</th>
-                <th scope="col" className="py-3.5 px-4 sm:px-6">Bulk Industrial Grade</th>
-                <th scope="col" className="py-3.5 px-4 sm:px-6 text-right">Verification Status</th>
+                <th scope="col" className="py-4 px-4 sm:px-6">Parameter / Test Method</th>
+                <th scope="col" className="py-4 px-4 sm:px-6">Pure Tung Oil (100% Uncut)</th>
+                <th scope="col" className="py-4 px-4 sm:px-6">Professional Finishing Oil</th>
+                <th scope="col" className="py-4 px-4 sm:px-6">Bulk Industrial Grade</th>
+                <th scope="col" className="py-4 px-4 sm:px-6 text-right">Verification Status</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone/60">
               {filteredSpecs.map((row, idx) => (
                 <tr key={idx} className="hover:bg-ivory/80 transition-colors">
-                  <td className="py-3.5 px-4 sm:px-6 font-medium text-forest-dark whitespace-nowrap">
+                  <td className="py-4 px-4 sm:px-6 font-semibold text-forest-dark whitespace-nowrap">
                     {row.parameter}
                   </td>
-                  <td className="py-3.5 px-4 sm:px-6 text-charcoal/90 leading-relaxed">
+                  <td className="py-4 px-4 sm:px-6 text-charcoal/90 leading-relaxed">
                     {row.pureTungOil}
                   </td>
-                  <td className="py-3.5 px-4 sm:px-6 text-charcoal/90 leading-relaxed">
+                  <td className="py-4 px-4 sm:px-6 text-charcoal/90 leading-relaxed">
                     {row.proFinishingOil}
                   </td>
-                  <td className="py-3.5 px-4 sm:px-6 text-charcoal/90 leading-relaxed">
+                  <td className="py-4 px-4 sm:px-6 text-charcoal/90 leading-relaxed">
                     {row.industrialBulk}
                   </td>
-                  <td className="py-3.5 px-4 sm:px-6 text-right whitespace-nowrap">
+                  <td className="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
                     {row.status === "Confirmed" ? (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-forest/10 text-forest border border-forest/20">
-                        <CheckCircle className="w-3.5 h-3.5" /> Confirmed
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-forest/10 text-forest border border-forest/20">
+                        <CheckCircle className="w-4 h-4" /> Confirmed
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-copper/10 text-copper border border-copper/30">
-                        <Clock className="w-3.5 h-3.5" /> To be confirmed
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-copper/10 text-copper border border-copper/30">
+                        <Clock className="w-4 h-4" /> To be confirmed
                       </span>
                     )}
                   </td>
@@ -123,9 +123,9 @@ export const TechSpecsTable: React.FC = () => {
         </div>
 
         {/* Safety Note on Table Footer */}
-        <div className="mt-4 p-4 rounded-lg bg-amber-500/10 border border-amber-600/20 text-sm text-charcoal/85 flex items-start gap-3">
-          <AlertCircle className="w-4 h-4 text-copper flex-shrink-0 mt-0.5" />
-          <p>
+        <div className="mt-5 p-5 rounded-xl bg-amber-500/10 border border-amber-600/20 text-base text-charcoal/90 flex items-start gap-3 shadow-xs">
+          <AlertCircle className="w-5 h-5 text-copper flex-shrink-0 mt-0.5" />
+          <p className="leading-relaxed">
             <strong>Chemical Handling Note:</strong> All Tung Oil products undergo exothermic oxidation during polymerization. Application cloths, rags, or steel wool containing drying oil must be soaked in water before disposal to avoid spontaneous combustion. Always review the Safety Data Sheet (SDS) prior to workshop deployment.
           </p>
         </div>

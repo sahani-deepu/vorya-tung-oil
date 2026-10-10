@@ -60,24 +60,24 @@ export default function ShopPage() {
         </div>
 
         {/* Draft Notice Banner */}
-        <div className="mb-10 p-4 bg-amber-500/10 border border-amber-600/20 rounded-lg text-sm text-charcoal/80 flex items-start gap-3">
-          <AlertCircle className="w-4 h-4 text-copper flex-shrink-0 mt-0.5" />
-          <p>
+        <div className="mb-10 p-5 bg-amber-500/10 border border-amber-600/20 rounded-xl text-base text-charcoal/85 flex items-start gap-3.5">
+          <AlertCircle className="w-5 h-5 text-copper flex-shrink-0 mt-0.5" />
+          <p className="leading-relaxed">
             <strong>Catalogue Status:</strong> All products below represent current formulation candidates under trade trial. Prices and container SKUs are draft estimates for business planning and workshop sampling.
           </p>
         </div>
 
         {/* Filter Navigation */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-          <div className="flex items-center gap-2">
-            <span className="text-sm uppercase font-semibold text-charcoal/60 mr-2 flex items-center gap-1">
-              <Filter className="w-3.5 h-3.5" /> Filter by Class:
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="text-base uppercase font-bold text-charcoal/70 mr-2 flex items-center gap-1.5">
+              <Filter className="w-4 h-4" /> Filter by Class:
             </span>
             <button
               onClick={() => setFilterType("all")}
-              className={`px-3.5 py-1.5 text-sm rounded-full uppercase tracking-wider font-medium transition-colors ${
+              className={`px-4 py-2 text-sm sm:text-base rounded-full uppercase tracking-wider font-semibold transition-colors ${
                 filterType === "all"
-                  ? "bg-forest text-ivory"
+                  ? "bg-forest text-ivory shadow-xs"
                   : "bg-stone/50 text-charcoal/80 hover:bg-stone"
               }`}
             >
@@ -85,9 +85,9 @@ export default function ShopPage() {
             </button>
             <button
               onClick={() => setFilterType("pure")}
-              className={`px-3.5 py-1.5 text-sm rounded-full uppercase tracking-wider font-medium transition-colors ${
+              className={`px-4 py-2 text-sm sm:text-base rounded-full uppercase tracking-wider font-semibold transition-colors ${
                 filterType === "pure"
-                  ? "bg-forest text-ivory"
+                  ? "bg-forest text-ivory shadow-xs"
                   : "bg-stone/50 text-charcoal/80 hover:bg-stone"
               }`}
             >
@@ -95,9 +95,9 @@ export default function ShopPage() {
             </button>
             <button
               onClick={() => setFilterType("pro")}
-              className={`px-3.5 py-1.5 text-sm rounded-full uppercase tracking-wider font-medium transition-colors ${
+              className={`px-4 py-2 text-sm sm:text-base rounded-full uppercase tracking-wider font-semibold transition-colors ${
                 filterType === "pro"
-                  ? "bg-forest text-ivory"
+                  ? "bg-forest text-ivory shadow-xs"
                   : "bg-stone/50 text-charcoal/80 hover:bg-stone"
               }`}
             >
@@ -105,9 +105,9 @@ export default function ShopPage() {
             </button>
             <button
               onClick={() => setFilterType("bulk")}
-              className={`px-3.5 py-1.5 text-sm rounded-full uppercase tracking-wider font-medium transition-colors ${
+              className={`px-4 py-2 text-sm sm:text-base rounded-full uppercase tracking-wider font-semibold transition-colors ${
                 filterType === "bulk"
-                  ? "bg-forest text-ivory"
+                  ? "bg-forest text-ivory shadow-xs"
                   : "bg-stone/50 text-charcoal/80 hover:bg-stone"
               }`}
             >
@@ -115,7 +115,7 @@ export default function ShopPage() {
             </button>
           </div>
 
-          <div className="text-sm text-charcoal/60 font-mono">
+          <div className="text-base text-charcoal/70 font-mono font-medium">
             Showing {filteredProducts.length} items
           </div>
         </div>
@@ -137,20 +137,20 @@ export default function ShopPage() {
         {/* Interactive Coverage Calculator Section */}
         <div className="bg-forest-dark text-ivory rounded-2xl p-8 md:p-12 mb-16 border border-forest-surface shadow-xl">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-ivory/10 rounded-full text-xs font-semibold tracking-widest text-copper-light uppercase mb-4">
-              <Calculator className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-ivory/10 rounded-full text-xs sm:text-sm font-semibold tracking-widest text-copper-light uppercase mb-4">
+              <Calculator className="w-4 h-4" />
               <span>Workshop Estimator</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl text-ivory font-normal mb-3">
               How Much Oil Does Your Project Require?
             </h2>
-            <p className="text-base text-stone-muted leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-stone-muted leading-relaxed mb-8">
               Tung Oil coverage is governed by wood porosity and density. Softwoods (Pine, Cedar) absorb up to 30% more oil than refractory dense hardwoods (White Oak, Walnut, Maple).
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-forest/40 p-6 rounded-xl border border-forest-surface mb-6 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-forest/40 p-6 rounded-xl border border-forest-surface mb-6 text-base">
               <div>
-                <label className="block text-stone-muted font-medium mb-2">
+                <label className="block text-stone-muted font-semibold mb-2 text-base">
                   Total Surface Area (Square Feet):
                 </label>
                 <input
@@ -160,46 +160,46 @@ export default function ShopPage() {
                   step={10}
                   value={sqFt}
                   onChange={(e) => setSqFt(Math.max(1, parseInt(e.target.value) || 1))}
-                  className="w-full px-3 py-2 bg-forest-dark border border-forest-surface text-ivory rounded focus:border-copper focus:outline-none font-mono text-base"
+                  className="w-full px-4 py-2.5 bg-forest-dark border border-forest-surface text-ivory rounded focus:border-copper focus:outline-none font-mono text-lg"
                 />
-                <span className="text-xs text-stone-muted/70 mt-1 block">
+                <span className="text-sm text-stone-muted/80 mt-1.5 block">
                   ~{(sqFt * 0.0929).toFixed(1)} m²
                 </span>
               </div>
 
               <div>
-                <label className="block text-stone-muted font-medium mb-2">
+                <label className="block text-stone-muted font-semibold mb-2 text-base">
                   Planned Coat Schedule:
                 </label>
                 <select
                   value={coats}
                   onChange={(e) => setCoats(parseInt(e.target.value) || 3)}
-                  className="w-full px-3 py-2 bg-forest-dark border border-forest-surface text-ivory rounded focus:border-copper focus:outline-none font-mono text-base"
+                  className="w-full px-4 py-2.5 bg-forest-dark border border-forest-surface text-ivory rounded focus:border-copper focus:outline-none font-mono text-base"
                 >
                   <option value={2}>2 Coats (Light Architectural Paneling)</option>
                   <option value={3}>3 Coats (Standard Furniture / Tables)</option>
                   <option value={4}>4 Coats (Heavy Dining / Kitchen Islands)</option>
                   <option value={5}>5 Coats (Turned Objects / Exterior Teak)</option>
                 </select>
-                <span className="text-xs text-stone-muted/70 mt-1 block">
+                <span className="text-sm text-stone-muted/80 mt-1.5 block">
                   3 coats recommended for furniture
                 </span>
               </div>
 
-              <div className="bg-forest-surface/60 p-4 rounded-lg flex flex-col justify-center border border-copper/30 sm:col-span-2 lg:col-span-1">
-                <span className="text-xs uppercase tracking-wider text-copper-light font-semibold block mb-1">
+              <div className="bg-forest-surface/60 p-5 rounded-lg flex flex-col justify-center border border-copper/30 sm:col-span-2 lg:col-span-1">
+                <span className="text-xs uppercase tracking-wider text-copper-light font-bold block mb-1">
                   Estimated Requirement
                 </span>
-                <span className="font-serif text-3xl font-bold text-ivory">
-                  {litersNeeded} <span className="text-sm font-sans font-normal text-stone-muted">Litres</span>
+                <span className="font-serif text-4xl font-bold text-ivory">
+                  {litersNeeded} <span className="text-base font-sans font-normal text-stone-muted">Litres</span>
                 </span>
-                <span className="text-xs text-stone-muted/80 mt-1">
+                <span className="text-sm text-stone-muted/90 mt-1.5 font-medium">
                   Recommended order: {parseFloat(litersNeeded) <= 1 ? "1 × 1 Litre bottle" : `${Math.ceil(parseFloat(litersNeeded))} Litres`}
                 </span>
               </div>
             </div>
 
-            <p className="text-xs text-stone-muted/70 italic">
+            <p className="text-sm text-stone-muted/80 italic leading-relaxed">
               *Calculated based on standard coverage of 14–16 m² (150 sq ft) per liter for dense hardwoods. Always order 10–15% reserve for wiping rag absorption and second-coat touch-ups.
             </p>
           </div>

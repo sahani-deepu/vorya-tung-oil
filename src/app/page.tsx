@@ -114,7 +114,7 @@ export default function HomePage() {
             </h1>
 
             {/* Supporting Copy */}
-            <p className="text-base sm:text-lg md:text-xl text-stone-muted/90 font-sans font-normal leading-relaxed max-w-2xl mb-10">
+            <p className="text-lg sm:text-xl md:text-2xl text-stone-muted/95 font-sans font-normal leading-relaxed max-w-2xl mb-10">
               Thoughtfully formulated Tung Oil for enhancing wood grain and creating a rich, natural-looking finish. Explore a considered approach to wood care, from furniture restoration to professional woodworking.
             </p>
 
@@ -122,7 +122,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
                 href="/shop"
-                className="px-8 py-4 bg-copper hover:bg-copper-light text-ivory text-xs uppercase tracking-widest font-semibold transition-all duration-300 rounded-xs shadow-lg hover:shadow-xl text-center flex items-center justify-center gap-2 group"
+                className="px-8 py-4 bg-copper hover:bg-copper-light text-ivory text-sm sm:text-base uppercase tracking-widest font-semibold transition-all duration-300 rounded-xs shadow-lg hover:shadow-xl text-center flex items-center justify-center gap-2 group"
               >
                 <span>Explore Tung Oil</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -130,35 +130,35 @@ export default function HomePage() {
 
               <Link
                 href="#applications"
-                className="px-8 py-4 bg-ivory/10 hover:bg-ivory/20 backdrop-blur-sm border border-ivory/30 text-ivory text-xs uppercase tracking-widest font-medium transition-all duration-300 rounded-xs text-center"
+                className="px-8 py-4 bg-ivory/10 hover:bg-ivory/20 backdrop-blur-sm border border-ivory/30 text-ivory text-sm sm:text-base uppercase tracking-widest font-medium transition-all duration-300 rounded-xs text-center"
               >
                 Find Your Application
               </Link>
             </div>
 
             {/* Responsible Baseline Metrics (No fake claims) */}
-            <div className="mt-14 pt-8 border-t border-ivory/15 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-xl text-xs">
+            <div className="mt-14 pt-8 border-t border-ivory/15 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-xl text-sm">
               <div>
-                <span className="font-serif text-2xl md:text-3xl font-light text-ivory block">
+                <span className="font-serif text-3xl md:text-4xl font-normal text-ivory block">
                   100%
                 </span>
-                <span className="text-xs uppercase tracking-wider text-stone-muted/80 mt-0.5 block font-sans">
+                <span className="text-sm uppercase tracking-wider text-stone-muted/80 mt-1 block font-sans font-medium">
                   Pure Seed Oil (Uncut)
                 </span>
               </div>
               <div>
-                <span className="font-serif text-2xl md:text-3xl font-light text-copper-light block">
+                <span className="font-serif text-3xl md:text-4xl font-normal text-copper-light block">
                   0 g/L
                 </span>
-                <span className="text-xs uppercase tracking-wider text-stone-muted/80 mt-0.5 block font-sans">
+                <span className="text-sm uppercase tracking-wider text-stone-muted/80 mt-1 block font-sans font-medium">
                   Zero Petroleum VOCs
                 </span>
               </div>
               <div className="col-span-2 sm:col-span-1">
-                <span className="font-serif text-2xl md:text-3xl font-light text-ivory block">
+                <span className="font-serif text-3xl md:text-4xl font-normal text-ivory block">
                   Non-Film
                 </span>
-                <span className="text-xs uppercase tracking-wider text-stone-muted/80 mt-0.5 block font-sans">
+                <span className="text-sm uppercase tracking-wider text-stone-muted/80 mt-1 block font-sans font-medium">
                   Deep Pore Penetration
                 </span>
               </div>
@@ -213,38 +213,38 @@ export default function HomePage() {
                 More Than a Finish. A Celebration of Wood.
               </h2>
 
-              <p className="text-lg text-charcoal/85 leading-relaxed font-sans">
+              <p className="text-lg sm:text-xl text-charcoal/85 leading-relaxed font-sans">
                 Tung Oil is one of nature’s most remarkable finishing materials. Cold-pressed from the seed nuts of the Tung tree (<em>Vernicia fordii</em>), it contains a rare biological composition rich in <strong>alpha-eleostearic acid</strong>—a conjugated triene fatty acid that polymerizes naturally when exposed to ambient atmospheric oxygen.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-                <div className="p-4 bg-ivory-light rounded-lg border border-stone">
-                  <h3 className="font-serif text-lg font-medium text-forest-dark mb-1.5">
+                <div className="p-5 bg-ivory-light rounded-xl border border-stone shadow-xs">
+                  <h3 className="font-serif text-xl sm:text-2xl font-normal text-forest-dark mb-2">
                     How It Interacts with Wood
                   </h3>
-                  <p className="text-sm text-charcoal/85 leading-relaxed">
+                  <p className="text-base sm:text-lg text-charcoal/85 leading-relaxed">
                     Unlike polyurethane which coats timber in a rigid plastic film that eventually cracks, Tung Oil is drawn deep into open cellular lumens. It cures <em>inside</em> the grain, flexing with natural seasonal wood movement.
                   </p>
                 </div>
 
-                <div className="p-4 bg-ivory-light rounded-lg border border-stone">
-                  <h3 className="font-serif text-lg font-medium text-forest-dark mb-1.5">
+                <div className="p-5 bg-ivory-light rounded-xl border border-stone shadow-xs">
+                  <h3 className="font-serif text-xl sm:text-2xl font-normal text-forest-dark mb-2">
                     Awakening Natural Chatoyancy
                   </h3>
-                  <p className="text-sm text-charcoal/85 leading-relaxed">
+                  <p className="text-base sm:text-lg text-charcoal/85 leading-relaxed">
                     As pure oil saturates the wood cells, light refracts through the translucent resin matrix, illuminating hidden fiddleback, curls, and medullary rays with unmatched three-dimensional depth.
                   </p>
                 </div>
               </div>
 
-              <div className="p-4 bg-stone/50 rounded-lg border-l-4 border-copper text-sm text-charcoal/85 leading-relaxed">
+              <div className="p-5 bg-stone/50 rounded-xl border-l-4 border-copper text-base sm:text-lg text-charcoal/90 leading-relaxed shadow-xs">
                 <strong>Pure vs. Blended Finishes:</strong> Many retail products labelled “Tung Oil Finish” contain only minimal plant oil diluted with synthetic varnishes and mineral spirits. NOVA GRAIN Pure Tung Oil is unadulterated Grade A cold-pressed seed oil with zero added driers or petroleum fillers.
               </div>
 
               <div className="pt-2 flex items-center gap-4">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-1.5 text-sm uppercase tracking-widest font-semibold text-forest hover:text-copper transition-colors"
+                  className="inline-flex items-center gap-1.5 text-base uppercase tracking-widest font-semibold text-forest hover:text-copper transition-colors"
                 >
                   <span>Read the Full NOVA GRAIN Philosophy</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -337,42 +337,42 @@ export default function HomePage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                  <div className="absolute bottom-3 left-3 text-ivory text-sm font-serif font-light tracking-wide">
+                  <div className="absolute bottom-3 left-3 text-ivory text-base font-serif font-light tracking-wide">
                     {app.subtitle}
                   </div>
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif text-2xl font-normal text-forest-dark mb-2">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-normal text-forest-dark mb-2.5">
                       {app.title}
                     </h3>
-                    <p className="text-sm text-charcoal/85 leading-relaxed mb-4">
+                    <p className="text-base sm:text-lg text-charcoal/85 leading-relaxed mb-5">
                       {app.description}
                     </p>
 
-                    <div className="p-3 bg-ivory-light rounded border border-stone space-y-1.5 text-sm">
+                    <div className="p-4 bg-ivory-light rounded-lg border border-stone space-y-2 text-sm sm:text-base">
                       <div className="flex justify-between">
-                        <span className="text-charcoal/60 font-medium">Recommended:</span>
+                        <span className="text-charcoal/70 font-medium">Recommended:</span>
                         <span className="text-forest-dark font-semibold text-right">{app.recommendedProduct}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-charcoal/60 font-medium">Coat Schedule:</span>
+                        <span className="text-charcoal/70 font-medium">Coat Schedule:</span>
                         <span className="text-walnut font-medium">{app.recommendedCoats}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-4 border-t border-stone">
-                    <p className="text-xs text-charcoal/70 italic leading-relaxed mb-3">
+                  <div className="mt-5 pt-4 border-t border-stone">
+                    <p className="text-sm sm:text-base text-charcoal/80 italic leading-relaxed mb-4">
                       <strong>Suitability:</strong> {app.suitabilityNote}
                     </p>
                     <Link
                       href="/applications"
-                      className="text-sm uppercase tracking-wider font-semibold text-forest hover:text-copper flex items-center gap-1.5 transition-colors"
+                      className="text-sm sm:text-base uppercase tracking-widest font-semibold text-forest hover:text-copper flex items-center gap-1.5 transition-colors"
                     >
                       <span>{app.linkText}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
@@ -381,7 +381,7 @@ export default function HomePage() {
           </div>
 
           {/* Broad Suitability Clarification Notice */}
-          <div className="mt-12 p-4 bg-stone rounded-lg border border-stone-muted text-sm text-charcoal/85 text-center max-w-3xl mx-auto">
+          <div className="mt-12 p-5 bg-stone rounded-xl border border-stone-muted text-base sm:text-lg text-charcoal/85 text-center max-w-3xl mx-auto shadow-xs leading-relaxed">
             <strong>Suitability Clarification:</strong> Suitability depends strictly on specific formulation dilution, wood species density, ambient temperature, and post-cure exposure. Pure Tung Oil is not recommended for submersion marine hulls or unmaintained exterior horizontal decking in wet climates without scheduled recoats.
           </div>
         </div>
@@ -399,7 +399,7 @@ export default function HomePage() {
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ivory font-normal">
               Why Discerning Craftspeople Choose NOVA GRAIN
             </h2>
-            <p className="mt-4 text-lg text-stone-muted/90 leading-relaxed font-sans">
+            <p className="mt-4 text-lg sm:text-xl text-stone-muted/95 leading-relaxed font-sans">
               We make no unverified claims of miracle longevity or universal suitability. We rely on the verified physical chemistry of pure plant-drying oils and honest workshop formulations.
             </p>
           </div>
@@ -409,10 +409,10 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg bg-copper/20 text-copper-light flex items-center justify-center mb-6">
                 <Layers className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
+              <h3 className="font-serif text-2xl sm:text-3xl text-ivory font-normal mb-3">
                 Non-Film Forming Cellular Bond
               </h3>
-              <p className="text-sm text-stone-muted/90 leading-relaxed">
+              <p className="text-base sm:text-lg text-stone-muted/95 leading-relaxed">
                 Polyurethane and thick varnishes rest as a plastic film above the timber. When wood expands and contracts with atmospheric humidity, film finishes develop microscopic fissures that trap moisture, turn cloudy, and peel. Tung Oil cures deep inside the cell walls—meaning it can never flake, peel, or blister.
               </p>
             </div>
@@ -421,10 +421,10 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg bg-copper/20 text-copper-light flex items-center justify-center mb-6">
                 <Sparkles className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
+              <h3 className="font-serif text-2xl sm:text-3xl text-ivory font-normal mb-3">
                 Natural Chatoyancy & Warmth
               </h3>
-              <p className="text-sm text-stone-muted/90 leading-relaxed">
+              <p className="text-base sm:text-lg text-stone-muted/95 leading-relaxed">
                 Rather than muddying wood grain behind chemical pigments or artificial dyes, pure Tung Oil saturates the vascular channels of hardwoods, increasing the refractive contrast between earlywood and latewood rings. The result is a luminous, shimmering depth that intensifies with every buffed coat.
               </p>
             </div>
@@ -433,10 +433,10 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg bg-copper/20 text-copper-light flex items-center justify-center mb-6">
                 <Droplets className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
+              <h3 className="font-serif text-2xl sm:text-3xl text-ivory font-normal mb-3">
                 Flexible Atmospheric Cure
               </h3>
-              <p className="text-sm text-stone-muted/90 leading-relaxed">
+              <p className="text-base sm:text-lg text-stone-muted/95 leading-relaxed">
                 Pure Tung oil polymerizes into a natural thermoset-like polymer that repels water, resists mild fruit acids and alcohol spills, and allows the timber beneath to breathe. Water beads naturally across the surface without synthetic sealants.
               </p>
             </div>
@@ -445,10 +445,10 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg bg-copper/20 text-copper-light flex items-center justify-center mb-6">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
+              <h3 className="font-serif text-2xl sm:text-3xl text-ivory font-normal mb-3">
                 Zero Toxic Synthetic Driers
               </h3>
-              <p className="text-sm text-stone-muted/90 leading-relaxed">
+              <p className="text-base sm:text-lg text-stone-muted/95 leading-relaxed">
                 Many modern “drying oils” add toxic cobalt or zirconium heavy-metal driers to force rapid drying. NOVA GRAIN Pure Tung Oil is unadulterated cold-pressed seed oil. Once fully cured (21–30 days), it is inert, non-toxic, and traditionally prized for wooden tableware.
               </p>
             </div>
@@ -457,10 +457,10 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg bg-copper/20 text-copper-light flex items-center justify-center mb-6">
                 <Sliders className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
+              <h3 className="font-serif text-2xl sm:text-3xl text-ivory font-normal mb-3">
                 Effortless Spot Repairs
               </h3>
-              <p className="text-sm text-stone-muted/90 leading-relaxed">
+              <p className="text-base sm:text-lg text-stone-muted/95 leading-relaxed">
                 When polyurethane is scratched or dented, repairing the surface requires sanding down the entire tabletop. With a Tung Oil finish, scratches can be localized, touched up with a small drop of oil on a rag, and buffed back to a seamless matching sheen without edge rings.
               </p>
             </div>
@@ -469,10 +469,10 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg bg-copper/20 text-copper-light flex items-center justify-center mb-6">
                 <Building2 className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
+              <h3 className="font-serif text-2xl sm:text-3xl text-ivory font-normal mb-3">
                 Batch Testing & Industrial Support
               </h3>
-              <p className="text-sm text-stone-muted/90 leading-relaxed">
+              <p className="text-base sm:text-lg text-stone-muted/95 leading-relaxed">
                 For manufacturing operations and architectural projects, we offer verified batch lots with Certificates of Analysis covering specific gravity, acid index, and iodine numbers to ensure consistent cure times in automated or shop environments.
               </p>
             </div>
@@ -505,29 +505,29 @@ export default function HomePage() {
                 Made for People Who Understand Wood.
               </h2>
 
-              <p className="text-base text-charcoal/85 leading-relaxed font-sans">
+              <p className="text-lg sm:text-xl text-charcoal/85 leading-relaxed font-sans">
                 Wood is not plastic. It is not inert drywall or painted metal. Wood is an organic, cellular organism that lived, grew rings across decades of sunlight and rain, and continues to breathe moisture as temperatures fluctuate.
               </p>
 
-              <p className="text-base text-charcoal/80 leading-relaxed font-sans">
+              <p className="text-lg sm:text-xl text-charcoal/80 leading-relaxed font-sans">
                 Covering high-character American Walnut, White Oak, or reclaimed Teak beneath heavy coats of plastic synthetic varnish suffocates its tactile warmth and conceals its natural texture under glossy artificial reflection.
               </p>
 
-              <p className="text-base text-charcoal/80 leading-relaxed font-sans">
+              <p className="text-lg sm:text-xl text-charcoal/80 leading-relaxed font-sans">
                 NOVA GRAIN was conceived on a simple premise: honor the material. By harvesting pure, unadulterated Tung seed oil and combining it with uncompromising batch standards, we provide craftsmen with a finish that feels like wood, moves with wood, and ages gracefully across generations of use.
               </p>
 
-              <div className="pt-4 border-t border-stone flex flex-wrap gap-8 text-sm text-charcoal/75">
+              <div className="pt-4 border-t border-stone flex flex-wrap gap-8 text-base text-charcoal/80">
                 <div>
-                  <span className="font-serif text-xl font-medium text-forest-dark block">Zero Compromise</span>
+                  <span className="font-serif text-2xl font-normal text-forest-dark block">Zero Compromise</span>
                   <span>Pure botanical cold-press oil</span>
                 </div>
                 <div>
-                  <span className="font-serif text-xl font-medium text-forest-dark block">Slow Polymerization</span>
+                  <span className="font-serif text-2xl font-normal text-forest-dark block">Slow Polymerization</span>
                   <span>Honest curing timelines</span>
                 </div>
                 <div>
-                  <span className="font-serif text-xl font-medium text-forest-dark block">Tactile Reverence</span>
+                  <span className="font-serif text-2xl font-normal text-forest-dark block">Tactile Reverence</span>
                   <span>Never a plastic film barrier</span>
                 </div>
               </div>
@@ -622,72 +622,72 @@ export default function HomePage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleB2bSubmit} className="space-y-4 text-sm">
+                <form onSubmit={handleB2bSubmit} className="space-y-4.5 text-base">
                   <div className="border-b border-stone pb-3 mb-4">
-                    <h3 className="font-serif text-2xl font-medium text-forest-dark">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-medium text-forest-dark">
                       Request Bulk Trade Pricing & Samples
                     </h3>
-                    <p className="text-xs text-charcoal/60 mt-0.5">
+                    <p className="text-sm text-charcoal/70 mt-1">
                       Fill out your workshop specifications below. All fields marked with * are required.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-medium text-charcoal mb-1">Contact Name *</label>
+                      <label className="block font-semibold text-charcoal mb-1.5 text-sm">Contact Name *</label>
                       <input
                         type="text"
                         required
                         placeholder="e.g. Thomas Avery"
                         value={b2bFormData.name}
                         onChange={(e) => setB2bFormData({ ...b2bFormData, name: e.target.value })}
-                        className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"
+                        className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none text-base"
                       />
                     </div>
                     <div>
-                      <label className="block font-medium text-charcoal mb-1">Workshop or Business Name *</label>
+                      <label className="block font-semibold text-charcoal mb-1.5 text-sm">Workshop or Business Name *</label>
                       <input
                         type="text"
                         required
                         placeholder="e.g. Avery Architectural Joinery"
                         value={b2bFormData.businessName}
                         onChange={(e) => setB2bFormData({ ...b2bFormData, businessName: e.target.value })}
-                        className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"
+                        className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none text-base"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-medium text-charcoal mb-1">Professional Email *</label>
+                      <label className="block font-semibold text-charcoal mb-1.5 text-sm">Professional Email *</label>
                       <input
                         type="email"
                         required
                         placeholder="deepusahani08@gmail.com"
                         value={b2bFormData.email}
                         onChange={(e) => setB2bFormData({ ...b2bFormData, email: e.target.value })}
-                        className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"
+                        className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none text-base"
                       />
                     </div>
                     <div>
-                      <label className="block font-medium text-charcoal mb-1">Phone Number (Optional)</label>
+                      <label className="block font-semibold text-charcoal mb-1.5 text-sm">Phone Number (Optional)</label>
                       <input
                         type="tel"
                         placeholder="+91-9616495093"
                         value={b2bFormData.phone}
                         onChange={(e) => setB2bFormData({ ...b2bFormData, phone: e.target.value })}
-                        className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"
+                        className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none text-base"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
-                      <label className="block font-medium text-charcoal mb-1">Customer Classification</label>
+                      <label className="block font-semibold text-charcoal mb-1.5 text-sm">Customer Classification</label>
                       <select
                         value={b2bFormData.customerType}
                         onChange={(e) => setB2bFormData({ ...b2bFormData, customerType: e.target.value })}
-                        className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"
+                        className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none text-base"
                       >
                         <option>Cabinetmaker / Furniture Studio</option>
                         <option>Architect / Interior Designer</option>
@@ -698,11 +698,11 @@ export default function HomePage() {
                     </div>
 
                     <div>
-                      <label className="block font-medium text-charcoal mb-1">Estimated Quantity</label>
+                      <label className="block font-semibold text-charcoal mb-1.5 text-sm">Estimated Quantity</label>
                       <select
                         value={b2bFormData.estimatedQuantity}
                         onChange={(e) => setB2bFormData({ ...b2bFormData, estimatedQuantity: e.target.value })}
-                        className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"
+                        className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none text-base"
                       >
                         <option>Trial Sample Kit (250ml - 1L)</option>
                         <option>5 – 20 Litres (Workshop Tier)</option>
@@ -712,11 +712,11 @@ export default function HomePage() {
                     </div>
 
                     <div>
-                      <label className="block font-medium text-charcoal mb-1">Primary Application</label>
+                      <label className="block font-semibold text-charcoal mb-1.5 text-sm">Primary Application</label>
                       <select
                         value={b2bFormData.intendedApplication}
                         onChange={(e) => setB2bFormData({ ...b2bFormData, intendedApplication: e.target.value })}
-                        className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none"
+                        className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none text-base"
                       >
                         <option>Solid Wood Furniture & Tables</option>
                         <option>Architectural Fluted Wall Paneling</option>
@@ -728,42 +728,42 @@ export default function HomePage() {
                   </div>
 
                   <div>
-                    <label className="block font-medium text-charcoal mb-1">Intended Timber Species & Scope *</label>
+                    <label className="block font-semibold text-charcoal mb-1.5 text-sm">Intended Timber Species & Scope *</label>
                     <textarea
                       rows={3}
                       required
                       placeholder="Specify your timber species (e.g. White Oak, American Walnut), square footage, desired sheen level, and timeline."
                       value={b2bFormData.message}
                       onChange={(e) => setB2bFormData({ ...b2bFormData, message: e.target.value })}
-                      className="w-full px-3 py-2 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none resize-none"
+                      className="w-full px-3.5 py-2.5 bg-ivory-light border border-stone-muted rounded focus:border-copper focus:outline-none resize-none text-base"
                     />
                   </div>
 
                   {b2bError && (
-                    <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                    <div className="p-3.5 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-sm flex items-center gap-2">
                       <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
                       <span>{b2bError}</span>
                     </div>
                   )}
 
                   <div className="pt-2 flex items-center justify-between">
-                    <span className="text-xs text-charcoal/60">
+                    <span className="text-sm text-charcoal/70">
                       Response timeline: 1 business day
                     </span>
                     <button
                       type="submit"
                       disabled={b2bLoading}
-                      className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-7 py-3.5 bg-forest hover:bg-forest-light text-ivory text-sm sm:text-base uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {b2bLoading ? (
                         <>
-                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <Loader2 className="w-4 h-4 animate-spin" />
                           <span>Registering...</span>
                         </>
                       ) : (
                         <>
                           <span>Submit Batch Enquiry</span>
-                          <Send className="w-3.5 h-3.5" />
+                          <Send className="w-4 h-4" />
                         </>
                       )}
                     </button>
@@ -835,16 +835,16 @@ export default function HomePage() {
                       <Link href={`/resources/${art.slug}`}>{art.title}</Link>
                     </h3>
 
-                    <p className="text-sm text-charcoal/80 line-clamp-3 leading-relaxed">
+                    <p className="text-base text-charcoal/85 line-clamp-3 leading-relaxed">
                       {art.excerpt}
                     </p>
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-stone flex items-center justify-between text-sm">
-                    <span className="text-xs text-walnut font-medium">By {art.author}</span>
+                    <span className="text-sm text-walnut font-medium">By {art.author}</span>
                     <Link
                       href={`/resources/${art.slug}`}
-                      className="text-forest hover:text-copper font-medium flex items-center gap-1 text-xs uppercase tracking-wider"
+                      className="text-forest hover:text-copper font-medium flex items-center gap-1 text-sm uppercase tracking-wider"
                     >
                       Read Guide <ArrowRight className="w-3 h-3" />
                     </Link>
@@ -892,7 +892,7 @@ export default function HomePage() {
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/shop"
-              className="px-8 py-4 bg-copper hover:bg-copper-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-lg flex items-center gap-2"
+              className="px-8 py-4 bg-copper hover:bg-copper-light text-ivory text-sm sm:text-base uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-lg flex items-center gap-2"
             >
               <span>Explore Products</span>
               <ArrowRight className="w-4 h-4" />
@@ -900,7 +900,7 @@ export default function HomePage() {
 
             <Link
               href="/contact"
-              className="px-8 py-4 bg-ivory/10 hover:bg-ivory/20 backdrop-blur-sm border border-ivory/30 text-ivory text-xs uppercase tracking-widest font-medium transition-colors rounded-xs"
+              className="px-8 py-4 bg-ivory/10 hover:bg-ivory/20 backdrop-blur-sm border border-ivory/30 text-ivory text-sm sm:text-base uppercase tracking-widest font-semibold transition-colors rounded-xs"
             >
               Talk to Our Team
             </Link>

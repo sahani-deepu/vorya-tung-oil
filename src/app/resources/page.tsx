@@ -51,31 +51,31 @@ export default function ResourcesPage() {
 
             <div className="lg:col-span-5 p-8 lg:p-12 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-3 text-xs text-stone-muted mb-3 font-mono">
+                <div className="flex items-center gap-3 text-sm text-stone-muted mb-3 font-mono">
                   <span>{ARTICLES[0].category}</span>
                   <span>•</span>
                   <span>{ARTICLES[0].readTime}</span>
                 </div>
 
-                <h2 className="font-serif text-3xl sm:text-4xl text-ivory font-normal leading-tight mb-3">
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-ivory font-normal leading-tight mb-3">
                   <Link href={`/resources/${ARTICLES[0].slug}`} className="hover:text-copper-light transition-colors">
                     {ARTICLES[0].title}
                   </Link>
                 </h2>
 
-                <p className="text-base text-stone-muted/90 leading-relaxed font-sans mb-6">
+                <p className="text-base sm:text-lg text-stone-muted/95 leading-relaxed font-sans mb-6">
                   {ARTICLES[0].excerpt}
                 </p>
               </div>
 
               <div className="pt-6 border-t border-forest-surface flex items-center justify-between">
-                <span className="text-sm text-stone-muted">By {ARTICLES[0].author}</span>
+                <span className="text-base text-stone-muted font-medium">By {ARTICLES[0].author}</span>
                 <Link
                   href={`/resources/${ARTICLES[0].slug}`}
-                  className="inline-flex items-center gap-1.5 text-sm uppercase tracking-widest text-copper-light hover:text-ivory font-semibold transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm sm:text-base uppercase tracking-widest text-copper-light hover:text-ivory font-bold transition-colors"
                 >
                   <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -97,33 +97,33 @@ export default function ResourcesPage() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute top-3 left-3 bg-forest-dark/80 backdrop-blur-sm text-ivory text-xs uppercase font-mono px-2 py-0.5 rounded">
+                <div className="absolute top-3 left-3 bg-forest-dark/90 backdrop-blur-sm text-ivory text-xs uppercase font-mono px-2.5 py-1 rounded font-medium">
                   {art.category}
                 </div>
               </div>
 
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              <div className="p-6 md:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="text-xs text-charcoal/60 mb-2 flex items-center gap-2">
+                  <div className="text-sm text-charcoal/60 mb-2.5 flex items-center gap-2 font-mono">
                     <span>{art.date}</span>
                     <span>•</span>
                     <span>{art.readTime}</span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-medium text-forest-dark group-hover:text-copper transition-colors mb-2 leading-snug">
+                  <h3 className="font-serif text-2xl font-medium text-forest-dark group-hover:text-copper transition-colors mb-2.5 leading-snug">
                     <Link href={`/resources/${art.slug}`}>{art.title}</Link>
                   </h3>
 
-                  <p className="text-sm text-charcoal/80 line-clamp-3 leading-relaxed">
+                  <p className="text-base text-charcoal/85 line-clamp-3 leading-relaxed">
                     {art.excerpt}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-stone flex items-center justify-between text-sm">
-                  <span className="text-xs text-walnut font-medium">By {art.author}</span>
+                <div className="mt-6 pt-4 border-t border-stone flex items-center justify-between text-base">
+                  <span className="text-sm text-walnut font-medium">By {art.author}</span>
                   <Link
                     href={`/resources/${art.slug}`}
-                    className="text-forest hover:text-copper font-medium flex items-center gap-1 text-xs uppercase tracking-wider"
+                    className="text-forest hover:text-copper font-semibold flex items-center gap-1.5 text-sm uppercase tracking-wider"
                   >
                     Read Guide <ArrowRight className="w-3.5 h-3.5" />
                   </Link>

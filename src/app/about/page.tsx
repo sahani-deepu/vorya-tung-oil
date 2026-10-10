@@ -53,7 +53,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-6 space-y-6 text-base text-charcoal/85 leading-relaxed font-sans">
+          <div className="lg:col-span-6 space-y-6 text-base sm:text-lg text-charcoal/85 leading-relaxed font-sans">
             <h2 className="font-serif text-3xl sm:text-4xl text-forest-dark font-normal">
               The Living Material Doctrine
             </h2>
@@ -70,8 +70,8 @@ export default function AboutPage() {
               <strong>Tung Oil works differently.</strong> Cold-pressed from the seeds of <em>Vernicia fordii</em>, it contains pure conjugated triene fatty acids. When introduced to raw wood, capillary suction draws the oil into the deepest lumens of the wood cells. Here, it reacts directly with atmospheric oxygen to form an insoluble, flexible polymer <em>within the wood fibers themselves</em>.
             </p>
 
-            <div className="p-4 bg-ivory-light rounded-lg border border-stone space-y-2 text-sm">
-              <span className="font-serif text-lg font-semibold text-forest-dark block">
+            <div className="p-5 bg-ivory-light rounded-xl border border-stone space-y-3 text-base">
+              <span className="font-serif text-xl font-semibold text-forest-dark block">
                 The Three Guiding Principles:
               </span>
               <p>• <strong>Cellular Penetration:</strong> Never build a film over the wood. Fill the pores and let the wood breathe.</p>
@@ -84,44 +84,44 @@ export default function AboutPage() {
         {/* Botanical Origin Grid */}
         <div className="bg-stone-light/40 rounded-2xl p-8 md:p-12 border border-stone mb-20">
           <div className="max-w-3xl mb-8">
-            <span className="text-xs uppercase tracking-widest text-copper font-semibold block mb-1">
+            <span className="text-xs uppercase tracking-widest text-copper font-bold block mb-1">
               THE BOTANICAL SOURCE
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-forest-dark font-normal">
               The Chemistry of Vernicia fordii
             </h2>
-            <p className="mt-2 text-base text-charcoal/80 leading-relaxed font-sans">
+            <p className="mt-3 text-base sm:text-lg text-charcoal/80 leading-relaxed font-sans">
               Tung trees have been cultivated for centuries across East Asia for their seed oil, celebrated as the world&apos;s most naturally water-repellent plant extract.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-            <div className="bg-ivory p-6 rounded-xl border border-stone shadow-xs">
-              <div className="w-10 h-10 rounded-full bg-forest/10 text-forest flex items-center justify-center mb-4">
-                <Layers className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-base">
+            <div className="bg-ivory p-7 rounded-xl border border-stone shadow-xs">
+              <div className="w-12 h-12 rounded-full bg-forest/10 text-forest flex items-center justify-center mb-4">
+                <Layers className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-xl font-medium text-forest-dark mb-2">Alpha-Eleostearic Acid</h3>
-              <p className="text-charcoal/70 leading-relaxed">
+              <h3 className="font-serif text-2xl font-medium text-forest-dark mb-2.5">Alpha-Eleostearic Acid</h3>
+              <p className="text-charcoal/80 leading-relaxed">
                 Making up over 80% of Tung Oil’s fatty acid profile, this conjugated triene contains three alternating double bonds that trigger spontaneous oxidative cross-linking upon exposure to air.
               </p>
             </div>
 
-            <div className="bg-ivory p-6 rounded-xl border border-stone shadow-xs">
-              <div className="w-10 h-10 rounded-full bg-forest/10 text-forest flex items-center justify-center mb-4">
-                <Droplets className="w-5 h-5" />
+            <div className="bg-ivory p-7 rounded-xl border border-stone shadow-xs">
+              <div className="w-12 h-12 rounded-full bg-forest/10 text-forest flex items-center justify-center mb-4">
+                <Droplets className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-xl font-medium text-forest-dark mb-2">Mechanical Expeller Extraction</h3>
-              <p className="text-charcoal/70 leading-relaxed">
+              <h3 className="font-serif text-2xl font-medium text-forest-dark mb-2.5">Mechanical Expeller Extraction</h3>
+              <p className="text-charcoal/80 leading-relaxed">
                 Our seed oil is mechanically cold-pressed without chemical hexane solvents, preserving the natural triglyceride integrity and warm amber color of the pure seed.
               </p>
             </div>
 
-            <div className="bg-ivory p-6 rounded-xl border border-stone shadow-xs">
-              <div className="w-10 h-10 rounded-full bg-forest/10 text-forest flex items-center justify-center mb-4">
-                <ShieldCheck className="w-5 h-5" />
+            <div className="bg-ivory p-7 rounded-xl border border-stone shadow-xs">
+              <div className="w-12 h-12 rounded-full bg-forest/10 text-forest flex items-center justify-center mb-4">
+                <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-xl font-medium text-forest-dark mb-2">Non-Toxic When Cured</h3>
-              <p className="text-charcoal/70 leading-relaxed">
+              <h3 className="font-serif text-2xl font-medium text-forest-dark mb-2.5">Non-Toxic When Cured</h3>
+              <p className="text-charcoal/80 leading-relaxed">
                 Because our Pure Tung Oil contains no synthetic heavy metal driers, the fully cross-linked polymer is chemically stable and inert once the 30-day cure cycle is completed.
               </p>
             </div>
@@ -130,19 +130,19 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="text-center py-12 border-t border-stone">
-          <h2 className="font-serif text-3xl text-forest-dark font-normal mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl text-forest-dark font-normal mb-4">
             Experience the Touch of Genuine Tung Oil
           </h2>
           <div className="flex justify-center gap-4">
             <Link
               href="/shop"
-              className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-md"
+              className="px-7 py-3.5 bg-forest hover:bg-forest-light text-ivory text-sm uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-md"
             >
               Explore the Collection
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 bg-ivory border border-stone-muted hover:border-forest text-forest-dark text-xs uppercase tracking-widest font-medium transition-colors rounded-xs"
+              className="px-7 py-3.5 bg-ivory border border-stone-muted hover:border-forest text-forest-dark text-sm uppercase tracking-widest font-semibold transition-colors rounded-xs"
             >
               Contact Our Atelier
             </Link>
