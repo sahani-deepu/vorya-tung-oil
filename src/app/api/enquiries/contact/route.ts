@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseServerClient, isSupabaseConfigured } from "@/lib/supabaseServer";
 import { sendEnquiryEmails } from "@/lib/resendServer";
+import { syncToGoogleSheet } from "@/lib/googleSheetServer";
 import {
   checkRateLimit,
   cleanString,
@@ -131,6 +132,20 @@ export async function POST(request: Request) {
         updated_at: new Date().toISOString(),
       })
       .eq("id", recordId);
+
+    // 8. Google Sheet Real-time Sync (Non-blocking)
+    await syncToGoogleSheet({
+      formType: "contact",
+      id: recordId,
+      referenceId,
+      name,
+      email,
+      subject,
+      timberSpecies: timberSpecies || "",
+      message,
+      status: "new",
+      emailStatus: emailResult.adminSent ? "sent" : "failed",
+    });
 
     return NextResponse.json({
       success: true,

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseServerClient, isSupabaseConfigured } from "@/lib/supabaseServer";
 import { sendEnquiryEmails } from "@/lib/resendServer";
+import { syncToGoogleSheet } from "@/lib/googleSheetServer";
 import { verifyAndCalculateCart } from "@/lib/pricingServer";
 import {
   checkRateLimit,
@@ -188,6 +189,32 @@ export async function POST(request: Request) {
         updated_at: new Date().toISOString(),
       })
       .eq("id", recordId);
+
+    // 9. Google Sheet Real-time Sync (Non-blocking)
+    const itemsSummary = verifiedItems
+      .map((item) => `${item.name} (${item.variant}): Qty ${item.quantity} [${item.priceDisplay}]`)
+      .join(" | ");
+
+    await syncToGoogleSheet({
+      formType: "cart",
+      id: recordId,
+      referenceId: orderRef,
+      submissionType,
+      name: name || "",
+      company: company || "",
+      email,
+      phone: phone || "",
+      address: address || "",
+      city: resolvedCity,
+      postalCode: resolvedPostalCode,
+      country,
+      totalUnits,
+      subtotal,
+      itemsSummary,
+      notes: notes || "",
+      status: "new",
+      emailStatus: emailResult.adminSent ? "sent" : "failed",
+    });
 
     return NextResponse.json({
       success: true,
