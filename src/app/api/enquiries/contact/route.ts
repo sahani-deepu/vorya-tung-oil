@@ -42,6 +42,7 @@ export async function POST(request: Request) {
     const subject = cleanString(body.subject || "General Technical Inquiry", 200);
     const timberSpecies = cleanString(body.timberSpecies, 200);
     const message = cleanString(body.message, 5000);
+    const leadSourceUrl = cleanString(body.leadSourceUrl, 500) || request.headers.get("referer") || "";
 
     const errors: Record<string, string> = {};
     if (!name || name.length < 2) errors.name = "Full name is required (minimum 2 characters).";
@@ -88,6 +89,7 @@ export async function POST(request: Request) {
         subject,
         timber_species: timberSpecies || null,
         message,
+        lead_source_url: leadSourceUrl || null,
         status: "new",
         email_notification_status: "pending",
         customer_acknowledgement_status: "pending",
@@ -119,6 +121,7 @@ export async function POST(request: Request) {
         Subject: subject,
         "Timber Species Under Review": timberSpecies || "Not Specified",
         "Inquiry Message": message,
+        "Lead Source URL": leadSourceUrl || "Direct Site Visit",
       },
     });
 
@@ -143,6 +146,7 @@ export async function POST(request: Request) {
       subject,
       timberSpecies: timberSpecies || "",
       message,
+      leadSourceUrl,
       status: "new",
       emailStatus: emailResult.adminSent ? "sent" : "failed",
     });

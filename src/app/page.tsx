@@ -59,6 +59,7 @@ export default function HomePage() {
         body: JSON.stringify({
           ...b2bFormData,
           source: "homepage_b2b",
+          leadSourceUrl: typeof window !== "undefined" ? window.location.href : "",
         }),
       });
 

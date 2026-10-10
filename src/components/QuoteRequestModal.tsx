@@ -44,7 +44,10 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
       const res = await fetch("/api/enquiries/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          leadSourceUrl: typeof window !== "undefined" ? window.location.href : "",
+        }),
       });
 
       const data = await res.json();

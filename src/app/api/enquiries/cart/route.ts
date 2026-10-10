@@ -48,6 +48,7 @@ export async function POST(request: Request) {
     const postalCode = cleanString(body.postalCode, 30);
     const country = cleanString(body.country || "United States", 100);
     const notes = cleanString(body.notes, 3000);
+    const leadSourceUrl = cleanString(body.leadSourceUrl, 500) || request.headers.get("referer") || "";
 
     const resolvedCity = city || (address ? address.split(",")[0]?.trim() : "") || "Workshop Destination";
     const resolvedPostalCode = postalCode || "00000";
@@ -129,6 +130,7 @@ export async function POST(request: Request) {
         postal_code: resolvedPostalCode || null,
         country: country || "United States",
         notes: notes || null,
+        lead_source_url: leadSourceUrl || null,
         items: verifiedItems,
         subtotal,
         total_units: totalUnits,
@@ -166,6 +168,7 @@ export async function POST(request: Request) {
         "Contact Phone": phone || "Not Provided",
         "Destination Address": address ? `${address}, ${city}, ${postalCode}, ${country}` : "To be confirmed during freight dispatch",
         "Delivery Notes / Instructions": notes || "Standard dispatch",
+        "Lead Source URL": leadSourceUrl || "Direct Site Visit",
       },
       cartSummary: {
         totalUnits,
@@ -212,6 +215,7 @@ export async function POST(request: Request) {
       subtotal,
       itemsSummary,
       notes: notes || "",
+      leadSourceUrl,
       status: "new",
       emailStatus: emailResult.adminSent ? "sent" : "failed",
     });

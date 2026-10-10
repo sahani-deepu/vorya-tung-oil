@@ -30,6 +30,7 @@ export interface GoogleSheetPayload {
   itemsSummary?: string;
   notes?: string;
   message?: string;
+  leadSourceUrl?: string;
   status?: string;
   emailStatus?: string;
 }

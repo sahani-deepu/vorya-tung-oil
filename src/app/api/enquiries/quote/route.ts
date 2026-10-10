@@ -47,6 +47,7 @@ export async function POST(request: Request) {
     const intendedApplication = cleanString(body.intendedApplication || "Solid Furniture & Tables", 150);
     const rawMessage = cleanString(body.message, 5000);
     const message = rawMessage || `Workshop quote request for ${estimatedQuantity} of ${productInterest} (${intendedApplication}).`;
+    const leadSourceUrl = cleanString(body.leadSourceUrl, 500) || request.headers.get("referer") || "";
 
     const errors: Record<string, string> = {};
     if (!name || name.length < 2) errors.name = "Your name is required (minimum 2 characters).";
@@ -98,6 +99,7 @@ export async function POST(request: Request) {
         estimated_quantity: estimatedQuantity,
         intended_application: intendedApplication,
         message,
+        lead_source_url: leadSourceUrl || null,
         status: "new",
         email_notification_status: "pending",
         customer_acknowledgement_status: "pending",
@@ -133,6 +135,7 @@ export async function POST(request: Request) {
         "Estimated Volume": estimatedQuantity,
         "Application": intendedApplication,
         "Project Specifications": message,
+        "Lead Source URL": leadSourceUrl || "Direct Site Visit",
       },
     });
 
@@ -161,6 +164,7 @@ export async function POST(request: Request) {
       estimatedQuantity,
       intendedApplication,
       message,
+      leadSourceUrl,
       status: "new",
       emailStatus: emailResult.adminSent ? "sent" : "failed",
     });

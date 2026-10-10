@@ -37,6 +37,7 @@ export default function BulkEnquiryPage() {
         body: JSON.stringify({
           ...formData,
           source: "bulk_page",
+          leadSourceUrl: typeof window !== "undefined" ? window.location.href : "",
         }),
       });
 

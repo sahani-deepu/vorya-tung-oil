@@ -48,6 +48,7 @@ export async function POST(request: Request) {
     const rawMessage = cleanString(body.message, 5000);
     const message = rawMessage || `Trade procurement request for ${estimatedQuantity} intended for ${intendedApplication}.`;
     const source = cleanString(body.source || "bulk_page", 50);
+    const leadSourceUrl = cleanString(body.leadSourceUrl, 500) || request.headers.get("referer") || "";
 
     const errors: Record<string, string> = {};
     if (!name || name.length < 2) errors.name = "Contact name is required (minimum 2 characters).";
@@ -100,6 +101,7 @@ export async function POST(request: Request) {
         intended_application: intendedApplication,
         delivery_timeline: deliveryTimeline || null,
         message,
+        lead_source_url: leadSourceUrl || null,
         status: "new",
         email_notification_status: "pending",
         customer_acknowledgement_status: "pending",
@@ -136,6 +138,7 @@ export async function POST(request: Request) {
         "Required Timeline": deliveryTimeline,
         "Portal Source": source === "homepage_b2b" ? "Homepage B2B Section" : "Dedicated Bulk Procurement Portal",
         "Timber Species & Scope": message,
+        "Lead Source URL": leadSourceUrl || "Direct Site Visit",
       },
     });
 
@@ -165,6 +168,7 @@ export async function POST(request: Request) {
       intendedApplication,
       deliveryTimeline: deliveryTimeline || "",
       message,
+      leadSourceUrl,
       status: "new",
       emailStatus: emailResult.adminSent ? "sent" : "failed",
     });

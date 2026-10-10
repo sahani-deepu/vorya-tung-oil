@@ -60,6 +60,7 @@ export default function CartPage() {
           items: items,
           subtotal: subtotal,
           totalUnits: totalItems,
+          leadSourceUrl: typeof window !== "undefined" ? window.location.href : "",
         }),
       });
 

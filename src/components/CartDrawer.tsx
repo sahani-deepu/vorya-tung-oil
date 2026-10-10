@@ -33,6 +33,7 @@ export const CartDrawer: React.FC = () => {
           items: items,
           subtotal: subtotal,
           totalUnits: totalItems,
+          leadSourceUrl: typeof window !== "undefined" ? window.location.href : "",
         }),
       });
 
