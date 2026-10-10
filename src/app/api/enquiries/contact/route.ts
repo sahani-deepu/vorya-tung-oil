@@ -48,52 +48,62 @@ export async function POST(request: Request) {
     if (!message || message.length < 5) errors.message = "Message details are required (minimum 5 characters).";
 
     if (Object.keys(errors).length > 0) {
-      return NextResponse.json({ error: "Validation failed.", details: errors }, { status: 422 });
-    }
-
-    // 5. Database Persistence
-    const referenceId = `NG-CNT-${Math.floor(100000 + Math.random() * 900000)}`;
-    let recordId = crypto.randomUUID();
-    let dbSaved = false;
-
-    if (isSupabaseConfigured()) {
-      const supabase = getSupabaseServerClient();
-      if (supabase) {
-        const { data: dbData, error: dbError } = await supabase
-          .from("contact_enquiries")
-          .insert({
-            name,
-            email,
-            subject,
-            timber_species: timberSpecies || null,
-            message,
-            status: "new",
-            email_notification_status: "pending",
-            customer_acknowledgement_status: "pending",
-            ip_hash: escapeHtml(ip).slice(0, 64),
-          })
-          .select("id")
-          .single();
-
-        if (dbError) {
-          console.error("[Supabase Error - Contact]", dbError);
-          return NextResponse.json(
-            { error: "Database registration failed. Please try again." },
-            { status: 500 }
-          );
-        }
-
-        if (dbData?.id) {
-          recordId = dbData.id;
-          dbSaved = true;
-        }
-      }
-    } else {
-      console.warn(
-        `[Dev Warning] Supabase is not configured. Simulating persistence for contact submission: ${referenceId}`
+      const errorSummary = Object.values(errors).join(" ");
+      return NextResponse.json(
+        { error: `Validation failed: ${errorSummary}`, details: errors },
+        { status: 422 }
       );
-      dbSaved = true;
     }
+
+    // 5. Database Persistence Verification (Requirement 4: Fail with 500 if not configured)
+    const referenceId = `NG-CNT-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    if (!isSupabaseConfigured()) {
+      return NextResponse.json(
+        {
+          error: "Database service is not configured. Missing Supabase credentials.",
+          code: "SUPABASE_UNCONFIGURED",
+        },
+        { status: 500 }
+      );
+    }
+
+    const supabase = getSupabaseServerClient();
+    if (!supabase) {
+      return NextResponse.json(
+        {
+          error: "Failed to initialize Supabase server client.",
+          code: "SUPABASE_CLIENT_ERROR",
+        },
+        { status: 500 }
+      );
+    }
+
+    const { data: dbData, error: dbError } = await supabase
+      .from("contact_enquiries")
+      .insert({
+        name,
+        email,
+        subject,
+        timber_species: timberSpecies || null,
+        message,
+        status: "new",
+        email_notification_status: "pending",
+        customer_acknowledgement_status: "pending",
+        ip_hash: escapeHtml(ip).slice(0, 64),
+      })
+      .select("id")
+      .single();
+
+    if (dbError) {
+      console.error("[Supabase Error - Contact]", dbError);
+      return NextResponse.json(
+        { error: "Database registration failed. Please try again." },
+        { status: 500 }
+      );
+    }
+
+    const recordId = dbData.id;
 
     // 6. Resend Email Dispatch
     const emailResult = await sendEnquiryEmails({
@@ -111,21 +121,16 @@ export async function POST(request: Request) {
       },
     });
 
-    // 7. Update Email Status in Supabase if saved
-    if (dbSaved && isSupabaseConfigured()) {
-      const supabase = getSupabaseServerClient();
-      if (supabase) {
-        await supabase
-          .from("contact_enquiries")
-          .update({
-            email_notification_status: emailResult.adminSent ? "sent" : "failed",
-            customer_acknowledgement_status: emailResult.customerSent ? "sent" : "failed",
-            email_error_message: emailResult.error || null,
-            updated_at: new Date().toISOString(),
-          })
-          .eq("id", recordId);
-      }
-    }
+    // 7. Update Email Status in Supabase
+    await supabase
+      .from("contact_enquiries")
+      .update({
+        email_notification_status: emailResult.adminSent ? "sent" : "failed",
+        customer_acknowledgement_status: emailResult.customerSent ? "sent" : "failed",
+        email_error_message: emailResult.error || null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", recordId);
 
     return NextResponse.json({
       success: true,

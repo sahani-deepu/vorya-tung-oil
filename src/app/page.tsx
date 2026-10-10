@@ -64,7 +64,8 @@ export default function HomePage() {
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || "Failed to submit trade inquiry.");
+        const detailMsg = data.details ? Object.values(data.details).join(" ") : "";
+        throw new Error(detailMsg || data.error || "Failed to submit trade inquiry.");
       }
 
       setB2bReferenceId(data.referenceId || "NG-BLK-CONFIRMED");

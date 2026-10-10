@@ -38,7 +38,8 @@ export const CartDrawer: React.FC = () => {
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || "Failed to submit batch quote request.");
+        const detailMsg = data.details ? Object.values(data.details).join(" ") : "";
+        throw new Error(detailMsg || data.error || "Failed to submit batch quote request.");
       }
 
       setOrderRef(data.referenceId || data.orderRef || "NG-ORD-CONFIRMED");

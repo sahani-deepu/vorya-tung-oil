@@ -45,14 +45,15 @@ export function escapeHtml(str: unknown): string {
 }
 
 /**
- * Basic email format verification (RFC 5322 compatible regex)
+ * Email format verification (supports standard RFC domains and local dev addresses like admin@localhost)
  */
 export function isValidEmail(email: string): boolean {
   if (!email || typeof email !== "string") return false;
   const trimmed = email.trim().toLowerCase();
-  if (trimmed.length > 254) return false;
-  const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
-  return regex.test(trimmed);
+  if (trimmed.length < 3 || trimmed.length > 254) return false;
+  // RFC-compatible pattern that also accommodates localhost/local dev domains
+  const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  return regex.test(trimmed) && trimmed.includes("@") && !trimmed.endsWith("@");
 }
 
 /**

@@ -49,7 +49,8 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || "Failed to submit quote request.");
+        const detailMsg = data.details ? Object.values(data.details).join(" ") : "";
+        throw new Error(detailMsg || data.error || "Failed to submit quote request.");
       }
 
       setReferenceId(data.referenceId || "NG-QTE-CONFIRMED");
@@ -234,7 +235,7 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-medium text-charcoal mb-1">Project Details or Specific Technical Requirements</label>
+                  <label className="block font-medium text-charcoal mb-1">Project Details or Specific Technical Requirements (Optional)</label>
                   <textarea
                     rows={3}
                     placeholder="Tell us about your timber species (e.g. American Walnut, White Oak), surface square footage, drying chamber parameters, or certificate requirements."

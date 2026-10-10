@@ -44,65 +44,76 @@ export async function POST(request: Request) {
     const customerType = cleanString(body.customerType || "Cabinetmaker / Furniture Maker", 100);
     const estimatedQuantity = cleanString(body.estimatedQuantity || "5 – 20 Litres", 100);
     const intendedApplication = cleanString(body.intendedApplication || "Solid Furniture & Tables", 150);
-    const message = cleanString(body.message, 5000);
+    const rawMessage = cleanString(body.message, 5000);
+    const message = rawMessage || `Workshop quote request for ${estimatedQuantity} of ${productInterest} (${intendedApplication}).`;
 
     const errors: Record<string, string> = {};
-    if (!name || name.length < 2) errors.name = "Your name is required.";
+    if (!name || name.length < 2) errors.name = "Your name is required (minimum 2 characters).";
     if (!businessName || businessName.length < 2) errors.businessName = "Workshop or company name is required.";
     if (!email || !isValidEmail(email)) errors.email = "A valid professional email is required.";
-    if (!message || message.length < 5) errors.message = "Project specifications and details are required.";
+    if (rawMessage && rawMessage.length < 3) errors.message = "Project specifications must be at least 3 characters if provided.";
 
     if (Object.keys(errors).length > 0) {
-      return NextResponse.json({ error: "Validation failed.", details: errors }, { status: 422 });
-    }
-
-    // 5. Database Persistence
-    const referenceId = `NG-QTE-${Math.floor(100000 + Math.random() * 900000)}`;
-    let recordId = crypto.randomUUID();
-    let dbSaved = false;
-
-    if (isSupabaseConfigured()) {
-      const supabase = getSupabaseServerClient();
-      if (supabase) {
-        const { data: dbData, error: dbError } = await supabase
-          .from("quote_requests")
-          .insert({
-            product_interest: productInterest,
-            name,
-            business_name: businessName,
-            email,
-            phone: phone || null,
-            customer_type: customerType,
-            estimated_quantity: estimatedQuantity,
-            intended_application: intendedApplication,
-            message,
-            status: "new",
-            email_notification_status: "pending",
-            customer_acknowledgement_status: "pending",
-            ip_hash: escapeHtml(ip).slice(0, 64),
-          })
-          .select("id")
-          .single();
-
-        if (dbError) {
-          console.error("[Supabase Error - Quote]", dbError);
-          return NextResponse.json(
-            { error: "Database registration failed. Please try again." },
-            { status: 500 }
-          );
-        }
-
-        if (dbData?.id) {
-          recordId = dbData.id;
-          dbSaved = true;
-        }
-      }
-    } else {
-      console.warn(
-        `[Dev Warning] Supabase is not configured. Simulating persistence for quote request: ${referenceId}`
+      const errorSummary = Object.values(errors).join(" ");
+      return NextResponse.json(
+        { error: `Validation failed: ${errorSummary}`, details: errors },
+        { status: 422 }
       );
-      dbSaved = true;
     }
+
+    // 5. Database Persistence Verification (Requirement 4: Fail with 500 if not configured)
+    const referenceId = `NG-QTE-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    if (!isSupabaseConfigured()) {
+      return NextResponse.json(
+        {
+          error: "Database service is not configured. Missing Supabase credentials.",
+          code: "SUPABASE_UNCONFIGURED",
+        },
+        { status: 500 }
+      );
+    }
+
+    const supabase = getSupabaseServerClient();
+    if (!supabase) {
+      return NextResponse.json(
+        {
+          error: "Failed to initialize Supabase server client.",
+          code: "SUPABASE_CLIENT_ERROR",
+        },
+        { status: 500 }
+      );
+    }
+
+    const { data: dbData, error: dbError } = await supabase
+      .from("quote_requests")
+      .insert({
+        product_interest: productInterest,
+        name,
+        business_name: businessName,
+        email,
+        phone: phone || null,
+        customer_type: customerType,
+        estimated_quantity: estimatedQuantity,
+        intended_application: intendedApplication,
+        message,
+        status: "new",
+        email_notification_status: "pending",
+        customer_acknowledgement_status: "pending",
+        ip_hash: escapeHtml(ip).slice(0, 64),
+      })
+      .select("id")
+      .single();
+
+    if (dbError) {
+      console.error("[Supabase Error - Quote]", dbError);
+      return NextResponse.json(
+        { error: "Database registration failed. Please try again." },
+        { status: 500 }
+      );
+    }
+
+    const recordId = dbData.id;
 
     // 6. Resend Email Dispatch
     const emailResult = await sendEnquiryEmails({
@@ -124,21 +135,16 @@ export async function POST(request: Request) {
       },
     });
 
-    // 7. Update Email Status in Supabase if saved
-    if (dbSaved && isSupabaseConfigured()) {
-      const supabase = getSupabaseServerClient();
-      if (supabase) {
-        await supabase
-          .from("quote_requests")
-          .update({
-            email_notification_status: emailResult.adminSent ? "sent" : "failed",
-            customer_acknowledgement_status: emailResult.customerSent ? "sent" : "failed",
-            email_error_message: emailResult.error || null,
-            updated_at: new Date().toISOString(),
-          })
-          .eq("id", recordId);
-      }
-    }
+    // 7. Update Email Status in Supabase
+    await supabase
+      .from("quote_requests")
+      .update({
+        email_notification_status: emailResult.adminSent ? "sent" : "failed",
+        customer_acknowledgement_status: emailResult.customerSent ? "sent" : "failed",
+        email_error_message: emailResult.error || null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", recordId);
 
     return NextResponse.json({
       success: true,

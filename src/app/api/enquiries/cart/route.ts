@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseServerClient, isSupabaseConfigured } from "@/lib/supabaseServer";
 import { sendEnquiryEmails } from "@/lib/resendServer";
+import { verifyAndCalculateCart } from "@/lib/pricingServer";
 import {
   checkRateLimit,
   cleanString,
@@ -8,15 +9,6 @@ import {
   sanitizePhone,
   escapeHtml,
 } from "@/lib/validation";
-
-interface RawCartItem {
-  id?: string;
-  name?: string;
-  variant?: string;
-  quantity?: number;
-  price?: string;
-  numericPrice?: number;
-}
 
 export async function POST(request: Request) {
   try {
@@ -56,25 +48,31 @@ export async function POST(request: Request) {
     const country = cleanString(body.country || "United States", 100);
     const notes = cleanString(body.notes, 3000);
 
+    const resolvedCity = city || (address ? address.split(",")[0]?.trim() : "") || "Workshop Destination";
+    const resolvedPostalCode = postalCode || "00000";
+
     const errors: Record<string, string> = {};
     if (!email || !isValidEmail(email)) {
       errors.email = "A valid contact email is required.";
     }
 
     if (submissionType === "full_checkout") {
-      if (!name || name.length < 2) errors.name = "Full name is required.";
-      if (!phone || phone.length < 5) errors.phone = "A valid phone number is required for freight dispatch.";
-      if (!address || address.length < 3) errors.address = "Shipping address is required.";
-      if (!city || city.length < 2) errors.city = "City is required.";
-      if (!postalCode || postalCode.length < 2) errors.postalCode = "Postal / ZIP code is required.";
+      if (!name || name.length < 2) errors.name = "Full name is required (minimum 2 characters).";
+      if (!phone || phone.length < 5) errors.phone = "A valid phone number (minimum 5 digits) is required for freight dispatch.";
+      if (!address || address.length < 3) errors.address = "Shipping destination address is required (minimum 3 characters).";
     }
 
     if (Object.keys(errors).length > 0) {
-      return NextResponse.json({ error: "Validation failed.", details: errors }, { status: 422 });
+      const errorSummary = Object.values(errors).join(" ");
+      return NextResponse.json(
+        { error: `Validation failed: ${errorSummary}`, details: errors },
+        { status: 422 }
+      );
     }
 
-    // 5. Sanitize & Normalize Cart Items
-    const rawItems: RawCartItem[] = Array.isArray(body.items) ? body.items : [];
+    // 5. Authoritative Server Pricing Validation & Calculation
+    // Never trust client-submitted unit prices, currency formats, or calculated totals.
+    const rawItems = Array.isArray(body.items) ? body.items : [];
     if (rawItems.length === 0) {
       return NextResponse.json(
         { error: "Your cart bag contains no items to quote." },
@@ -82,76 +80,74 @@ export async function POST(request: Request) {
       );
     }
 
-    const sanitizedItems = rawItems.map((item) => {
-      const qty = Math.max(1, Math.min(1000, Number(item.quantity) || 1));
-      const unitPrice = typeof item.numericPrice === "number" ? item.numericPrice : 0;
-      return {
-        id: cleanString(item.id, 100),
-        name: cleanString(item.name || "Finishing Formulation", 150),
-        variant: cleanString(item.variant, 100),
-        quantity: qty,
-        unitPrice,
-        priceDisplay: cleanString(item.price || (unitPrice > 0 ? `$${unitPrice.toFixed(2)}` : "Quote Required"), 50),
-        lineTotal: unitPrice * qty,
-      };
-    });
-
-    const totalUnits = sanitizedItems.reduce((acc, curr) => acc + curr.quantity, 0);
-    const calculatedSubtotal = sanitizedItems.reduce((acc, curr) => acc + curr.lineTotal, 0);
-    const subtotal = typeof body.subtotal === "number" ? body.subtotal : calculatedSubtotal;
-
-    // 6. Database Persistence
-    const orderRef = `NG-ORD-${Math.floor(100000 + Math.random() * 900000)}`;
-    let recordId = crypto.randomUUID();
-    let dbSaved = false;
-
-    if (isSupabaseConfigured()) {
-      const supabase = getSupabaseServerClient();
-      if (supabase) {
-        const { data: dbData, error: dbError } = await supabase
-          .from("cart_orders")
-          .insert({
-            order_ref: orderRef,
-            submission_type: submissionType,
-            name: name || null,
-            company: company || null,
-            email,
-            phone: phone || null,
-            address: address || null,
-            city: city || null,
-            postal_code: postalCode || null,
-            country: country || "United States",
-            notes: notes || null,
-            items: sanitizedItems,
-            subtotal,
-            total_units: totalUnits,
-            status: "new",
-            email_notification_status: "pending",
-            customer_acknowledgement_status: "pending",
-            ip_hash: escapeHtml(ip).slice(0, 64),
-          })
-          .select("id")
-          .single();
-
-        if (dbError) {
-          console.error("[Supabase Error - Cart Order]", dbError);
-          return NextResponse.json(
-            { error: "Database registration failed. Please try again." },
-            { status: 500 }
-          );
-        }
-
-        if (dbData?.id) {
-          recordId = dbData.id;
-          dbSaved = true;
-        }
-      }
-    } else {
-      console.warn(
-        `[Dev Warning] Supabase is not configured. Simulating persistence for cart order: ${orderRef}`
+    const pricingResult = verifyAndCalculateCart(rawItems);
+    if (!pricingResult.isValid) {
+      return NextResponse.json(
+        { error: pricingResult.error || "Cart contains invalid products or variants." },
+        { status: 422 }
       );
-      dbSaved = true;
     }
+
+    const { items: verifiedItems, subtotal, totalUnits } = pricingResult;
+
+    // 6. Database Persistence Verification (Requirement 4: Fail with 500 if not configured)
+    if (!isSupabaseConfigured()) {
+      return NextResponse.json(
+        {
+          error: "Database service is not configured. Missing Supabase credentials.",
+          code: "SUPABASE_UNCONFIGURED",
+        },
+        { status: 500 }
+      );
+    }
+
+    const supabase = getSupabaseServerClient();
+    if (!supabase) {
+      return NextResponse.json(
+        {
+          error: "Failed to initialize Supabase server client.",
+          code: "SUPABASE_CLIENT_ERROR",
+        },
+        { status: 500 }
+      );
+    }
+
+    const orderRef = `NG-ORD-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    const { data: dbData, error: dbError } = await supabase
+      .from("cart_orders")
+      .insert({
+        order_ref: orderRef,
+        submission_type: submissionType,
+        name: name || null,
+        company: company || null,
+        email,
+        phone: phone || null,
+        address: address || null,
+        city: resolvedCity || null,
+        postal_code: resolvedPostalCode || null,
+        country: country || "United States",
+        notes: notes || null,
+        items: verifiedItems,
+        subtotal,
+        total_units: totalUnits,
+        status: "new",
+        email_notification_status: "pending",
+        customer_acknowledgement_status: "pending",
+        ip_hash: escapeHtml(ip).slice(0, 64),
+      })
+      .select("id")
+      .single();
+
+    if (dbError) {
+      console.error("[Supabase Error - Cart Order]", dbError);
+      return NextResponse.json(
+        { error: "Database registration failed. Please try again." },
+        { status: 500 }
+      );
+    }
+
+    const recordId = dbData.id;
 
     // 7. Resend Email Dispatch
     const emailResult = await sendEnquiryEmails({
@@ -173,7 +169,7 @@ export async function POST(request: Request) {
       cartSummary: {
         totalUnits,
         subtotal: subtotal > 0 ? `$${subtotal.toFixed(2)}` : "Custom Tier Quote Required",
-        items: sanitizedItems.map((item) => ({
+        items: verifiedItems.map((item) => ({
           name: item.name,
           variant: item.variant,
           quantity: item.quantity,
@@ -182,27 +178,24 @@ export async function POST(request: Request) {
       },
     });
 
-    // 8. Update Email Status in Supabase if saved
-    if (dbSaved && isSupabaseConfigured()) {
-      const supabase = getSupabaseServerClient();
-      if (supabase) {
-        await supabase
-          .from("cart_orders")
-          .update({
-            email_notification_status: emailResult.adminSent ? "sent" : "failed",
-            customer_acknowledgement_status: emailResult.customerSent ? "sent" : "failed",
-            email_error_message: emailResult.error || null,
-            updated_at: new Date().toISOString(),
-          })
-          .eq("id", recordId);
-      }
-    }
+    // 8. Update Email Status in Supabase
+    await supabase
+      .from("cart_orders")
+      .update({
+        email_notification_status: emailResult.adminSent ? "sent" : "failed",
+        customer_acknowledgement_status: emailResult.customerSent ? "sent" : "failed",
+        email_error_message: emailResult.error || null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", recordId);
 
     return NextResponse.json({
       success: true,
       referenceId: orderRef,
       orderRef,
       id: recordId,
+      subtotal,
+      totalUnits,
       emailSent: emailResult.adminSent || emailResult.customerSent,
       message: "Your order bag has been registered for workshop quotation and dispatch coordination.",
     });

@@ -3,8 +3,8 @@ import { createClient, SupabaseClient } from "@supabase/supabase-js";
 let cachedClient: SupabaseClient | null = null;
 
 export function isSupabaseConfigured(): boolean {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   return Boolean(
     url &&
       key &&
@@ -22,9 +22,10 @@ export function getSupabaseServerClient(): SupabaseClient | null {
     return cachedClient;
   }
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  // Prefer service role key for full server bypass of RLS, fallback to anon key
-  const key = (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)!;
+  const url = (process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL)!;
+  // Strictly require service role key for server-side persistence.
+  // Tables have RLS enabled and REVOKE ALL from anon/authenticated.
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
   cachedClient = createClient(url, key, {
     auth: {

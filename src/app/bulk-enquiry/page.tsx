@@ -42,7 +42,8 @@ export default function BulkEnquiryPage() {
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || "Failed to submit bulk procurement request.");
+        const detailMsg = data.details ? Object.values(data.details).join(" ") : "";
+        throw new Error(detailMsg || data.error || "Failed to submit bulk procurement request.");
       }
 
       setReferenceId(data.referenceId || "NG-BLK-CONFIRMED");

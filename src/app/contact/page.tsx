@@ -32,7 +32,8 @@ export default function ContactPage() {
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || "Failed to submit inquiry.");
+        const detailMsg = data.details ? Object.values(data.details).join(" ") : "";
+        throw new Error(detailMsg || data.error || "Failed to submit inquiry.");
       }
 
       setReferenceId(data.referenceId || "NG-CNT-CONFIRMED");
