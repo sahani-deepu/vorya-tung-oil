@@ -73,28 +73,28 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
       {/* Content Area */}
       <div className="p-6 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="font-serif text-2xl sm:text-3xl font-normal text-forest-dark group-hover:text-copper transition-colors">
+          <h3 className="font-serif text-xl sm:text-2xl font-normal text-forest-dark group-hover:text-copper transition-colors">
             <Link href={`/shop/${product.slug}`}>{product.name}</Link>
           </h3>
-          <p className="text-base text-walnut font-medium mt-1.5 line-clamp-1">
+          <p className="text-sm text-walnut font-medium mt-1 line-clamp-1">
             {product.subtitle}
           </p>
-          <p className="text-base text-charcoal/85 mt-2.5 line-clamp-3 leading-relaxed">
+          <p className="text-sm text-charcoal/80 mt-2 line-clamp-3 leading-relaxed">
             {product.description}
           </p>
 
           {/* Size / Variant Selector */}
           <div className="mt-4 pt-4 border-t border-stone/60">
-            <label className="text-sm uppercase tracking-wider text-charcoal/80 font-bold block mb-2">
+            <label className="text-xs uppercase tracking-wider text-charcoal/70 font-semibold block mb-2">
               Select Volume Container:
             </label>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {product.variants.map((v, i) => (
                 <button
                   key={v.sku}
                   type="button"
                   onClick={() => setSelectedVariantIdx(i)}
-                  className={`px-3.5 py-2 text-sm rounded border transition-colors ${
+                  className={`px-3 py-1.5 text-xs sm:text-sm rounded border transition-colors ${
                     selectedVariantIdx === i
                       ? "bg-forest text-ivory border-forest font-semibold"
                       : "bg-ivory-light text-charcoal/80 border-stone hover:border-forest/50 font-medium"
@@ -106,19 +106,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
             </div>
 
             {/* Coverage Hint */}
-            <p className="text-sm text-charcoal/80 mt-2.5 font-mono">
+            <p className="text-xs text-charcoal/70 mt-2 font-mono">
               Covers approx. {currentVariant.coverageSqFt} ({currentVariant.coverageSqM})
             </p>
           </div>
         </div>
 
         {/* Pricing & Call to Action */}
-        <div className="mt-6 pt-4 border-t border-stone flex items-center justify-between">
+        <div className="mt-5 pt-4 border-t border-stone flex items-center justify-between">
           <div>
             <span className="text-xs text-charcoal/60 uppercase tracking-wider block">
               Estimated Value
             </span>
-            <span className="text-xl sm:text-2xl font-serif font-semibold text-forest-dark">
+            <span className="text-lg sm:text-xl font-serif font-semibold text-forest-dark">
               {currentVariant.priceEstimatePlaceholder || "Quote on Request"}
             </span>
           </div>
@@ -128,7 +128,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
               <button
                 type="button"
                 onClick={() => onOpenQuoteModal ? onOpenQuoteModal(product.name) : null}
-                className="px-4 py-2.5 bg-copper hover:bg-copper-light text-ivory text-sm font-semibold uppercase tracking-wider transition-colors rounded-xs flex items-center gap-1.5"
+                className="px-3.5 py-2 bg-copper hover:bg-copper-light text-ivory text-xs font-semibold uppercase tracking-wider transition-colors rounded-xs flex items-center gap-1.5"
               >
                 <span>Bulk Quote</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -137,7 +137,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
               <button
                 type="button"
                 onClick={handleAddToCart}
-                className={`px-4 py-2.5 text-sm font-semibold uppercase tracking-wider transition-all rounded-xs flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all rounded-xs flex items-center gap-1.5 ${
                   addedAnimation
                     ? "bg-forest-light text-ivory"
                     : "bg-forest hover:bg-forest-light text-ivory"

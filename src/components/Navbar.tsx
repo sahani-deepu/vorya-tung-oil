@@ -64,17 +64,17 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center justify-center flex-1 gap-2.5 lg:gap-3.5 xl:gap-5 2xl:gap-7">
+          <div className="hidden lg:flex items-center justify-center flex-1 gap-2 lg:gap-3 xl:gap-4 2xl:gap-6">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative py-1.5 text-sm xl:text-base uppercase font-semibold tracking-wider whitespace-nowrap transition-colors duration-150 hover:text-forest focus:outline-none focus-visible:ring-1 focus-visible:ring-copper flex items-center ${
+                  className={`relative py-1.5 text-xs xl:text-[13px] uppercase tracking-wider whitespace-nowrap transition-colors duration-150 hover:text-forest focus:outline-none focus-visible:ring-1 focus-visible:ring-copper flex items-center ${
                     isActive
                       ? "text-forest font-bold"
-                      : "text-charcoal/80 hover:text-forest"
+                      : "text-charcoal/80 hover:text-forest font-medium"
                   }`}
                 >
                   <span>{link.label}</span>
@@ -108,7 +108,7 @@ export const Navbar: React.FC = () => {
             {/* Request a Quote CTA */}
             <Link
               href="/bulk-enquiry"
-              className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 xl:px-4 xl:py-2.5 bg-forest text-ivory text-sm xl:text-base font-semibold uppercase tracking-wider hover:bg-forest-light transition-all rounded-sm shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-copper whitespace-nowrap flex-shrink-0"
+              className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 xl:py-2 bg-forest text-ivory text-xs xl:text-sm font-semibold uppercase tracking-wider hover:bg-forest-light transition-all rounded-sm shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-copper whitespace-nowrap flex-shrink-0"
             >
               <span>Request Quote</span>
               <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" />
@@ -130,12 +130,12 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[88px] bottom-0 bg-ivory border-b border-stone z-50 overflow-y-auto px-6 py-6 shadow-2xl flex flex-col justify-between">
+        <div className="lg:hidden fixed inset-x-0 top-[76px] bottom-0 bg-ivory border-b border-stone z-50 overflow-y-auto px-6 py-6 shadow-2xl flex flex-col justify-between">
           <div className="space-y-4">
             <p className="text-xs tracking-widest text-charcoal/60 uppercase font-semibold border-b border-stone pb-2">
               Menu Navigation
             </p>
-            <div className="flex flex-col space-y-3.5">
+            <div className="flex flex-col space-y-3">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -143,8 +143,8 @@ export const Navbar: React.FC = () => {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center justify-between text-lg font-serif py-2 border-b border-stone/30 ${
-                      isActive ? "text-forest font-semibold text-xl" : "text-charcoal/90"
+                    className={`flex items-center justify-between text-base font-serif py-1.5 border-b border-stone/30 ${
+                      isActive ? "text-forest font-semibold" : "text-charcoal/90"
                     }`}
                   >
                     <span>{link.label}</span>
@@ -159,7 +159,7 @@ export const Navbar: React.FC = () => {
             <Link
               href="/bulk-enquiry"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 bg-forest text-ivory text-base font-semibold uppercase tracking-widest flex items-center justify-center gap-2"
+              className="w-full py-3 bg-forest text-ivory text-sm font-semibold uppercase tracking-widest flex items-center justify-center gap-2"
             >
               Request Bulk & Trade Pricing <ArrowUpRight className="w-4 h-4" />
             </Link>

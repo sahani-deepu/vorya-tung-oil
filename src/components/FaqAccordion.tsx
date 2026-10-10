@@ -65,12 +65,12 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
           </p>
 
           {/* Category Tabs */}
-          <div className="mt-8 flex flex-wrap justify-center gap-2.5">
+          <div className="mt-8 flex flex-wrap justify-center gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2.5 text-sm sm:text-base rounded-full transition-all uppercase tracking-wider font-semibold ${
+                className={`px-4 py-2 text-xs sm:text-sm rounded-full transition-all uppercase tracking-wider font-semibold ${
                   selectedCategory === cat
                     ? "bg-forest text-ivory shadow-xs"
                     : "bg-stone/50 text-charcoal/80 hover:bg-stone hover:text-forest"
@@ -83,7 +83,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
         </div>
 
         {/* Accordion List */}
-        <div className="space-y-4.5">
+        <div className="space-y-4">
           {filteredFaqs.map((faq, idx) => {
             const isOpen = openIndexes.includes(idx);
             return (
@@ -94,14 +94,14 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                 <button
                   type="button"
                   onClick={() => toggleIndex(idx)}
-                  className="w-full px-6 md:px-7 py-5 md:py-6 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:bg-stone/40"
+                  className="w-full px-5 md:px-6 py-4 md:py-5 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:bg-stone/40"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-serif text-xl sm:text-2xl font-medium text-forest-dark">
+                  <span className="font-serif text-lg sm:text-xl font-medium text-forest-dark">
                     {faq.question}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-full bg-stone/70 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-7 h-7 rounded-full bg-stone/70 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
                       isOpen ? "rotate-180 bg-copper/20 text-copper" : "text-charcoal/60"
                     }`}
                   >
@@ -110,10 +110,10 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 md:px-7 pb-6 pt-1 text-base sm:text-lg text-charcoal/90 leading-relaxed font-sans border-t border-stone/40">
+                  <div className="px-5 md:px-6 pb-5 pt-1 text-sm sm:text-base text-charcoal/90 leading-relaxed font-sans border-t border-stone/40">
                     <p>{faq.answer}</p>
-                    <div className="mt-4 flex items-center gap-2 text-sm text-walnut/90 font-medium">
-                      <span className="px-3 py-1 bg-stone rounded-full text-xs sm:text-sm uppercase font-semibold">
+                    <div className="mt-3 flex items-center gap-2 text-xs text-walnut/90 font-medium">
+                      <span className="px-2.5 py-0.5 bg-stone rounded-full uppercase font-semibold">
                         {faq.category}
                       </span>
                     </div>
@@ -125,14 +125,14 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
         </div>
 
         {/* Still have questions banner */}
-        <div className="mt-14 p-7 md:p-8 bg-forest-dark text-ivory rounded-2xl text-center flex flex-col sm:flex-row items-center justify-between gap-5 border border-forest-surface shadow-xl">
+        <div className="mt-12 p-6 md:p-7 bg-forest-dark text-ivory rounded-2xl text-center flex flex-col sm:flex-row items-center justify-between gap-5 border border-forest-surface shadow-xl">
           <div className="text-left">
-            <h4 className="font-serif text-2xl font-medium text-ivory">Have a complex timber specification question?</h4>
-            <p className="text-base text-stone-muted mt-1 leading-relaxed">Our wood conservation and finishing team assists architects and craftspeople directly.</p>
+            <h4 className="font-serif text-xl font-medium text-ivory">Have a complex timber specification question?</h4>
+            <p className="text-sm text-stone-muted mt-1 leading-relaxed">Our wood conservation and finishing team assists architects and craftspeople directly.</p>
           </div>
           <Link
             href="/contact"
-            className="px-6 py-3.5 bg-copper hover:bg-copper-light text-ivory text-sm font-semibold uppercase tracking-widest transition-colors flex items-center gap-2 rounded-xs flex-shrink-0 shadow-sm"
+            className="px-5 py-3 bg-copper hover:bg-copper-light text-ivory text-xs sm:text-sm font-semibold uppercase tracking-widest transition-colors flex items-center gap-2 rounded-xs flex-shrink-0 shadow-sm"
           >
             <MessageSquare className="w-4 h-4" />
             <span>Consult Our Atelier</span>

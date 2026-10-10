@@ -131,7 +131,7 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
             )}
 
             {/* Safety Spontaneous Combustion Callout */}
-            <div className="p-4.5 bg-red-950/5 border border-red-900/20 rounded-xl text-sm sm:text-base text-charcoal/85 flex items-start gap-3 mt-6">
+            <div className="p-4 bg-red-950/5 border border-red-900/20 rounded-xl text-xs sm:text-sm text-charcoal/85 flex items-start gap-3 mt-6">
               <ShieldAlert className="w-5 h-5 text-red-800 flex-shrink-0 mt-0.5" />
               <p className="leading-relaxed">
                 <strong>Workshop Hazard Notice:</strong> Rags, brushes, and wiping towels damp with drying oil must be immediately soaked in water or laid flat to dry before disposal to prevent heat build-up and spontaneous combustion.
@@ -142,62 +142,62 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
           {/* Details & Purchasing Right (5 Cols) */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone rounded text-xs uppercase tracking-widest text-charcoal/80 font-mono mb-2.5 font-medium">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone rounded text-xs uppercase tracking-widest text-charcoal/80 font-mono mb-2 font-medium">
                 {product.eyebrow}
               </div>
 
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-forest-dark font-normal leading-tight">
+              <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-forest-dark font-normal leading-tight">
                 {product.name}
               </h1>
 
-              <p className="text-lg text-walnut font-medium mt-1.5">
+              <p className="text-base text-walnut font-medium mt-1">
                 {product.subtitle}
               </p>
 
               {/* Price placeholder */}
               <div className="mt-4 pt-4 border-t border-stone flex items-baseline gap-3">
-                <span className="font-serif text-3xl sm:text-4xl font-semibold text-forest-dark">
+                <span className="font-serif text-2xl sm:text-3xl font-semibold text-forest-dark">
                   {currentVariant.priceEstimatePlaceholder || "Quote Required"}
                 </span>
-                <span className="text-sm text-charcoal/60 uppercase font-medium">
+                <span className="text-xs text-charcoal/60 uppercase font-medium">
                   (Estimated Draft Unit Value)
                 </span>
               </div>
 
-              <p className="text-base sm:text-lg text-charcoal/85 leading-relaxed mt-4">
+              <p className="text-sm sm:text-base text-charcoal/85 leading-relaxed mt-4">
                 {product.longDescription}
               </p>
 
               {/* Variant Selector */}
               <div className="mt-6 pt-6 border-t border-stone">
-                <div className="flex justify-between text-base mb-2.5">
-                  <span className="font-bold text-charcoal uppercase tracking-wider">
+                <div className="flex justify-between text-sm mb-2">
+                  <span className="font-bold text-charcoal uppercase tracking-wider text-xs">
                     Container Size:
                   </span>
-                  <span className="text-walnut font-semibold">SKU: {currentVariant.sku}</span>
+                  <span className="text-walnut font-semibold text-xs">SKU: {currentVariant.sku}</span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-2 gap-2">
                   {product.variants.map((v, idx) => (
                     <button
                       key={v.sku}
                       type="button"
                       onClick={() => setSelectedVariantIdx(idx)}
-                      className={`p-3.5 text-left rounded-lg border transition-all ${
+                      className={`p-3 text-left rounded-lg border transition-all ${
                         selectedVariantIdx === idx
                           ? "border-forest bg-forest text-ivory shadow-xs"
                           : "border-stone bg-ivory-light text-charcoal/80 hover:border-forest/50"
                       }`}
                     >
-                      <div className="font-semibold text-base">{v.size}</div>
-                      <div className={`text-sm mt-0.5 ${selectedVariantIdx === idx ? "text-stone-muted" : "text-charcoal/70"}`}>
+                      <div className="font-semibold text-sm">{v.size}</div>
+                      <div className={`text-xs mt-0.5 ${selectedVariantIdx === idx ? "text-stone-muted" : "text-charcoal/70"}`}>
                         {v.priceEstimatePlaceholder || "Quote"}
                       </div>
                     </button>
                   ))}
                 </div>
 
-                <div className="mt-3.5 p-4 bg-stone/40 rounded-lg text-sm sm:text-base text-charcoal/85 space-y-2">
+                <div className="mt-3 p-3.5 bg-stone/40 rounded-lg text-xs sm:text-sm text-charcoal/85 space-y-1.5">
                   <div className="flex justify-between">
                     <span className="text-charcoal/70">Estimated Coverage:</span>
                     <span className="font-semibold text-forest-dark">{currentVariant.coverageSqFt} ({currentVariant.coverageSqM})</span>
@@ -215,14 +215,14 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
                   <div className="inline-flex items-center border border-stone-muted rounded bg-ivory-light">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="px-4 py-2.5 text-charcoal hover:bg-stone text-base font-bold"
+                      className="px-3.5 py-2 text-charcoal hover:bg-stone text-sm font-bold"
                     >
                       -
                     </button>
-                    <span className="px-4 py-2.5 text-base font-bold text-forest-dark">{quantity}</span>
+                    <span className="px-3.5 py-2 text-sm font-bold text-forest-dark">{quantity}</span>
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="px-4 py-2.5 text-charcoal hover:bg-stone text-base font-bold"
+                      className="px-3.5 py-2 text-charcoal hover:bg-stone text-sm font-bold"
                     >
                       +
                     </button>
@@ -230,7 +230,7 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
 
                   <button
                     onClick={handleAddToCart}
-                    className={`flex-1 py-3.5 text-sm sm:text-base uppercase tracking-widest font-semibold rounded-xs transition-colors flex items-center justify-center gap-2 shadow-sm ${
+                    className={`flex-1 py-3 text-xs sm:text-sm uppercase tracking-widest font-semibold rounded-xs transition-colors flex items-center justify-center gap-2 shadow-sm ${
                       addedSuccess
                         ? "bg-forest-light text-ivory"
                         : "bg-forest hover:bg-forest-light text-ivory"
