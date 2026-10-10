@@ -136,8 +136,8 @@ export default async function ArticleDetailPage({
         </div>
 
         {/* Editorial Body Content */}
-        <div className="prose prose-stone max-w-none text-charcoal/85 text-sm sm:text-base leading-relaxed font-sans space-y-6">
-          <p className="text-lg font-serif italic text-forest-dark leading-relaxed border-l-2 border-copper pl-4">
+        <div className="prose prose-stone max-w-none text-charcoal/85 text-base sm:text-lg leading-relaxed font-sans space-y-6">
+          <p className="text-xl font-serif italic text-forest-dark leading-relaxed border-l-2 border-copper pl-4">
             {article.excerpt}
           </p>
 
@@ -156,7 +156,7 @@ export default async function ArticleDetailPage({
             <h3 className="font-serif text-xl text-forest-dark font-medium mb-2">
               Why Non-Film Polymerization Matters
             </h3>
-            <p className="text-xs sm:text-sm text-charcoal/80 leading-relaxed italic">
+            <p className="text-base text-charcoal/80 leading-relaxed italic">
               “When wood is coated in polyurethane, the finish belongs to the room, not the wood. When wood is saturated with pure Tung Oil, the finish belongs to the cellular architecture of the tree itself.”
             </p>
           </div>
@@ -167,7 +167,7 @@ export default async function ArticleDetailPage({
           <p>
             Many finish failures occur because woodworkers conflate <em>tack-free evaporation</em> with <em>chemical curing</em>.
           </p>
-          <ul className="list-disc pl-6 space-y-2 text-xs sm:text-sm">
+          <ul className="list-disc pl-6 space-y-2 text-base sm:text-lg">
             <li>
               <strong>Surface Dry (24–48 Hours):</strong> The oil at the immediate wood-air interface has absorbed enough oxygen to form initial gel chains. The surface feels dry to the hand and can be lightly de-nibbed with fine abrasives without gumming.
             </li>
@@ -177,7 +177,7 @@ export default async function ArticleDetailPage({
           </ul>
 
           {/* Safety Callout */}
-          <div className="my-8 p-5 bg-red-950/10 border border-red-900/30 rounded-xl flex items-start gap-3 text-xs text-charcoal/90">
+          <div className="my-8 p-5 bg-red-950/10 border border-red-900/30 rounded-xl flex items-start gap-3 text-sm text-charcoal/90">
             <AlertTriangle className="w-5 h-5 text-red-700 flex-shrink-0 mt-0.5" />
             <div>
               <strong className="text-red-900 block mb-0.5">Critical Workshop Reminder:</strong>
@@ -199,7 +199,7 @@ export default async function ArticleDetailPage({
             <h3 className="font-serif text-2xl text-forest-dark font-normal">
               Related Technical Guides
             </h3>
-            <Link href="/resources" className="text-xs uppercase tracking-widest text-forest hover:text-copper font-semibold">
+            <Link href="/resources" className="text-sm uppercase tracking-widest text-forest hover:text-copper font-semibold">
               All Articles →
             </Link>
           </div>
@@ -207,12 +207,12 @@ export default async function ArticleDetailPage({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {relatedArticles.map((rel) => (
               <div key={rel.slug} className="p-5 bg-ivory-light border border-stone rounded-xl">
-                <span className="text-[10px] text-copper uppercase font-mono">{rel.category}</span>
+                <span className="text-xs text-copper uppercase font-mono">{rel.category}</span>
                 <h4 className="font-serif text-lg font-medium text-forest-dark mt-1 mb-2">
                   <Link href={`/resources/${rel.slug}`}>{rel.title}</Link>
                 </h4>
-                <p className="text-xs text-charcoal/70 line-clamp-2 mb-3">{rel.excerpt}</p>
-                <Link href={`/resources/${rel.slug}`} className="text-xs font-semibold text-forest hover:text-copper inline-flex items-center gap-1">
+                <p className="text-sm text-charcoal/80 line-clamp-2 mb-3">{rel.excerpt}</p>
+                <Link href={`/resources/${rel.slug}`} className="text-sm font-semibold text-forest hover:text-copper inline-flex items-center gap-1">
                   Read Article <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>

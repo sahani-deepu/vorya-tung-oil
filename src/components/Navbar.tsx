@@ -35,7 +35,7 @@ export const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300">
       {/* Announcement Bar */}
-      <div className="bg-forest-dark text-ivory text-[11px] md:text-xs py-2 px-4 border-b border-forest-surface text-center tracking-wider uppercase font-medium flex items-center justify-center gap-2 sm:gap-3">
+      <div className="bg-forest-dark text-ivory text-xs sm:text-sm py-2 px-4 border-b border-forest-surface text-center tracking-wider uppercase font-medium flex items-center justify-center gap-2 sm:gap-3">
         <span className="inline-block w-1.5 h-1.5 rounded-full bg-copper animate-pulse flex-shrink-0" />
         <span className="truncate max-w-xs sm:max-w-md md:max-w-xl lg:max-w-3xl xl:max-w-none">
           {BRAND.announcement}
@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative py-1.5 text-[11px] xl:text-xs uppercase font-medium tracking-wider xl:tracking-widest whitespace-nowrap transition-colors duration-150 hover:text-forest focus:outline-none focus-visible:ring-1 focus-visible:ring-copper flex items-center ${
+                  className={`relative py-1.5 text-xs xl:text-sm uppercase font-medium tracking-wider xl:tracking-widest whitespace-nowrap transition-colors duration-150 hover:text-forest focus:outline-none focus-visible:ring-1 focus-visible:ring-copper flex items-center ${
                     isActive
                       ? "text-forest font-semibold"
                       : "text-charcoal/75 hover:text-forest"
@@ -108,7 +108,7 @@ export const Navbar: React.FC = () => {
             {/* Request a Quote CTA */}
             <Link
               href="/bulk-enquiry"
-              className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 xl:px-4 xl:py-2 bg-forest text-ivory text-[11px] xl:text-xs font-medium uppercase tracking-wider xl:tracking-widest hover:bg-forest-light transition-all rounded-sm shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-copper whitespace-nowrap flex-shrink-0"
+              className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 xl:px-4 xl:py-2 bg-forest text-ivory text-xs xl:text-sm font-medium uppercase tracking-wider xl:tracking-widest hover:bg-forest-light transition-all rounded-sm shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-copper whitespace-nowrap flex-shrink-0"
             >
               <span>Request Quote</span>
               <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" />
@@ -159,11 +159,11 @@ export const Navbar: React.FC = () => {
             <Link
               href="/bulk-enquiry"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 bg-forest text-ivory text-xs font-medium uppercase tracking-widest flex items-center justify-center gap-2"
+              className="w-full py-3 bg-forest text-ivory text-sm font-medium uppercase tracking-widest flex items-center justify-center gap-2"
             >
               Request Bulk & Trade Pricing <ArrowUpRight className="w-4 h-4" />
             </Link>
-            <div className="text-[11px] text-charcoal/60 text-center leading-relaxed">
+            <div className="text-xs text-charcoal/60 text-center leading-relaxed">
               Technical trade desk: {BRAND.contact.email}
             </div>
           </div>

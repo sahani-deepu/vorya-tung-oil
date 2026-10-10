@@ -27,7 +27,7 @@ export const TechSpecsTable: React.FC = () => {
             <h2 className="font-serif text-3xl sm:text-4xl text-forest-dark font-normal">
               Technical Specifications & Chemical Matrix
             </h2>
-            <p className="mt-2 text-sm text-charcoal/70 max-w-2xl font-sans leading-relaxed">
+            <p className="mt-2 text-base text-charcoal/80 max-w-2xl font-sans leading-relaxed">
               Transparent baseline data for professional specifiers. Measured physical values, drying thermodynamics, and safety documentation. Unverified values are transparently designated <em>To be confirmed</em> prior to independent laboratory batch verification.
             </p>
           </div>
@@ -35,7 +35,7 @@ export const TechSpecsTable: React.FC = () => {
           <div className="mt-6 md:mt-0 flex items-center gap-3">
             <button
               onClick={() => setModalOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-medium transition-colors rounded-xs shadow-xs"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-xs"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Request Full Batch TDS / SDS</span>
@@ -45,7 +45,7 @@ export const TechSpecsTable: React.FC = () => {
 
         {/* Filter Bar */}
         <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
-          <div className="inline-flex items-center gap-1.5 p-1 bg-stone/60 rounded-md border border-stone-muted text-xs">
+          <div className="inline-flex items-center gap-1.5 p-1 bg-stone/60 rounded-md border border-stone-muted text-sm">
             <button
               onClick={() => setFilter("all")}
               className={`px-3 py-1.5 rounded transition-colors ${
@@ -72,16 +72,16 @@ export const TechSpecsTable: React.FC = () => {
             </button>
           </div>
 
-          <div className="text-xs text-charcoal/60 flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-forest" /> Confirmed
-            <span className="inline-block w-2 h-2 rounded-full bg-copper ml-2" /> Pending Lab Verification (TBC)
+          <div className="text-sm text-charcoal/70 flex items-center gap-2">
+            <span className="inline-block w-2.5 h-2.5 rounded-full bg-forest" /> Confirmed
+            <span className="inline-block w-2.5 h-2.5 rounded-full bg-copper ml-2" /> Pending Lab Verification (TBC)
           </div>
         </div>
 
         {/* Table Container */}
         <div className="overflow-x-auto rounded-lg border border-stone shadow-sm bg-ivory-light">
-          <table className="w-full text-left text-xs divide-y divide-stone">
-            <thead className="bg-stone text-forest-dark uppercase tracking-wider font-semibold text-[11px]">
+          <table className="w-full text-left text-sm divide-y divide-stone">
+            <thead className="bg-stone text-forest-dark uppercase tracking-wider font-semibold text-xs">
               <tr>
                 <th scope="col" className="py-3.5 px-4 sm:px-6">Parameter / Test Method</th>
                 <th scope="col" className="py-3.5 px-4 sm:px-6">Pure Tung Oil (100% Uncut)</th>
@@ -107,12 +107,12 @@ export const TechSpecsTable: React.FC = () => {
                   </td>
                   <td className="py-3.5 px-4 sm:px-6 text-right whitespace-nowrap">
                     {row.status === "Confirmed" ? (
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-forest/10 text-forest border border-forest/20">
-                        <CheckCircle className="w-3 h-3" /> Confirmed
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-forest/10 text-forest border border-forest/20">
+                        <CheckCircle className="w-3.5 h-3.5" /> Confirmed
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-copper/10 text-copper border border-copper/30">
-                        <Clock className="w-3 h-3" /> To be confirmed
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-copper/10 text-copper border border-copper/30">
+                        <Clock className="w-3.5 h-3.5" /> To be confirmed
                       </span>
                     )}
                   </td>
@@ -123,7 +123,7 @@ export const TechSpecsTable: React.FC = () => {
         </div>
 
         {/* Safety Note on Table Footer */}
-        <div className="mt-4 p-4 rounded-lg bg-amber-500/10 border border-amber-600/20 text-xs text-charcoal/80 flex items-start gap-3">
+        <div className="mt-4 p-4 rounded-lg bg-amber-500/10 border border-amber-600/20 text-sm text-charcoal/85 flex items-start gap-3">
           <AlertCircle className="w-4 h-4 text-copper flex-shrink-0 mt-0.5" />
           <p>
             <strong>Chemical Handling Note:</strong> All Tung Oil products undergo exothermic oxidation during polymerization. Application cloths, rags, or steel wool containing drying oil must be soaked in water before disposal to avoid spontaneous combustion. Always review the Safety Data Sheet (SDS) prior to workshop deployment.

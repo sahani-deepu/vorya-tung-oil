@@ -28,14 +28,14 @@ export default function TermsPage() {
           </p>
         </div>
 
-        <div className="mb-10 p-4 bg-amber-500/10 border border-amber-600/30 rounded-lg text-xs text-charcoal/80 flex items-start gap-3">
-          <AlertCircle className="w-4 h-4 text-copper flex-shrink-0 mt-0.5" />
+        <div className="mb-10 p-5 bg-amber-500/10 border border-amber-600/30 rounded-lg text-sm text-charcoal/80 flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-copper flex-shrink-0 mt-0.5" />
           <p>
             <strong>Commercial Framework Notice:</strong> These draft terms govern usage of the conceptual NOVA GRAIN platform. Official contract terms for bulk industrial supply and e-commerce transactions will be finalized upon corporate establishment.
           </p>
         </div>
 
-        <div className="prose prose-stone text-xs sm:text-sm text-charcoal/85 leading-relaxed font-sans space-y-6">
+        <div className="prose prose-stone text-base sm:text-lg text-charcoal/85 leading-relaxed font-sans space-y-6">
           <h2 className="font-serif text-xl sm:text-2xl text-forest-dark font-normal">1. Product Catalogue & Formulation Data</h2>
           <p>
             All descriptions, coverage metrics, and container sizes published on this website reflect current development formulations. Physical wood finishing results may vary according to species porosity, ambient moisture, and user application techniques.

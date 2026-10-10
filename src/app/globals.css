@@ -40,9 +40,15 @@ body {
   background-color: #F7F4EC;
   color: #252A27;
   font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  line-height: 1.65;
 }
 
 h1, h2, h3, .font-serif {

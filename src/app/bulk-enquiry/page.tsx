@@ -78,39 +78,39 @@ export default function BulkEnquiryPage() {
         {/* Volume Tiers Showcase */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
           <div className="p-6 bg-ivory-light rounded-xl border border-stone shadow-xs">
-            <span className="text-[10px] text-copper uppercase font-mono tracking-wider font-semibold block mb-1">
+            <span className="text-xs text-copper uppercase font-mono tracking-wider font-semibold block mb-1">
               TIER 01 • WORKSHOP
             </span>
             <h3 className="font-serif text-2xl font-normal text-forest-dark mb-1">5 – 20 Litres</h3>
-            <p className="text-xs text-charcoal/70 mb-3">Steel jerrycans & pails for custom furniture studios.</p>
-            <span className="text-[11px] text-walnut font-medium">Standard freight dispatch</span>
+            <p className="text-sm text-charcoal/70 mb-3">Steel jerrycans & pails for custom furniture studios.</p>
+            <span className="text-xs text-walnut font-medium">Standard freight dispatch</span>
           </div>
 
           <div className="p-6 bg-ivory-light rounded-xl border border-stone shadow-xs">
-            <span className="text-[10px] text-copper uppercase font-mono tracking-wider font-semibold block mb-1">
+            <span className="text-xs text-copper uppercase font-mono tracking-wider font-semibold block mb-1">
               TIER 02 • CONTRACTOR
             </span>
             <h3 className="font-serif text-2xl font-normal text-forest-dark mb-1">50 – 200 Litres</h3>
-            <p className="text-xs text-charcoal/70 mb-3">55-Gallon (200L) steel drums for large architectural millwork.</p>
-            <span className="text-[11px] text-walnut font-medium">CoA certificate included</span>
+            <p className="text-sm text-charcoal/70 mb-3">55-Gallon (200L) steel drums for large architectural millwork.</p>
+            <span className="text-xs text-walnut font-medium">CoA certificate included</span>
           </div>
 
           <div className="p-6 bg-ivory-light rounded-xl border border-stone shadow-xs">
-            <span className="text-[10px] text-copper uppercase font-mono tracking-wider font-semibold block mb-1">
+            <span className="text-xs text-copper uppercase font-mono tracking-wider font-semibold block mb-1">
               TIER 03 • INDUSTRIAL
             </span>
             <h3 className="font-serif text-2xl font-normal text-forest-dark mb-1">1,000L IBC Totes</h3>
-            <p className="text-xs text-charcoal/70 mb-3">Intermediate bulk containers for automated flooring lines.</p>
-            <span className="text-[11px] text-walnut font-medium">Custom viscosity tuning</span>
+            <p className="text-sm text-charcoal/70 mb-3">Intermediate bulk containers for automated flooring lines.</p>
+            <span className="text-xs text-walnut font-medium">Custom viscosity tuning</span>
           </div>
 
           <div className="p-6 bg-forest-dark text-ivory rounded-xl border border-forest-surface shadow-xs">
-            <span className="text-[10px] text-copper-light uppercase font-mono tracking-wider font-semibold block mb-1">
+            <span className="text-xs text-copper-light uppercase font-mono tracking-wider font-semibold block mb-1">
               SAMPLE BENCHMARK
             </span>
             <h3 className="font-serif text-2xl font-normal text-ivory mb-1">Testing Kits</h3>
-            <p className="text-xs text-stone-muted mb-3">500ml trial kits for laboratory & penetration validation.</p>
-            <span className="text-[11px] text-copper-light font-medium">Available on qualification</span>
+            <p className="text-sm text-stone-muted mb-3">500ml trial kits for laboratory & penetration validation.</p>
+            <span className="text-xs text-copper-light font-medium">Available on qualification</span>
           </div>
         </div>
 
@@ -124,14 +124,14 @@ export default function BulkEnquiryPage() {
                 <h3 className="font-serif text-2xl text-forest-dark mb-2">
                   Procurement Enquiry Staged
                 </h3>
-                <p className="text-xs text-charcoal/80 max-w-md mx-auto mb-6 leading-relaxed">
+                <p className="text-sm text-charcoal/80 max-w-md mx-auto mb-6 leading-relaxed">
                   Thank you, <strong>{formData.name}</strong> from <strong>{formData.businessName}</strong>. Your volume request for {formData.estimatedQuantity} has been successfully validated.
                 </p>
-                <div className="p-4 bg-stone rounded-lg text-xs text-charcoal/80 max-w-md mx-auto mb-6 text-left border border-stone-muted">
+                <div className="p-4.5 bg-stone rounded-lg text-sm text-charcoal/80 max-w-md mx-auto mb-6 text-left border border-stone-muted">
                   <p className="font-semibold text-forest-dark mb-1">
                     Procurement Reference ID: <span className="font-mono text-copper font-bold">{referenceId}</span>
                   </p>
-                  <p className="text-[11px] text-charcoal/70">
+                  <p className="text-xs text-charcoal/70">
                     Your wholesale trade request has been registered in the ERP queue. Our commercial procurement team will dispatch specifications to <strong>{formData.email}</strong> within 1 business day.
                   </p>
                 </div>
@@ -141,13 +141,13 @@ export default function BulkEnquiryPage() {
                     setSubmitted(false);
                     setReferenceId("");
                   }}
-                  className="px-6 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-medium hover:bg-forest-light"
+                  className="px-6 py-2.5 bg-forest text-ivory text-sm uppercase tracking-widest font-medium hover:bg-forest-light"
                 >
                   Submit Another Procurement Request
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+              <form onSubmit={handleSubmit} className="space-y-4.5 text-sm">
                 {/* Honeypot */}
                 <input
                   type="text"
@@ -163,7 +163,7 @@ export default function BulkEnquiryPage() {
                   <h2 className="font-serif text-2xl font-medium text-forest-dark">
                     Request Formal Bulk Quotation
                   </h2>
-                  <p className="text-[11px] text-charcoal/60 mt-0.5">
+                  <p className="text-xs sm:text-sm text-charcoal/60 mt-0.5">
                     Direct access to trade discounts, batch CoA certificates, and scheduled dispatch agreements.
                   </p>
                 </div>
@@ -177,7 +177,7 @@ export default function BulkEnquiryPage() {
                       placeholder="e.g. Richard Hawthorne"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     />
                   </div>
                   <div>
@@ -188,7 +188,7 @@ export default function BulkEnquiryPage() {
                       placeholder="e.g. Hawthorne Timber Mill Ltd."
                       value={formData.businessName}
                       onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                      className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     />
                   </div>
                 </div>
@@ -202,7 +202,7 @@ export default function BulkEnquiryPage() {
                       placeholder="deepusahani08@gmail.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     />
                   </div>
                   <div>
@@ -213,7 +213,7 @@ export default function BulkEnquiryPage() {
                       placeholder="+91-9616495093"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     />
                   </div>
                 </div>
@@ -224,7 +224,7 @@ export default function BulkEnquiryPage() {
                     <select
                       value={formData.customerType}
                       onChange={(e) => setFormData({ ...formData, customerType: e.target.value })}
-                      className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     >
                       <option>Furniture Manufacturer</option>
                       <option>Architectural Millwork Studio</option>
@@ -240,7 +240,7 @@ export default function BulkEnquiryPage() {
                     <select
                       value={formData.estimatedQuantity}
                       onChange={(e) => setFormData({ ...formData, estimatedQuantity: e.target.value })}
-                      className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     >
                       <option>5 – 20 Litres (Workshop Tier)</option>
                       <option>50 – 200 Litres (Contractor Drum)</option>
@@ -255,7 +255,7 @@ export default function BulkEnquiryPage() {
                     <select
                       value={formData.deliveryTimeline}
                       onChange={(e) => setFormData({ ...formData, deliveryTimeline: e.target.value })}
-                      className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
+                      className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none"
                     >
                       <option>Immediate / Within 14 Days</option>
                       <option>Within 30 Days</option>
@@ -273,19 +273,19 @@ export default function BulkEnquiryPage() {
                     placeholder="Include details on your application line (e.g. spray-and-wipe, dip tank, roller-coater), timber substrate (e.g. kiln-dried American Walnut, White Oak), annual volume projections, and certification requirements."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3 py-2 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none resize-none"
+                    className="w-full px-3.5 py-2.5 bg-ivory border border-stone-muted rounded focus:border-copper focus:outline-none resize-none"
                   />
                 </div>
 
                 {error && (
-                  <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                  <div className="p-3.5 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-sm flex items-center gap-2">
                     <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
                     <span>{error}</span>
                   </div>
                 )}
 
                 <div className="pt-2 flex items-center justify-between">
-                  <span className="text-[11px] text-charcoal/60 flex items-center gap-1.5">
+                  <span className="text-xs text-charcoal/60 flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-forest" />
                     Commercial NDA & pricing confidentiality maintained
                   </span>
@@ -293,7 +293,7 @@ export default function BulkEnquiryPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-sm uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? (
                       <>
@@ -324,14 +324,14 @@ export default function BulkEnquiryPage() {
               />
             </div>
 
-            <div className="p-6 bg-ivory-light rounded-xl border border-stone text-xs text-charcoal/80 space-y-3">
+            <div className="p-6 bg-ivory-light rounded-xl border border-stone text-sm text-charcoal/80 space-y-3">
               <h3 className="font-serif text-xl font-medium text-forest-dark">
                 Why Contract with NOVA GRAIN?
               </h3>
               <p className="leading-relaxed">
                 We eliminate the supply volatility and chemical dilution common in retail timber oils. Each commercial shipment arrives with a verified Certificate of Analysis confirming mechanical cold-press purity, specific gravity (ASTM D1963), and acid index.
               </p>
-              <div className="pt-2 border-t border-stone/60 flex items-center justify-between text-[11px]">
+              <div className="pt-2 border-t border-stone/60 flex items-center justify-between text-xs">
                 <span className="text-charcoal/60">Direct Trade Desk:</span>
                 <a href={`mailto:${BRAND.contact.tradeEmail}`} className="text-forest font-semibold hover:underline">
                   {BRAND.contact.tradeEmail}

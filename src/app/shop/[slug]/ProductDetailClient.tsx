@@ -150,7 +150,7 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
                 {product.name}
               </h1>
 
-              <p className="text-sm text-walnut font-medium mt-1">
+              <p className="text-base text-walnut font-medium mt-1">
                 {product.subtitle}
               </p>
 
@@ -159,18 +159,18 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
                 <span className="font-serif text-3xl font-semibold text-forest-dark">
                   {currentVariant.priceEstimatePlaceholder || "Quote Required"}
                 </span>
-                <span className="text-[11px] text-charcoal/60 uppercase">
+                <span className="text-xs text-charcoal/60 uppercase">
                   (Estimated Draft Unit Value)
                 </span>
               </div>
 
-              <p className="text-xs text-charcoal/80 leading-relaxed mt-4">
+              <p className="text-base text-charcoal/80 leading-relaxed mt-4">
                 {product.longDescription}
               </p>
 
               {/* Variant Selector */}
               <div className="mt-6 pt-6 border-t border-stone">
-                <div className="flex justify-between text-xs mb-2">
+                <div className="flex justify-between text-sm mb-2">
                   <span className="font-semibold text-charcoal uppercase tracking-wider">
                     Container Size:
                   </span>
@@ -189,15 +189,15 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
                           : "border-stone bg-ivory-light text-charcoal/80 hover:border-forest/50"
                       }`}
                     >
-                      <div className="font-medium text-xs">{v.size}</div>
-                      <div className={`text-[10px] mt-0.5 ${selectedVariantIdx === idx ? "text-stone-muted" : "text-charcoal/60"}`}>
+                      <div className="font-medium text-sm">{v.size}</div>
+                      <div className={`text-xs mt-0.5 ${selectedVariantIdx === idx ? "text-stone-muted" : "text-charcoal/60"}`}>
                         {v.priceEstimatePlaceholder || "Quote"}
                       </div>
                     </button>
                   ))}
                 </div>
 
-                <div className="mt-3 p-3 bg-stone/40 rounded text-xs text-charcoal/80 space-y-1">
+                <div className="mt-3 p-3.5 bg-stone/40 rounded text-sm text-charcoal/80 space-y-1.5">
                   <div className="flex justify-between">
                     <span className="text-charcoal/60">Estimated Coverage:</span>
                     <span className="font-medium">{currentVariant.coverageSqFt} ({currentVariant.coverageSqM})</span>
@@ -215,14 +215,14 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
                   <div className="inline-flex items-center border border-stone-muted rounded bg-ivory-light">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="px-3 py-2 text-charcoal hover:bg-stone text-xs font-bold"
+                      className="px-3.5 py-2 text-charcoal hover:bg-stone text-sm font-bold"
                     >
                       -
                     </button>
-                    <span className="px-3 py-2 text-xs font-semibold">{quantity}</span>
+                    <span className="px-3.5 py-2 text-sm font-semibold">{quantity}</span>
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="px-3 py-2 text-charcoal hover:bg-stone text-xs font-bold"
+                      className="px-3.5 py-2 text-charcoal hover:bg-stone text-sm font-bold"
                     >
                       +
                     </button>
@@ -230,7 +230,7 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
 
                   <button
                     onClick={handleAddToCart}
-                    className={`flex-1 py-3 text-xs uppercase tracking-widest font-semibold rounded-xs transition-colors flex items-center justify-center gap-2 ${
+                    className={`flex-1 py-3 text-sm uppercase tracking-widest font-semibold rounded-xs transition-colors flex items-center justify-center gap-2 ${
                       addedSuccess
                         ? "bg-forest-light text-ivory"
                         : "bg-forest hover:bg-forest-light text-ivory"
@@ -250,7 +250,7 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
 
                 <button
                   onClick={() => setQuoteModalOpen(true)}
-                  className="w-full py-3 bg-ivory border border-stone-muted hover:border-forest text-forest-dark text-xs uppercase tracking-widest font-semibold transition-colors rounded-xs flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-ivory border border-stone-muted hover:border-forest text-forest-dark text-sm uppercase tracking-widest font-semibold transition-colors rounded-xs flex items-center justify-center gap-2"
                 >
                   Request Commercial Batch Pricing & CoA
                 </button>
@@ -258,7 +258,7 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
             </div>
 
             {/* Quick Specs Snapshot */}
-            <div className="pt-6 border-t border-stone text-xs text-charcoal/80 space-y-2">
+            <div className="pt-6 border-t border-stone text-sm text-charcoal/80 space-y-2.5">
               <div className="flex justify-between">
                 <span className="text-charcoal/60">Sheen Profile:</span>
                 <span className="font-medium text-forest-dark">{product.specs.sheen}</span>
@@ -292,53 +292,53 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
             </div>
             <button
               onClick={() => setQuoteModalOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-forest text-ivory text-xs uppercase tracking-wider font-medium hover:bg-forest-light self-start rounded-xs"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-forest text-ivory text-sm uppercase tracking-wider font-medium hover:bg-forest-light self-start rounded-xs"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download Draft TDS Document</span>
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
             <div className="space-y-3">
-              <h3 className="font-serif text-lg font-medium text-forest-dark border-b border-stone/60 pb-2">
+              <h3 className="font-serif text-xl font-medium text-forest-dark border-b border-stone/60 pb-2">
                 Physical & Chemical Properties
               </h3>
-              <div className="flex justify-between py-1 border-b border-stone/30">
+              <div className="flex justify-between py-1.5 border-b border-stone/30">
                 <span className="text-charcoal/60">Raw Botanical Source</span>
                 <span className="font-medium text-forest-dark">{product.specs.origin}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-stone/30">
+              <div className="flex justify-between py-1.5 border-b border-stone/30">
                 <span className="text-charcoal/60">Extraction Method</span>
                 <span className="font-medium text-forest-dark">{product.specs.extraction}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-stone/30">
+              <div className="flex justify-between py-1.5 border-b border-stone/30">
                 <span className="text-charcoal/60">Solvent Dilution</span>
                 <span className="font-medium text-forest-dark">{product.specs.purity}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-stone/30">
+              <div className="flex justify-between py-1.5 border-b border-stone/30">
                 <span className="text-charcoal/60">VOC Emissions</span>
                 <span className="font-medium text-forest-dark">{product.specs.vocContent}</span>
               </div>
             </div>
 
             <div className="space-y-3">
-              <h3 className="font-serif text-lg font-medium text-forest-dark border-b border-stone/60 pb-2">
+              <h3 className="font-serif text-xl font-medium text-forest-dark border-b border-stone/60 pb-2">
                 Application & Curing Parameters
               </h3>
-              <div className="flex justify-between py-1 border-b border-stone/30">
+              <div className="flex justify-between py-1.5 border-b border-stone/30">
                 <span className="text-charcoal/60">Recommended Coats</span>
                 <span className="font-medium text-forest-dark">{product.specs.recommendedCoats}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-stone/30">
+              <div className="flex justify-between py-1.5 border-b border-stone/30">
                 <span className="text-charcoal/60">Tack-Free Wipe Window</span>
                 <span className="font-medium text-forest-dark">30 – 45 minutes</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-stone/30">
+              <div className="flex justify-between py-1.5 border-b border-stone/30">
                 <span className="text-charcoal/60">Recoat Window</span>
                 <span className="font-medium text-forest-dark">{product.specs.recoatTime}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-stone/30">
+              <div className="flex justify-between py-1.5 border-b border-stone/30">
                 <span className="text-charcoal/60">Full Cross-linking Cure</span>
                 <span className="font-medium text-forest-dark">{product.specs.fullCureTime}</span>
               </div>
@@ -347,12 +347,12 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
 
           {/* Key Advantages Checklist */}
           <div className="mt-8 pt-8 border-t border-stone">
-            <h3 className="font-serif text-lg font-medium text-forest-dark mb-4">
+            <h3 className="font-serif text-xl font-medium text-forest-dark mb-4">
               Key Formulation Characteristics
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {product.features.map((feat, i) => (
-                <div key={i} className="flex items-start gap-2.5 text-xs text-charcoal/80">
+                <div key={i} className="flex items-start gap-2.5 text-sm text-charcoal/80">
                   <CheckCircle2 className="w-4 h-4 text-forest flex-shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </div>
@@ -380,12 +380,12 @@ export const ProductDetailClient: React.FC<ProductDetailClientProps> = ({
                     <h3 className="font-serif text-xl font-medium text-forest-dark mb-1">
                       <Link href={`/shop/${rel.slug}`}>{rel.name}</Link>
                     </h3>
-                    <p className="text-xs text-charcoal/70 line-clamp-2 mb-3">
+                    <p className="text-sm text-charcoal/80 line-clamp-2 mb-3">
                       {rel.description}
                     </p>
                     <Link
                       href={`/shop/${rel.slug}`}
-                      className="text-xs uppercase tracking-widest font-semibold text-forest hover:text-copper inline-flex items-center gap-1"
+                      className="text-sm uppercase tracking-widest font-semibold text-forest hover:text-copper inline-flex items-center gap-1"
                     >
                       View Formulation <ArrowRight className="w-3 h-3" />
                     </Link>

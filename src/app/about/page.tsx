@@ -32,7 +32,7 @@ export default function AboutPage() {
         </div>
 
         {/* Prototype Brand Disclaimer */}
-        <div className="mb-14 p-4 bg-stone/50 border border-stone-muted rounded-xl text-xs text-charcoal/80 flex items-start gap-3">
+        <div className="mb-14 p-5 bg-stone/50 border border-stone-muted rounded-xl text-sm text-charcoal/85 flex items-start gap-3">
           <AlertCircle className="w-4 h-4 text-copper flex-shrink-0 mt-0.5" />
           <p>
             <strong>Brand Genesis Note:</strong> NOVA GRAIN is an emerging brand concept currently in active formula evaluation. We do not publish fabricated histories, unverified certifications, or exaggerated heritage claims. Our commitment is rooted in verifiable botanical material science and pure workshop performance.
@@ -53,7 +53,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-6 space-y-6 text-sm text-charcoal/85 leading-relaxed font-sans">
+          <div className="lg:col-span-6 space-y-6 text-base text-charcoal/85 leading-relaxed font-sans">
             <h2 className="font-serif text-3xl sm:text-4xl text-forest-dark font-normal">
               The Living Material Doctrine
             </h2>
@@ -70,8 +70,8 @@ export default function AboutPage() {
               <strong>Tung Oil works differently.</strong> Cold-pressed from the seeds of <em>Vernicia fordii</em>, it contains pure conjugated triene fatty acids. When introduced to raw wood, capillary suction draws the oil into the deepest lumens of the wood cells. Here, it reacts directly with atmospheric oxygen to form an insoluble, flexible polymer <em>within the wood fibers themselves</em>.
             </p>
 
-            <div className="p-4 bg-ivory-light rounded-lg border border-stone space-y-2 text-xs">
-              <span className="font-serif text-base font-semibold text-forest-dark block">
+            <div className="p-4 bg-ivory-light rounded-lg border border-stone space-y-2 text-sm">
+              <span className="font-serif text-lg font-semibold text-forest-dark block">
                 The Three Guiding Principles:
               </span>
               <p>• <strong>Cellular Penetration:</strong> Never build a film over the wood. Fill the pores and let the wood breathe.</p>
@@ -90,12 +90,12 @@ export default function AboutPage() {
             <h2 className="font-serif text-3xl sm:text-4xl text-forest-dark font-normal">
               The Chemistry of Vernicia fordii
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-charcoal/80 leading-relaxed font-sans">
+            <p className="mt-2 text-base text-charcoal/80 leading-relaxed font-sans">
               Tung trees have been cultivated for centuries across East Asia for their seed oil, celebrated as the world&apos;s most naturally water-repellent plant extract.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
             <div className="bg-ivory p-6 rounded-xl border border-stone shadow-xs">
               <div className="w-10 h-10 rounded-full bg-forest/10 text-forest flex items-center justify-center mb-4">
                 <Layers className="w-5 h-5" />

@@ -55,17 +55,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
         {/* Top Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
           {product.badge && (
-            <span className="bg-forest-dark/90 backdrop-blur-md text-ivory text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-sm border border-forest-surface">
+            <span className="bg-forest-dark/90 backdrop-blur-md text-ivory text-xs uppercase tracking-wider font-semibold px-2.5 py-1 rounded-sm border border-forest-surface">
               {product.badge}
             </span>
           )}
-          <span className="bg-amber-100/95 backdrop-blur-sm text-amber-900 text-[9px] uppercase tracking-wider font-medium px-2 py-0.5 rounded-sm border border-amber-300/60">
+          <span className="bg-amber-100/95 backdrop-blur-sm text-amber-900 text-[11px] uppercase tracking-wider font-medium px-2 py-0.5 rounded-sm border border-amber-300/60">
             Draft Specimen
           </span>
         </div>
 
         {/* Eyebrow Floating */}
-        <div className="absolute bottom-3 left-3 bg-ivory/90 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono uppercase tracking-widest text-charcoal/80">
+        <div className="absolute bottom-3 left-3 bg-ivory/90 backdrop-blur-md px-2.5 py-1 rounded text-xs font-mono uppercase tracking-widest text-charcoal/80">
           {product.eyebrow}
         </div>
       </div>
@@ -76,16 +76,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
           <h3 className="font-serif text-2xl font-normal text-forest-dark group-hover:text-copper transition-colors">
             <Link href={`/shop/${product.slug}`}>{product.name}</Link>
           </h3>
-          <p className="text-xs text-walnut font-medium mt-0.5 line-clamp-1">
+          <p className="text-sm text-walnut font-medium mt-1 line-clamp-1">
             {product.subtitle}
           </p>
-          <p className="text-xs text-charcoal/70 mt-3 line-clamp-2 leading-relaxed">
+          <p className="text-sm text-charcoal/80 mt-2.5 line-clamp-3 leading-relaxed">
             {product.description}
           </p>
 
           {/* Size / Variant Selector */}
           <div className="mt-4 pt-4 border-t border-stone/60">
-            <label className="text-[11px] uppercase tracking-wider text-charcoal/60 font-semibold block mb-2">
+            <label className="text-xs uppercase tracking-wider text-charcoal/70 font-semibold block mb-2">
               Select Volume Container:
             </label>
             <div className="flex flex-wrap gap-1.5">
@@ -94,7 +94,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
                   key={v.sku}
                   type="button"
                   onClick={() => setSelectedVariantIdx(i)}
-                  className={`px-2.5 py-1 text-xs rounded border transition-colors ${
+                  className={`px-3 py-1.5 text-xs rounded border transition-colors ${
                     selectedVariantIdx === i
                       ? "bg-forest text-ivory border-forest font-medium"
                       : "bg-ivory-light text-charcoal/80 border-stone hover:border-forest/50"
@@ -106,7 +106,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
             </div>
 
             {/* Coverage Hint */}
-            <p className="text-[11px] text-charcoal/60 mt-2 font-mono">
+            <p className="text-xs text-charcoal/70 mt-2 font-mono">
               Covers approx. {currentVariant.coverageSqFt} ({currentVariant.coverageSqM})
             </p>
           </div>
@@ -115,10 +115,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
         {/* Pricing & Call to Action */}
         <div className="mt-6 pt-4 border-t border-stone flex items-center justify-between">
           <div>
-            <span className="text-[10px] text-charcoal/50 uppercase tracking-wider block">
+            <span className="text-xs text-charcoal/60 uppercase tracking-wider block">
               Estimated Value
             </span>
-            <span className="text-base font-serif font-semibold text-forest-dark">
+            <span className="text-lg font-serif font-semibold text-forest-dark">
               {currentVariant.priceEstimatePlaceholder || "Quote on Request"}
             </span>
           </div>
@@ -128,7 +128,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
               <button
                 type="button"
                 onClick={() => onOpenQuoteModal ? onOpenQuoteModal(product.name) : null}
-                className="px-3.5 py-2 bg-copper hover:bg-copper-light text-ivory text-xs font-medium uppercase tracking-wider transition-colors rounded-xs flex items-center gap-1.5"
+                className="px-3.5 py-2 bg-copper hover:bg-copper-light text-ivory text-xs font-semibold uppercase tracking-wider transition-colors rounded-xs flex items-center gap-1.5"
               >
                 <span>Bulk Quote</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -137,7 +137,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenQuoteMo
               <button
                 type="button"
                 onClick={handleAddToCart}
-                className={`px-3.5 py-2 text-xs font-medium uppercase tracking-wider transition-all rounded-xs flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all rounded-xs flex items-center gap-1.5 ${
                   addedAnimation
                     ? "bg-forest-light text-ivory"
                     : "bg-forest hover:bg-forest-light text-ivory"

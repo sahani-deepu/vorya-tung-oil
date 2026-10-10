@@ -70,7 +70,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-1.5 text-xs rounded-full transition-all uppercase tracking-wider font-medium ${
+                className={`px-4 py-2 text-sm rounded-full transition-all uppercase tracking-wider font-medium ${
                   selectedCategory === cat
                     ? "bg-forest text-ivory shadow-xs"
                     : "bg-stone/50 text-charcoal/70 hover:bg-stone hover:text-forest"
@@ -110,10 +110,10 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm text-charcoal/85 leading-relaxed font-sans border-t border-stone/40">
+                  <div className="px-6 pb-6 pt-1 text-base text-charcoal/85 leading-relaxed font-sans border-t border-stone/40">
                     <p>{faq.answer}</p>
-                    <div className="mt-3 flex items-center gap-2 text-[11px] text-stone-muted-foreground text-walnut/80">
-                      <span className="px-2 py-0.5 bg-stone rounded text-[10px] uppercase font-medium">
+                    <div className="mt-3 flex items-center gap-2 text-xs text-stone-muted-foreground text-walnut/80">
+                      <span className="px-2.5 py-0.5 bg-stone rounded text-xs uppercase font-medium">
                         {faq.category}
                       </span>
                     </div>
@@ -128,11 +128,11 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
         <div className="mt-12 p-6 bg-forest-dark text-ivory rounded-xl text-center flex flex-col sm:flex-row items-center justify-between gap-4 border border-forest-surface">
           <div className="text-left">
             <h4 className="font-serif text-xl font-medium text-ivory">Have a complex timber specification question?</h4>
-            <p className="text-xs text-stone-muted mt-1">Our wood conservation and finishing team assists architects and craftspeople directly.</p>
+            <p className="text-sm text-stone-muted mt-1">Our wood conservation and finishing team assists architects and craftspeople directly.</p>
           </div>
           <Link
             href="/contact"
-            className="px-5 py-2.5 bg-copper hover:bg-copper-light text-ivory text-xs font-medium uppercase tracking-widest transition-colors flex items-center gap-2 rounded-xs flex-shrink-0"
+            className="px-5 py-2.5 bg-copper hover:bg-copper-light text-ivory text-xs font-semibold uppercase tracking-widest transition-colors flex items-center gap-2 rounded-xs flex-shrink-0"
           >
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Consult Our Atelier</span>

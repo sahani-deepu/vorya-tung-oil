@@ -31,7 +31,7 @@ export default function SpecificationsPage() {
         </div>
 
         {/* Compliance & Audit Transparency Note */}
-        <div className="mb-12 p-5 bg-stone-light border border-stone-muted rounded-xl text-xs text-charcoal/80 leading-relaxed shadow-xs flex items-start gap-3">
+        <div className="mb-12 p-5 bg-stone-light border border-stone-muted rounded-xl text-sm text-charcoal/80 leading-relaxed shadow-xs flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-copper flex-shrink-0 mt-0.5" />
           <div>
             <h2 className="font-serif text-base font-semibold text-forest-dark mb-1">
@@ -47,7 +47,7 @@ export default function SpecificationsPage() {
         <TechSpecsTable />
 
         {/* Storage & Shelf Life Guidelines */}
-        <div className="my-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-xs text-charcoal/85">
+        <div className="my-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-charcoal/85">
           <div className="p-6 bg-ivory-light rounded-xl border border-stone shadow-xs space-y-3">
             <h3 className="font-serif text-2xl font-normal text-forest-dark border-b border-stone/60 pb-2">
               Storage & Shelf Life Preservation
@@ -82,7 +82,7 @@ export default function SpecificationsPage() {
         {/* Safety Data Callout */}
         <div className="p-6 bg-red-950/10 border border-red-900/30 rounded-xl mb-16 flex flex-col sm:flex-row items-start gap-4">
           <ShieldAlert className="w-6 h-6 text-red-800 flex-shrink-0 mt-0.5" />
-          <div className="text-xs text-charcoal/80 leading-relaxed">
+          <div className="text-sm text-charcoal/80 leading-relaxed">
             <h4 className="font-serif text-lg font-semibold text-red-900 mb-1">
               Safety Data Sheet (SDS) Reference Framework (Pending Formal SDS Registration): Exothermic Oxidation
             </h4>

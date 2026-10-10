@@ -33,7 +33,7 @@ export default function ApplicationsPage() {
         </div>
 
         {/* Responsible Suitability Warning Callout */}
-        <div className="mb-14 p-5 bg-stone-light border-l-4 border-copper rounded-r-xl text-xs text-charcoal/80 leading-relaxed shadow-xs">
+        <div className="mb-14 p-5 bg-stone-light border-l-4 border-copper rounded-r-xl text-sm text-charcoal/80 leading-relaxed shadow-xs">
           <h2 className="font-serif text-base font-semibold text-forest-dark mb-1">
             Material Suitability Notice
           </h2>
@@ -69,7 +69,7 @@ export default function ApplicationsPage() {
 
                 {/* Text Content */}
                 <div className={`lg:col-span-6 space-y-4 ${isReversed ? "lg:order-1" : ""}`}>
-                  <span className="text-[11px] uppercase tracking-widest text-copper font-semibold font-mono">
+                  <span className="text-xs uppercase tracking-widest text-copper font-semibold font-mono">
                     APPLICATION DISCIPLINE 0{index + 1}
                   </span>
 
@@ -77,16 +77,16 @@ export default function ApplicationsPage() {
                     {app.title}
                   </h2>
 
-                  <p className="text-sm font-medium text-walnut italic">
+                  <p className="text-base font-medium text-walnut italic">
                     {app.subtitle}
                   </p>
 
-                  <p className="text-sm text-charcoal/85 leading-relaxed font-sans">
+                  <p className="text-base text-charcoal/85 leading-relaxed font-sans">
                     {app.description}
                   </p>
 
                   {/* Specification Box */}
-                  <div className="p-4 bg-ivory-light rounded-xl border border-stone space-y-2.5 text-xs text-charcoal/80">
+                  <div className="p-4.5 bg-ivory-light rounded-xl border border-stone space-y-2.5 text-sm text-charcoal/80">
                     <div className="flex justify-between border-b border-stone/50 pb-1.5">
                       <span className="font-medium text-charcoal/60">Recommended Formulation:</span>
                       <span className="font-semibold text-forest-dark">{app.recommendedProduct}</span>
@@ -104,7 +104,7 @@ export default function ApplicationsPage() {
                   <div className="pt-2">
                     <Link
                       href="/how-to-apply"
-                      className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-forest hover:text-copper transition-colors"
+                      className="inline-flex items-center gap-2 text-sm uppercase tracking-widest font-semibold text-forest hover:text-copper transition-colors"
                     >
                       <span>Read Step-by-Step Workshop Protocol</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -121,19 +121,19 @@ export default function ApplicationsPage() {
           <h2 className="font-serif text-3xl sm:text-4xl font-normal mb-3 text-ivory">
             Specifying Tung Oil for an Architectural Project?
           </h2>
-          <p className="text-sm text-stone-muted max-w-xl mx-auto leading-relaxed mb-8">
+          <p className="text-base text-stone-muted max-w-xl mx-auto leading-relaxed mb-8">
             Our material consultants provide tailored recommendations on timber preparation, dilution ratios, and coat intervals for commercial fit-outs and volume manufacturing.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/bulk-enquiry"
-              className="px-6 py-3 bg-copper hover:bg-copper-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-md"
+              className="px-6 py-3 bg-copper hover:bg-copper-light text-ivory text-sm uppercase tracking-widest font-semibold transition-colors rounded-xs shadow-md"
             >
               Request Architectural Specification Support
             </Link>
             <Link
               href="/shop"
-              className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-medium transition-colors rounded-xs border border-forest-surface"
+              className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-sm uppercase tracking-widest font-medium transition-colors rounded-xs border border-forest-surface"
             >
               Explore Products
             </Link>

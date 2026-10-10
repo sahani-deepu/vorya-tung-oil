@@ -103,7 +103,7 @@ export default function HomePage() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-2xl lg:max-w-3xl">
             {/* Eyebrow Label */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-ivory/10 backdrop-blur-md border border-ivory/20 rounded-full text-[11px] md:text-xs tracking-[0.25em] text-copper-light uppercase font-semibold mb-6">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-ivory/10 backdrop-blur-md border border-ivory/20 rounded-full text-xs md:text-sm tracking-[0.2em] text-copper-light uppercase font-semibold mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-copper-light animate-pulse" />
               <span>WOOD FINISHING • MATERIAL CARE • CRAFTSMANSHIP</span>
             </div>
@@ -142,7 +142,7 @@ export default function HomePage() {
                 <span className="font-serif text-2xl md:text-3xl font-light text-ivory block">
                   100%
                 </span>
-                <span className="text-[11px] uppercase tracking-wider text-stone-muted/70 mt-0.5 block font-sans">
+                <span className="text-xs uppercase tracking-wider text-stone-muted/80 mt-0.5 block font-sans">
                   Pure Seed Oil (Uncut)
                 </span>
               </div>
@@ -150,7 +150,7 @@ export default function HomePage() {
                 <span className="font-serif text-2xl md:text-3xl font-light text-copper-light block">
                   0 g/L
                 </span>
-                <span className="text-[11px] uppercase tracking-wider text-stone-muted/70 mt-0.5 block font-sans">
+                <span className="text-xs uppercase tracking-wider text-stone-muted/80 mt-0.5 block font-sans">
                   Zero Petroleum VOCs
                 </span>
               </div>
@@ -158,7 +158,7 @@ export default function HomePage() {
                 <span className="font-serif text-2xl md:text-3xl font-light text-ivory block">
                   Non-Film
                 </span>
-                <span className="text-[11px] uppercase tracking-wider text-stone-muted/70 mt-0.5 block font-sans">
+                <span className="text-xs uppercase tracking-wider text-stone-muted/80 mt-0.5 block font-sans">
                   Deep Pore Penetration
                 </span>
               </div>
@@ -195,7 +195,7 @@ export default function HomePage() {
                   sizes="192px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/80 via-transparent to-transparent flex items-end p-2.5">
-                  <span className="text-[9px] uppercase tracking-widest text-ivory font-mono font-medium">
+                  <span className="text-xs uppercase tracking-widest text-ivory font-mono font-medium">
                     Vernicia fordii Seeds
                   </span>
                 </div>
@@ -204,7 +204,7 @@ export default function HomePage() {
 
             {/* Copy Right */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone rounded-full text-xs font-medium tracking-widest text-walnut uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone rounded-full text-xs font-semibold tracking-widest text-walnut uppercase">
                 <Layers className="w-3.5 h-3.5 text-copper" />
                 <span>The Botanical Finish</span>
               </div>
@@ -213,7 +213,7 @@ export default function HomePage() {
                 More Than a Finish. A Celebration of Wood.
               </h2>
 
-              <p className="text-base text-charcoal/85 leading-relaxed font-sans">
+              <p className="text-lg text-charcoal/85 leading-relaxed font-sans">
                 Tung Oil is one of nature’s most remarkable finishing materials. Cold-pressed from the seed nuts of the Tung tree (<em>Vernicia fordii</em>), it contains a rare biological composition rich in <strong>alpha-eleostearic acid</strong>—a conjugated triene fatty acid that polymerizes naturally when exposed to ambient atmospheric oxygen.
               </p>
 
@@ -222,7 +222,7 @@ export default function HomePage() {
                   <h3 className="font-serif text-lg font-medium text-forest-dark mb-1.5">
                     How It Interacts with Wood
                   </h3>
-                  <p className="text-xs text-charcoal/80 leading-relaxed">
+                  <p className="text-sm text-charcoal/85 leading-relaxed">
                     Unlike polyurethane which coats timber in a rigid plastic film that eventually cracks, Tung Oil is drawn deep into open cellular lumens. It cures <em>inside</em> the grain, flexing with natural seasonal wood movement.
                   </p>
                 </div>
@@ -231,20 +231,20 @@ export default function HomePage() {
                   <h3 className="font-serif text-lg font-medium text-forest-dark mb-1.5">
                     Awakening Natural Chatoyancy
                   </h3>
-                  <p className="text-xs text-charcoal/80 leading-relaxed">
+                  <p className="text-sm text-charcoal/85 leading-relaxed">
                     As pure oil saturates the wood cells, light refracts through the translucent resin matrix, illuminating hidden fiddleback, curls, and medullary rays with unmatched three-dimensional depth.
                   </p>
                 </div>
               </div>
 
-              <div className="p-4 bg-stone/50 rounded-lg border-l-4 border-copper text-xs text-charcoal/80 leading-relaxed">
+              <div className="p-4 bg-stone/50 rounded-lg border-l-4 border-copper text-sm text-charcoal/85 leading-relaxed">
                 <strong>Pure vs. Blended Finishes:</strong> Many retail products labelled “Tung Oil Finish” contain only minimal plant oil diluted with synthetic varnishes and mineral spirits. NOVA GRAIN Pure Tung Oil is unadulterated Grade A cold-pressed seed oil with zero added driers or petroleum fillers.
               </div>
 
               <div className="pt-2 flex items-center gap-4">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-forest hover:text-copper transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm uppercase tracking-widest font-semibold text-forest hover:text-copper transition-colors"
                 >
                   <span>Read the Full NOVA GRAIN Philosophy</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -268,18 +268,18 @@ export default function HomePage() {
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-forest-dark font-normal">
                 The Product Collection
               </h2>
-              <p className="mt-2 text-sm text-charcoal/75 max-w-xl font-sans">
+              <p className="mt-2 text-base text-charcoal/80 max-w-xl font-sans">
                 Available in draft catalogue quantities for workshop trials, architectural specification samples, and industrial contract supply.
               </p>
             </div>
 
             <div className="mt-4 md:mt-0 flex items-center gap-3">
-              <span className="text-xs text-charcoal/60 bg-stone px-3 py-1.5 rounded-full border border-stone-muted">
+              <span className="text-xs text-charcoal/70 bg-stone px-3 py-1.5 rounded-full border border-stone-muted">
                 3 Catalogue Proposals
               </span>
               <Link
                 href="/shop"
-                className="text-xs uppercase tracking-widest font-semibold text-forest hover:text-copper flex items-center gap-1"
+                className="text-sm uppercase tracking-wider font-semibold text-forest hover:text-copper flex items-center gap-1"
               >
                 View Full Shop <ArrowRight className="w-3.5 h-3.5" />
               </Link>
@@ -337,7 +337,7 @@ export default function HomePage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                  <div className="absolute bottom-3 left-3 text-ivory text-xs font-serif font-light tracking-wide">
+                  <div className="absolute bottom-3 left-3 text-ivory text-sm font-serif font-light tracking-wide">
                     {app.subtitle}
                   </div>
                 </div>
@@ -347,11 +347,11 @@ export default function HomePage() {
                     <h3 className="font-serif text-2xl font-normal text-forest-dark mb-2">
                       {app.title}
                     </h3>
-                    <p className="text-xs text-charcoal/80 leading-relaxed mb-4">
+                    <p className="text-sm text-charcoal/85 leading-relaxed mb-4">
                       {app.description}
                     </p>
 
-                    <div className="p-3 bg-ivory-light rounded border border-stone space-y-1.5 text-xs">
+                    <div className="p-3 bg-ivory-light rounded border border-stone space-y-1.5 text-sm">
                       <div className="flex justify-between">
                         <span className="text-charcoal/60 font-medium">Recommended:</span>
                         <span className="text-forest-dark font-semibold text-right">{app.recommendedProduct}</span>
@@ -364,12 +364,12 @@ export default function HomePage() {
                   </div>
 
                   <div className="mt-4 pt-4 border-t border-stone">
-                    <p className="text-[11px] text-charcoal/60 italic leading-relaxed mb-3">
+                    <p className="text-xs text-charcoal/70 italic leading-relaxed mb-3">
                       <strong>Suitability:</strong> {app.suitabilityNote}
                     </p>
                     <Link
                       href="/applications"
-                      className="text-xs uppercase tracking-widest font-semibold text-forest hover:text-copper flex items-center gap-1.5 transition-colors"
+                      className="text-sm uppercase tracking-wider font-semibold text-forest hover:text-copper flex items-center gap-1.5 transition-colors"
                     >
                       <span>{app.linkText}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -381,7 +381,7 @@ export default function HomePage() {
           </div>
 
           {/* Broad Suitability Clarification Notice */}
-          <div className="mt-12 p-4 bg-stone rounded-lg border border-stone-muted text-xs text-charcoal/80 text-center max-w-3xl mx-auto">
+          <div className="mt-12 p-4 bg-stone rounded-lg border border-stone-muted text-sm text-charcoal/85 text-center max-w-3xl mx-auto">
             <strong>Suitability Clarification:</strong> Suitability depends strictly on specific formulation dilution, wood species density, ambient temperature, and post-cure exposure. Pure Tung Oil is not recommended for submersion marine hulls or unmaintained exterior horizontal decking in wet climates without scheduled recoats.
           </div>
         </div>
@@ -399,7 +399,7 @@ export default function HomePage() {
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ivory font-normal">
               Why Discerning Craftspeople Choose NOVA GRAIN
             </h2>
-            <p className="mt-4 text-base text-stone-muted leading-relaxed font-sans">
+            <p className="mt-4 text-lg text-stone-muted/90 leading-relaxed font-sans">
               We make no unverified claims of miracle longevity or universal suitability. We rely on the verified physical chemistry of pure plant-drying oils and honest workshop formulations.
             </p>
           </div>
@@ -412,7 +412,7 @@ export default function HomePage() {
               <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
                 Non-Film Forming Cellular Bond
               </h3>
-              <p className="text-xs text-stone-muted leading-relaxed">
+              <p className="text-sm text-stone-muted/90 leading-relaxed">
                 Polyurethane and thick varnishes rest as a plastic film above the timber. When wood expands and contracts with atmospheric humidity, film finishes develop microscopic fissures that trap moisture, turn cloudy, and peel. Tung Oil cures deep inside the cell walls—meaning it can never flake, peel, or blister.
               </p>
             </div>
@@ -424,7 +424,7 @@ export default function HomePage() {
               <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
                 Natural Chatoyancy & Warmth
               </h3>
-              <p className="text-xs text-stone-muted leading-relaxed">
+              <p className="text-sm text-stone-muted/90 leading-relaxed">
                 Rather than muddying wood grain behind chemical pigments or artificial dyes, pure Tung Oil saturates the vascular channels of hardwoods, increasing the refractive contrast between earlywood and latewood rings. The result is a luminous, shimmering depth that intensifies with every buffed coat.
               </p>
             </div>
@@ -436,7 +436,7 @@ export default function HomePage() {
               <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
                 Flexible Atmospheric Cure
               </h3>
-              <p className="text-xs text-stone-muted leading-relaxed">
+              <p className="text-sm text-stone-muted/90 leading-relaxed">
                 Pure Tung oil polymerizes into a natural thermoset-like polymer that repels water, resists mild fruit acids and alcohol spills, and allows the timber beneath to breathe. Water beads naturally across the surface without synthetic sealants.
               </p>
             </div>
@@ -448,7 +448,7 @@ export default function HomePage() {
               <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
                 Zero Toxic Synthetic Driers
               </h3>
-              <p className="text-xs text-stone-muted leading-relaxed">
+              <p className="text-sm text-stone-muted/90 leading-relaxed">
                 Many modern “drying oils” add toxic cobalt or zirconium heavy-metal driers to force rapid drying. NOVA GRAIN Pure Tung Oil is unadulterated cold-pressed seed oil. Once fully cured (21–30 days), it is inert, non-toxic, and traditionally prized for wooden tableware.
               </p>
             </div>
@@ -460,7 +460,7 @@ export default function HomePage() {
               <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
                 Effortless Spot Repairs
               </h3>
-              <p className="text-xs text-stone-muted leading-relaxed">
+              <p className="text-sm text-stone-muted/90 leading-relaxed">
                 When polyurethane is scratched or dented, repairing the surface requires sanding down the entire tabletop. With a Tung Oil finish, scratches can be localized, touched up with a small drop of oil on a rag, and buffed back to a seamless matching sheen without edge rings.
               </p>
             </div>
@@ -472,7 +472,7 @@ export default function HomePage() {
               <h3 className="font-serif text-2xl text-ivory font-normal mb-3">
                 Batch Testing & Industrial Support
               </h3>
-              <p className="text-xs text-stone-muted leading-relaxed">
+              <p className="text-sm text-stone-muted/90 leading-relaxed">
                 For manufacturing operations and architectural projects, we offer verified batch lots with Certificates of Analysis covering specific gravity, acid index, and iodine numbers to ensure consistent cure times in automated or shop environments.
               </p>
             </div>
@@ -509,15 +509,15 @@ export default function HomePage() {
                 Wood is not plastic. It is not inert drywall or painted metal. Wood is an organic, cellular organism that lived, grew rings across decades of sunlight and rain, and continues to breathe moisture as temperatures fluctuate.
               </p>
 
-              <p className="text-sm text-charcoal/80 leading-relaxed font-sans">
+              <p className="text-base text-charcoal/80 leading-relaxed font-sans">
                 Covering high-character American Walnut, White Oak, or reclaimed Teak beneath heavy coats of plastic synthetic varnish suffocates its tactile warmth and conceals its natural texture under glossy artificial reflection.
               </p>
 
-              <p className="text-sm text-charcoal/80 leading-relaxed font-sans">
+              <p className="text-base text-charcoal/80 leading-relaxed font-sans">
                 NOVA GRAIN was conceived on a simple premise: honor the material. By harvesting pure, unadulterated Tung seed oil and combining it with uncompromising batch standards, we provide craftsmen with a finish that feels like wood, moves with wood, and ages gracefully across generations of use.
               </p>
 
-              <div className="pt-4 border-t border-stone flex flex-wrap gap-8 text-xs text-charcoal/70">
+              <div className="pt-4 border-t border-stone flex flex-wrap gap-8 text-sm text-charcoal/75">
                 <div>
                   <span className="font-serif text-xl font-medium text-forest-dark block">Zero Compromise</span>
                   <span>Pure botanical cold-press oil</span>
@@ -544,7 +544,7 @@ export default function HomePage() {
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>
-              <div className="mt-3 text-[11px] text-charcoal/60 text-right italic font-mono">
+              <div className="mt-3 text-xs text-charcoal/60 text-right italic font-mono">
                 Artisan applying second coat to live-edge walnut slab table.
               </div>
             </div>
@@ -566,11 +566,11 @@ export default function HomePage() {
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ivory font-normal leading-tight">
                 Your Next Project Deserves the Right Finish.
               </h2>
-              <p className="text-sm text-stone-muted leading-relaxed font-sans">
+              <p className="text-base text-stone-muted leading-relaxed font-sans">
                 We partner with bespoke furniture workshops, architectural millwork suppliers, flooring manufacturers, and restoration practices requiring dependable, bulk-calibrated Tung Oil supply.
               </p>
 
-              <div className="space-y-4 pt-2 text-xs text-stone-muted/90">
+              <div className="space-y-4 pt-2 text-sm text-stone-muted/90">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-copper-light flex-shrink-0 mt-0.5" />
                   <span>Tiered wholesale volume pricing for 5L, 20L pails, and 200L drums</span>
@@ -585,7 +585,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="p-4 bg-forest-surface/50 rounded-lg border border-forest-surface text-xs text-stone-muted">
+              <div className="p-4 bg-forest-surface/50 rounded-lg border border-forest-surface text-sm text-stone-muted">
                 <span className="font-semibold text-ivory block mb-1">Direct Trade Desk Email:</span>
                 <a href={`mailto:${BRAND.contact.tradeEmail}`} className="text-copper-light underline hover:text-ivory">
                   {BRAND.contact.tradeEmail}
@@ -599,14 +599,14 @@ export default function HomePage() {
                 <div className="py-12 text-center">
                   <CheckCircle2 className="w-16 h-16 text-forest mx-auto mb-4" />
                   <h3 className="font-serif text-2xl text-forest-dark mb-2">Trade Inquiry Logged</h3>
-                  <p className="text-xs text-charcoal/80 max-w-md mx-auto mb-4 leading-relaxed">
+                  <p className="text-sm text-charcoal/80 max-w-md mx-auto mb-4 leading-relaxed">
                     Thank you, <strong>{b2bFormData.name}</strong> from <strong>{b2bFormData.businessName}</strong>. Your requirement for <strong>{b2bFormData.estimatedQuantity}</strong> has been securely registered in the trade ledger.
                   </p>
-                  <div className="p-4 bg-stone rounded-lg text-xs text-charcoal/80 text-left mb-6 border border-stone-muted">
+                  <div className="p-4 bg-stone rounded-lg text-sm text-charcoal/80 text-left mb-6 border border-stone-muted">
                     <p className="font-semibold text-forest-dark mb-1">
                       Enquiry Reference ID: <span className="font-mono text-copper font-bold">{b2bReferenceId}</span>
                     </p>
-                    <p className="text-[11px] text-charcoal/70">
+                    <p className="text-xs text-charcoal/70">
                       Our commercial technical team will review your specifications and contact <strong>{b2bFormData.email}</strong> within 1 business day.
                     </p>
                   </div>
@@ -616,18 +616,18 @@ export default function HomePage() {
                       setB2bSubmitted(false);
                       setB2bReferenceId("");
                     }}
-                    className="px-6 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-medium hover:bg-forest-light"
+                    className="px-6 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-semibold hover:bg-forest-light"
                   >
                     Submit Another Request
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleB2bSubmit} className="space-y-4 text-xs">
+                <form onSubmit={handleB2bSubmit} className="space-y-4 text-sm">
                   <div className="border-b border-stone pb-3 mb-4">
                     <h3 className="font-serif text-2xl font-medium text-forest-dark">
                       Request Bulk Trade Pricing & Samples
                     </h3>
-                    <p className="text-[11px] text-charcoal/60 mt-0.5">
+                    <p className="text-xs text-charcoal/60 mt-0.5">
                       Fill out your workshop specifications below. All fields marked with * are required.
                     </p>
                   </div>
@@ -747,7 +747,7 @@ export default function HomePage() {
                   )}
 
                   <div className="pt-2 flex items-center justify-between">
-                    <span className="text-[11px] text-charcoal/60">
+                    <span className="text-xs text-charcoal/60">
                       Response timeline: 1 business day
                     </span>
                     <button
@@ -788,7 +788,7 @@ export default function HomePage() {
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-forest-dark font-normal">
                 Educational Resources & Guides
               </h2>
-              <p className="mt-2 text-sm text-charcoal/70 max-w-xl font-sans">
+              <p className="mt-2 text-base text-charcoal/80 max-w-xl font-sans">
                 Evidence-based articles on polymerization kinetics, wood preparation, finish comparisons, and workshop protocols.
               </p>
             </div>
@@ -796,7 +796,7 @@ export default function HomePage() {
             <div className="mt-4 md:mt-0">
               <Link
                 href="/resources"
-                className="text-xs uppercase tracking-widest font-semibold text-forest hover:text-copper flex items-center gap-1.5 transition-colors"
+                className="text-sm uppercase tracking-wider font-semibold text-forest hover:text-copper flex items-center gap-1.5 transition-colors"
               >
                 <span>View All Articles</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -818,14 +818,14 @@ export default function HomePage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute top-3 left-3 bg-forest-dark/80 backdrop-blur-sm text-ivory text-[10px] uppercase font-mono px-2 py-0.5 rounded">
+                  <div className="absolute top-3 left-3 bg-forest-dark/80 backdrop-blur-sm text-ivory text-xs uppercase font-mono px-2.5 py-0.5 rounded">
                     {art.category}
                   </div>
                 </div>
 
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="text-[11px] text-charcoal/60 mb-2 flex items-center gap-2">
+                    <div className="text-xs text-charcoal/60 mb-2 flex items-center gap-2">
                       <span>{art.date}</span>
                       <span>•</span>
                       <span>{art.readTime}</span>
@@ -835,16 +835,16 @@ export default function HomePage() {
                       <Link href={`/resources/${art.slug}`}>{art.title}</Link>
                     </h3>
 
-                    <p className="text-xs text-charcoal/70 line-clamp-3 leading-relaxed">
+                    <p className="text-sm text-charcoal/80 line-clamp-3 leading-relaxed">
                       {art.excerpt}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-stone flex items-center justify-between text-xs">
-                    <span className="text-[11px] text-walnut font-medium">By {art.author}</span>
+                  <div className="mt-6 pt-4 border-t border-stone flex items-center justify-between text-sm">
+                    <span className="text-xs text-walnut font-medium">By {art.author}</span>
                     <Link
                       href={`/resources/${art.slug}`}
-                      className="text-forest hover:text-copper font-medium flex items-center gap-1 text-[11px] uppercase tracking-wider"
+                      className="text-forest hover:text-copper font-medium flex items-center gap-1 text-xs uppercase tracking-wider"
                     >
                       Read Guide <ArrowRight className="w-3 h-3" />
                     </Link>
@@ -885,7 +885,7 @@ export default function HomePage() {
             Good Wood Deserves a Thoughtful Finish.
           </h2>
 
-          <p className="text-base sm:text-lg text-stone-muted/90 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="text-lg sm:text-xl text-stone-muted/95 max-w-2xl mx-auto font-sans leading-relaxed">
             Experience the tactile depth and non-film-forming permanence of unadulterated cold-pressed Tung Oil. Request a workshop test sample or browse our catalogue.
           </p>
 

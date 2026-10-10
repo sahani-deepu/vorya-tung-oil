@@ -147,13 +147,13 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
             </div>
 
             {/* Drag Hint on Bottom */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none bg-charcoal/70 backdrop-blur-sm text-ivory/90 text-[11px] uppercase tracking-widest px-3 py-1 rounded-full">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none bg-charcoal/70 backdrop-blur-sm text-ivory/90 text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">
               Drag or use Left/Right keys
             </div>
           </div>
 
           {/* Responsible Craftsmanship Disclaimer */}
-          <div className="mt-4 flex items-start gap-2.5 p-3.5 bg-stone/70 rounded-lg text-xs text-charcoal/80 border border-stone-muted/80 max-w-4xl mx-auto">
+          <div className="mt-4 flex items-start gap-2.5 p-4 bg-stone/70 rounded-lg text-sm text-charcoal/85 border border-stone-muted/80 max-w-4xl mx-auto">
             <Info className="w-4 h-4 text-walnut flex-shrink-0 mt-0.5" />
             <p className="leading-relaxed">
               <strong>Species Note:</strong> Shown above on American Black Walnut (<em>Juglans nigra</em>). Natural wood pore density, absorption velocity, and color intensification vary naturally across timber species (e.g. White Oak, Teak, Ash, Cherry, Pine). We recommend testing a discreet end grain or off-cut before full surface finishing.

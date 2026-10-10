@@ -13,10 +13,10 @@ export const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
             <BrandLogo variant="light" size="lg" />
-            <p className="text-sm text-stone-muted/80 max-w-sm leading-relaxed mt-3">
+            <p className="text-base text-stone-muted/80 max-w-sm leading-relaxed mt-3">
               Thoughtfully cold-pressed Tung Oil engineered for furniture makers, architectural millwork studios, and timber artisans who revere natural wood grain.
             </p>
-            <div className="pt-2 text-xs text-stone-muted/70 flex items-start gap-2 max-w-sm bg-forest-surface/40 p-3 rounded border border-forest-surface">
+            <div className="pt-2 text-sm text-stone-muted/80 flex items-start gap-2 max-w-sm bg-forest-surface/40 p-3 rounded border border-forest-surface">
               <AlertCircle className="w-4 h-4 text-copper-light flex-shrink-0 mt-0.5" />
               <span>
                 <strong>Working Brand Specimen:</strong> NOVA GRAIN is a prototype identity created for evaluation. Trade specifications and ordering channels represent development placeholders.
@@ -26,10 +26,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Products */}
           <div>
-            <h4 className="text-xs uppercase tracking-widest text-ivory font-semibold mb-4 font-sans">
+            <h4 className="text-sm uppercase tracking-wider text-ivory font-semibold mb-4 font-sans">
               Tung Oil Catalogue
             </h4>
-            <ul className="space-y-2.5 text-xs text-stone-muted/80">
+            <ul className="space-y-2.5 text-sm text-stone-muted/80">
               {PRODUCTS.map((prod) => (
                 <li key={prod.id}>
                   <Link
@@ -37,14 +37,14 @@ export const Footer: React.FC = () => {
                     className="hover:text-copper-light transition-colors flex items-center justify-between"
                   >
                     <span>{prod.name}</span>
-                    <span className="text-[10px] text-stone-muted/50 border border-forest-surface px-1 py-0.5 rounded">
+                    <span className="text-xs text-stone-muted/50 border border-forest-surface px-1.5 py-0.5 rounded">
                       Draft
                     </span>
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/shop" className="hover:text-copper-light transition-colors text-copper-light flex items-center gap-1 pt-1">
+                <Link href="/shop" className="hover:text-copper-light transition-colors text-copper-light flex items-center gap-1 pt-1 font-medium">
                   All Formulations & Sizes <ArrowUpRight className="w-3 h-3" />
                 </Link>
               </li>
@@ -58,10 +58,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Applications & Craft */}
           <div>
-            <h4 className="text-xs uppercase tracking-widest text-ivory font-semibold mb-4 font-sans">
+            <h4 className="text-sm uppercase tracking-wider text-ivory font-semibold mb-4 font-sans">
               Craft & Applications
             </h4>
-            <ul className="space-y-2.5 text-xs text-stone-muted/80">
+            <ul className="space-y-2.5 text-sm text-stone-muted/80">
               <li>
                 <Link href="/applications" className="hover:text-copper-light transition-colors">
                   Solid Furniture & Tables
@@ -97,39 +97,39 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Trade & Contact */}
           <div>
-            <h4 className="text-xs uppercase tracking-widest text-ivory font-semibold mb-4 font-sans">
+            <h4 className="text-sm uppercase tracking-wider text-ivory font-semibold mb-4 font-sans">
               Procurement & Contact
             </h4>
-            <ul className="space-y-3 text-xs text-stone-muted/80">
+            <ul className="space-y-3 text-sm text-stone-muted/80">
               <li className="flex items-start gap-2">
-                <Mail className="w-3.5 h-3.5 text-copper-light mt-0.5 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-copper-light mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="text-[10px] text-stone-muted/50 uppercase block">Trade Email</span>
+                  <span className="text-xs text-stone-muted/60 uppercase block">Trade Email</span>
                   <a href={`mailto:${BRAND.contact.tradeEmail}`} className="hover:text-ivory transition-colors">
                     {BRAND.contact.tradeEmail}
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-2">
-                <Phone className="w-3.5 h-3.5 text-copper-light mt-0.5 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-copper-light mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="text-[10px] text-stone-muted/50 uppercase block">Direct Contact Desk</span>
+                  <span className="text-xs text-stone-muted/60 uppercase block">Direct Contact Desk</span>
                   <a href={`tel:${BRAND.contact.phonePlaceholder.replace(/[^0-9+]/g, "")}`} className="hover:text-ivory transition-colors">
                     {BRAND.contact.phonePlaceholder}
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-copper-light mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-copper-light mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="text-[10px] text-stone-muted/50 uppercase block">Atelier Location</span>
-                  <span className="text-[11px]">{BRAND.contact.studioAddressPlaceholder}</span>
+                  <span className="text-xs text-stone-muted/60 uppercase block">Atelier Location</span>
+                  <span className="text-xs">{BRAND.contact.studioAddressPlaceholder}</span>
                 </div>
               </li>
               <li className="pt-2">
                 <Link
                   href="/bulk-enquiry"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-copper text-ivory text-[11px] uppercase tracking-wider font-medium hover:bg-copper-light transition-colors rounded-xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-copper text-ivory text-xs uppercase tracking-wider font-semibold hover:bg-copper-light transition-colors rounded-xs"
                 >
                   Request Bulk Tier Quote <ArrowUpRight className="w-3 h-3" />
                 </Link>
@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Legal / Policy Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-stone-muted/60 gap-4">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-stone-muted/70 gap-4">
           <div className="flex flex-wrap items-center gap-6">
             <span>© 2026 {BRAND.name}. All rights reserved.</span>
             <Link href="/privacy" className="hover:text-ivory transition-colors underline underline-offset-2">
@@ -153,7 +153,7 @@ export const Footer: React.FC = () => {
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 text-[11px] text-stone-muted/50">
+          <div className="flex items-center gap-2 text-xs text-stone-muted/60">
             <Shield className="w-3.5 h-3.5 text-copper-light" />
             <span>Fictional Business Specimen for Brand Evaluation</span>
           </div>

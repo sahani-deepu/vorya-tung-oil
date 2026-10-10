@@ -28,14 +28,14 @@ export default function PrivacyPage() {
           </p>
         </div>
 
-        <div className="mb-10 p-4 bg-amber-500/10 border border-amber-600/30 rounded-lg text-xs text-charcoal/80 flex items-start gap-3">
-          <AlertCircle className="w-4 h-4 text-copper flex-shrink-0 mt-0.5" />
+        <div className="mb-10 p-5 bg-amber-500/10 border border-amber-600/30 rounded-lg text-sm text-charcoal/80 flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-copper flex-shrink-0 mt-0.5" />
           <p>
             <strong>Draft Policy Notice:</strong> This privacy framework is provided as a production structural placeholder for {BRAND.name}. Prior to commercial deployment and collecting end-user consumer data, company legal counsel should review and finalize binding statutory terms (including GDPR, CCPA, and regional disclosures).
           </p>
         </div>
 
-        <div className="prose prose-stone text-xs sm:text-sm text-charcoal/85 leading-relaxed font-sans space-y-6">
+        <div className="prose prose-stone text-base sm:text-lg text-charcoal/85 leading-relaxed font-sans space-y-6">
           <h2 className="font-serif text-xl sm:text-2xl text-forest-dark font-normal">1. Data Collected for Inquiries & Quotes</h2>
           <p>
             When craftspeople, architects, or industrial procurement teams submit a quotation or technical request on this website, we collect only necessary contact and project specification details: name, business name, professional email address, phone number, and intended wood finishing parameters.

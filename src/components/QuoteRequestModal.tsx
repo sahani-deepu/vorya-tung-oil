@@ -104,11 +104,11 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                 <p className="text-sm text-charcoal/80 max-w-md mx-auto mb-4 leading-relaxed">
                   Thank you, <strong>{formData.name}</strong>. Your inquiry for <strong>{formData.estimatedQuantity}</strong> has been staged in the trade pipeline.
                 </p>
-                <div className="bg-stone p-4 rounded-lg text-xs text-charcoal/80 max-w-md mx-auto mb-6 text-left border border-stone-muted">
+                <div className="bg-stone p-4 rounded-lg text-sm text-charcoal/80 max-w-md mx-auto mb-6 text-left border border-stone-muted">
                   <p className="font-semibold text-forest-dark mb-1">
                     Enquiry Reference ID: <span className="font-mono text-copper font-bold">{referenceId}</span>
                   </p>
-                  <p className="text-[11px] text-charcoal/70">
+                  <p className="text-xs text-charcoal/70">
                     Your custom workshop specifications for <strong>{formData.productInterest}</strong> have been registered. Our technical desk will review your inquiry and follow up at <strong>{formData.email}</strong> within 1 business day.
                   </p>
                 </div>
@@ -119,13 +119,13 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                     setReferenceId("");
                     onClose();
                   }}
-                  className="px-6 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-medium hover:bg-forest-light"
+                  className="px-6 py-2.5 bg-forest text-ivory text-xs uppercase tracking-widest font-semibold hover:bg-forest-light"
                 >
                   Close Window
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+              <form onSubmit={handleSubmit} className="space-y-4 text-sm">
                 {/* Honeypot hidden input */}
                 <input
                   type="text"
@@ -249,14 +249,14 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                 </div>
 
                 {errorMessage && (
-                  <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                  <div className="p-3 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-sm flex items-center gap-2">
                     <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
                     <span>{errorMessage}</span>
                   </div>
                 )}
 
                 <div className="pt-2 flex items-center justify-between">
-                  <span className="text-[11px] text-charcoal/60 flex items-center gap-1.5">
+                  <span className="text-xs text-charcoal/70 flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-forest" />
                     Data treated confidentially under draft policy
                   </span>
@@ -264,7 +264,7 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-medium transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 rounded-xs disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === "submitting" ? (
                       <>

@@ -63,16 +63,16 @@ export default function ResourcesPage() {
                   </Link>
                 </h2>
 
-                <p className="text-xs sm:text-sm text-stone-muted/90 leading-relaxed font-sans mb-6">
+                <p className="text-base text-stone-muted/90 leading-relaxed font-sans mb-6">
                   {ARTICLES[0].excerpt}
                 </p>
               </div>
 
               <div className="pt-6 border-t border-forest-surface flex items-center justify-between">
-                <span className="text-xs text-stone-muted">By {ARTICLES[0].author}</span>
+                <span className="text-sm text-stone-muted">By {ARTICLES[0].author}</span>
                 <Link
                   href={`/resources/${ARTICLES[0].slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-copper-light hover:text-ivory font-semibold transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm uppercase tracking-widest text-copper-light hover:text-ivory font-semibold transition-colors"
                 >
                   <span>Read Article</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -97,14 +97,14 @@ export default function ResourcesPage() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute top-3 left-3 bg-forest-dark/80 backdrop-blur-sm text-ivory text-[10px] uppercase font-mono px-2 py-0.5 rounded">
+                <div className="absolute top-3 left-3 bg-forest-dark/80 backdrop-blur-sm text-ivory text-xs uppercase font-mono px-2 py-0.5 rounded">
                   {art.category}
                 </div>
               </div>
 
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="text-[11px] text-charcoal/60 mb-2 flex items-center gap-2">
+                  <div className="text-xs text-charcoal/60 mb-2 flex items-center gap-2">
                     <span>{art.date}</span>
                     <span>•</span>
                     <span>{art.readTime}</span>
@@ -114,18 +114,18 @@ export default function ResourcesPage() {
                     <Link href={`/resources/${art.slug}`}>{art.title}</Link>
                   </h3>
 
-                  <p className="text-xs text-charcoal/70 line-clamp-3 leading-relaxed">
+                  <p className="text-sm text-charcoal/80 line-clamp-3 leading-relaxed">
                     {art.excerpt}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-stone flex items-center justify-between text-xs">
-                  <span className="text-[11px] text-walnut font-medium">By {art.author}</span>
+                <div className="mt-6 pt-4 border-t border-stone flex items-center justify-between text-sm">
+                  <span className="text-xs text-walnut font-medium">By {art.author}</span>
                   <Link
                     href={`/resources/${art.slug}`}
-                    className="text-forest hover:text-copper font-medium flex items-center gap-1 text-[11px] uppercase tracking-wider"
+                    className="text-forest hover:text-copper font-medium flex items-center gap-1 text-xs uppercase tracking-wider"
                   >
-                    Read Guide <ArrowRight className="w-3 h-3" />
+                    Read Guide <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>

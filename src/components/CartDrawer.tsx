@@ -80,8 +80,8 @@ export const CartDrawer: React.FC = () => {
           </div>
 
           {/* Draft Catalogue Notice */}
-          <div className="bg-stone-light/80 px-6 py-2.5 border-b border-stone text-xs text-charcoal/80 flex items-start gap-2">
-            <span className="w-2 h-2 rounded-full bg-copper mt-1 flex-shrink-0" />
+          <div className="bg-stone-light/80 px-6 py-3 border-b border-stone text-sm text-charcoal/85 flex items-start gap-2">
+            <span className="w-2 h-2 rounded-full bg-copper mt-1.5 flex-shrink-0" />
             <p>
               <strong>Draft Catalogue:</strong> Pricing & specifications are development placeholders. You can submit your bag as a direct workshop quote request.
             </p>
@@ -113,7 +113,7 @@ export const CartDrawer: React.FC = () => {
                 <p className="text-sm text-charcoal/80 mb-4 leading-relaxed">
                   Thank you. Your request for {totalItems} item(s) has been staged for technical confirmation to <strong>{quoteEmail}</strong>.
                 </p>
-                <div className="p-4 bg-stone rounded text-xs text-charcoal/80 mb-6 text-left">
+                <div className="p-4 bg-stone rounded text-sm text-charcoal/80 mb-6 text-left">
                   <p className="font-medium text-forest-dark mb-1">Production Handshake:</p>
                   <p>In commercial release, this will transmit through your ERP or wholesale checkout gateway. No mock transaction was executed.</p>
                 </div>
@@ -144,10 +144,10 @@ export const CartDrawer: React.FC = () => {
                     <h4 className="font-serif text-base font-medium text-forest-dark truncate">
                       {item.name}
                     </h4>
-                    <p className="text-xs text-walnut font-medium mt-0.5">
+                    <p className="text-sm text-walnut font-medium mt-0.5">
                       Size: {item.size} • <span className="text-charcoal/60">{item.sku}</span>
                     </p>
-                    <p className="text-xs text-charcoal/70 mt-1 font-mono">
+                    <p className="text-sm text-charcoal/70 mt-1 font-mono">
                       {item.unitPriceEstimate}
                     </p>
 
@@ -160,7 +160,7 @@ export const CartDrawer: React.FC = () => {
                         >
                           <Minus className="w-3.5 h-3.5" />
                         </button>
-                        <span className="px-2.5 text-xs font-medium text-charcoal">{item.quantity}</span>
+                        <span className="px-2.5 text-sm font-medium text-charcoal">{item.quantity}</span>
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
                           className="p-1 hover:bg-stone text-charcoal/80"
@@ -172,7 +172,7 @@ export const CartDrawer: React.FC = () => {
 
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-xs text-charcoal/50 hover:text-red-700 flex items-center gap-1 transition-colors"
+                        className="text-xs text-charcoal/60 hover:text-red-700 flex items-center gap-1 transition-colors"
                         aria-label={`Remove ${item.name}`}
                       >
                         <Trash2 className="w-3.5 h-3.5" /> Remove
@@ -198,7 +198,7 @@ export const CartDrawer: React.FC = () => {
                     {subtotal > 0 ? `$${subtotal.toFixed(2)}` : "Batch Quote Required"}
                   </span>
                 </div>
-                <p className="text-[11px] text-charcoal/60">
+                <p className="text-xs text-charcoal/60">
                   Taxes, shipping freight, and commercial volume tier discounts are calculated at quote confirmation.
                 </p>
               </div>
@@ -206,7 +206,7 @@ export const CartDrawer: React.FC = () => {
               {/* Quote Submission Form */}
               <form onSubmit={handleQuoteSubmit} className="space-y-2.5">
                 <div>
-                  <label htmlFor="quote-email" className="block text-xs font-medium text-charcoal/80 mb-1">
+                  <label htmlFor="quote-email" className="block text-sm font-medium text-charcoal/80 mb-1">
                     Send Quote & Batch Specs To (Email):
                   </label>
                   <input
@@ -221,7 +221,7 @@ export const CartDrawer: React.FC = () => {
                 </div>
 
                 {error && (
-                  <div className="p-2.5 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-xs flex items-center gap-2">
+                  <div className="p-2.5 bg-red-950/10 border border-red-800/30 rounded text-red-900 text-sm flex items-center gap-2">
                     <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 text-red-700" />
                     <span>{error}</span>
                   </div>
@@ -230,7 +230,7 @@ export const CartDrawer: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 bg-forest hover:bg-forest-light text-ivory text-xs font-medium uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-3 bg-forest hover:bg-forest-light text-ivory text-sm font-semibold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <>
@@ -250,7 +250,7 @@ export const CartDrawer: React.FC = () => {
                 <Link
                   href="/cart"
                   onClick={closeCart}
-                  className="text-xs text-walnut hover:text-forest underline underline-offset-4"
+                  className="text-sm text-walnut hover:text-forest underline underline-offset-4"
                 >
                   View Full Cart & Coverage Estimator
                 </Link>

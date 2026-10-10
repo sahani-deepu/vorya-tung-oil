@@ -28,14 +28,14 @@ export default function ShippingReturnsPage() {
           </p>
         </div>
 
-        <div className="mb-10 p-4 bg-amber-500/10 border border-amber-600/30 rounded-lg text-xs text-charcoal/80 flex items-start gap-3">
-          <AlertCircle className="w-4 h-4 text-copper flex-shrink-0 mt-0.5" />
+        <div className="mb-10 p-5 bg-amber-500/10 border border-amber-600/30 rounded-lg text-sm text-charcoal/80 flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-copper flex-shrink-0 mt-0.5" />
           <p>
             <strong>Draft Policy Notice:</strong> This shipping policy represents an operational framework. Binding regional transit timelines and return terms will be finalized upon carrier account integration.
           </p>
         </div>
 
-        <div className="prose prose-stone text-xs sm:text-sm text-charcoal/85 leading-relaxed font-sans space-y-6">
+        <div className="prose prose-stone text-base sm:text-lg text-charcoal/85 leading-relaxed font-sans space-y-6">
           <h2 className="font-serif text-xl sm:text-2xl text-forest-dark font-normal">1. Packaging & Hazardous Material Classification</h2>
           <p>
             Pure, unthinned virgin Tung Oil is non-hazardous and ships via standard parcel freight without hazmat surcharges. Blended products containing natural citrus solvents or terpene carriers are packaged in UN-certified metal containers with tamper-evident caps.

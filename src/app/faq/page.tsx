@@ -39,19 +39,19 @@ export default function FaqPage() {
           <h2 className="font-serif text-3xl font-normal text-ivory mb-3">
             Did not find your specific timber finishing inquiry?
           </h2>
-          <p className="text-sm text-stone-muted max-w-xl mx-auto mb-6 leading-relaxed">
+          <p className="text-base text-stone-muted max-w-xl mx-auto mb-6 leading-relaxed">
             Our material specialists and conservation craftsmen work daily with architects, master joiners, and woodworkers. Send us your project details for direct bench guidance.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 bg-copper hover:bg-copper-light text-ivory text-xs uppercase tracking-widest font-semibold transition-colors rounded-xs"
+              className="px-6 py-3 bg-copper hover:bg-copper-light text-ivory text-sm uppercase tracking-widest font-semibold transition-colors rounded-xs"
             >
               Contact Our Technical Desk
             </Link>
             <Link
               href="/how-to-apply"
-              className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-xs uppercase tracking-widest font-medium transition-colors rounded-xs border border-forest-surface"
+              className="px-6 py-3 bg-forest hover:bg-forest-light text-ivory text-sm uppercase tracking-widest font-medium transition-colors rounded-xs border border-forest-surface"
             >
               Read the Application Protocol
             </Link>

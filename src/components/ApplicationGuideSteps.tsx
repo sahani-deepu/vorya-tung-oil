@@ -82,7 +82,7 @@ export const ApplicationGuideSteps: React.FC = () => {
                   <span className="font-serif text-3xl font-light text-copper">
                     {st.step}
                   </span>
-                  <span className="text-[10px] tracking-widest uppercase font-semibold text-charcoal/60 bg-stone/70 px-2 py-0.5 rounded">
+                  <span className="text-xs tracking-widest uppercase font-semibold text-charcoal/70 bg-stone/70 px-2.5 py-0.5 rounded">
                     {st.eyebrow}
                   </span>
                 </div>
@@ -90,15 +90,15 @@ export const ApplicationGuideSteps: React.FC = () => {
                 <h3 className="font-serif text-xl font-medium text-forest-dark mb-2">
                   {st.title}
                 </h3>
-                <p className="text-xs font-medium text-walnut mb-3 italic">
+                <p className="text-sm font-medium text-walnut mb-3 italic">
                   {st.summary}
                 </p>
-                <p className="text-xs text-charcoal/80 leading-relaxed font-sans mb-4">
+                <p className="text-sm text-charcoal/85 leading-relaxed font-sans mb-4">
                   {st.detail}
                 </p>
               </div>
 
-              <div className="mt-auto pt-3 border-t border-stone/50 bg-stone/30 p-2.5 rounded text-[11px] text-charcoal/70">
+              <div className="mt-auto pt-3 border-t border-stone/50 bg-stone/30 p-3 rounded text-xs text-charcoal/75">
                 <strong className="text-forest-dark block mb-0.5">Craftsman Tip:</strong>
                 {st.tip}
               </div>
@@ -111,8 +111,8 @@ export const ApplicationGuideSteps: React.FC = () => {
           <div className="w-10 h-10 rounded-full bg-red-800/10 text-red-800 flex items-center justify-center flex-shrink-0">
             <ShieldAlert className="w-6 h-6" />
           </div>
-          <div className="text-xs text-charcoal/80 leading-relaxed">
-            <h4 className="text-sm font-serif font-semibold text-red-900 mb-1 uppercase tracking-wide">
+          <div className="text-sm text-charcoal/85 leading-relaxed">
+            <h4 className="text-base font-serif font-semibold text-red-900 mb-1 uppercase tracking-wide">
               Mandatory Safety Warning: Spontaneous Combustion Risk
             </h4>
             <p>
